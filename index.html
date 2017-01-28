@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+<style>
+
+* {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	outline: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	-webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+body, html {
+	overflow-x: hidden;
+}
+
+body.loading {
+	opacity: 0;
+}
+
+input[type="text"] {
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-border-radius: 0px;
+        border-radius: 0px;
+}
+
+.wheel-loader-wrap {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 0px;
+	height: 0px;
+}
+
+.wheel-loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #db9834;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: wheel-spin 2s linear infinite;
+        -moz-animation: wheel-spin 2s linear infinite;
+        -o-animation: wheel-spin 2s linear infinite;
+        animation: wheel-spin 2s linear infinite;
+        position: absolute;
+        left: -50px;
+        top: -50px;
+}
+
+@-webkit-keyframes wheel-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+}
+
+@-moz-keyframes wheel-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+}
+
+@-o-keyframes wheel-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+}
+
+@keyframes wheel-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	background-color: #fdfdfd;
+	-webkit-box-shadow: 0px 4px 12px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 4px 12px -4px rgba(0,0,0,0.75);
+	box-shadow: 0px 4px 12px -4px rgba(0,0,0,0.75);
+	z-index: 900;
+}
+
+.navbar-tall {
+        height: 80px;
+}
+
+.top-navbar {
+	list-style-type: none;
+	text-align: center;
+	height: 100%;
+	max-width: 1000px;
+	margin: 0px auto;
+	font-family: 'Inconsolata', monospace;
+}
+
+.top-navbar-li {
+	display: table;
+	float: right;
+	height: 100%;
+	text-align: center;
+}
+
+.top-navbar-li.picture {
+	float: left;
+	padding: 5px;
+}
+
+.top-navbar-li.picture img {
+	height: 100%;
+	width: auto;
+}
+
+.top-navbar-li a {
+	background-color: white;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: 20px;
+	line-height: 30px;
+	padding: 0px 15px;
+	color: black;
+	-webkit-transition: color 0.4s;
+	-ms-transition: color 0.4s;
+	-o-transition: color 0.4s;
+	-moz-transition: color 0.4s;
+	transition: color 0.4s;
+}
+
+.top-navbar-li a:hover {
+	text-decoration: none;
+ 	color: #ab89e6;
+	cursor: pointer;
+}
+
+.main, .header {
+	width: 100%;
+}
+
+.top-img {
+	background: url("https://d2g8igdw686xgo.cloudfront.net/16772570_1481777595.5486.jpg") no-repeat 50% 50% fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+
+#go-down {
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
+	-ms-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	opacity: 0.8;
+	width: 35px;
+	height: 35px;
+	z-index: 800;
+}
+
+#go-down:hover {
+	cursor: pointer;
+}
+
+.header {
+	font-family: 'Inconsolata', monospace;
+}
+
+.header-text {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 110px 100px 50px 50px;
+	text-align: left;
+}
+
+.header-main, .header-sub {
+	background-color: rgba(250, 250, 250, 0.6);
+	text-align: left;
+	display: inline-block;
+}
+
+.header-wrap {
+	max-width: 600px;
+	margin-right: auto;
+}	
+
+.header-main {
+	padding: 40px 50px;
+	font-size: 70px;
+	line-height: 80px;
+}
+
+.header-sub {
+	padding: 20px 25px;
+	font-size: 30px;
+	line-height: 32px;
+	margin-top: 40px;
+}
+
+.content {
+	padding: 50px 10px;
+}
+
+.content-table {
+	display: table;
+	table-layout: fixed;
+}
+
+.content-group {
+	display: table-row;
+	font-family: 'Roboto', sans-serif;
+}
+
+.content-title {
+	display: table-cell;
+	white-space: nowrap;
+	padding: 45px;
+	vertical-align: top;
+}
+
+.content-sep {
+	width: 1px;
+	display: table-cell;
+	padding: 20px 0px;
+}
+
+.content-title span, .content-title a {
+	display: block;
+	font-size: 40px;
+	text-align: left;
+}
+
+.content-title a {
+	color: black;
+	text-decoration: none;
+}
+
+.content-title a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.content-text {
+	display: table-cell;
+	vertical-align: top;
+	width: auto;
+	padding: 25px;
+	padding-bottom: 50px;
+}
+
+.content-text p {
+	display: block;
+	font-size: 20px;
+	line-height: 32px;
+}
+
+.members-list {
+	list-style-type: none;
+}
+
+.members-li {
+	display: inline-block;
+	padding: 20px;
+	-moz-transition: transform 0.6s, opacity 0.6s;
+	-webkit-transition: transform 0.6s, opacity 0.6s;
+	-ms-transition: transform 0.6s, opacity 0.6s;
+	-o-transition: transform 0.6s, opacity 0.6s;
+	transition: transform 0.6s, opacity 0.6s;
+}
+
+.members-li.loading {
+	opacity: 0;
+	transform: translateX(20px);
+}
+
+.members-li img {
+	width: 200px;
+	height: 200px;
+}
+
+.members-li span {
+	padding: 15px;
+	display: block;
+	text-align: center;
+	font-family: 'Inconsolata', monospace;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.donate-thingie {
+	display: inline-block;
+	margin: 10px;
+	padding: 15px;
+	width: 300px;
+	vertical-align: middle;
+	border-bottom: 2px solid rgba(1, 1, 1, 0);
+	-webkit-transition: border-color 0.5s;
+	-moz-transition: border-color 0.5s;
+	-ms-transition: border-color 0.5s;
+	-o-transition: border-color 0.5s;
+	transition: border-color 0.5s;
+}
+
+.donate-thingie:hover {
+	border-bottom-color: #FF4500;
+}
+
+.donate-thingie input[type="image"], .donate-thingie img {
+	width: 100%;
+	height: auto;
+}
+
+@media (max-width: 1000px) {
+	.content-table, .content-group, .content-title, .content-text {
+		display: block;
+	}
+
+	.content-title {
+		padding: 25px 5px;
+		max-width: none;
+	}
+
+	.content-title a, .content-title span {
+		text-align: center;
+	}
+
+	.members-list {
+		text-align: center;
+	}
+
+	.members-li img {
+		width: 300px;
+		height: auto;
+		max-width: 100%;
+	}
+
+	.navbar {
+		height: 70px;
+		position: absolute;
+	}
+
+	.navbar-tall {
+		height: 70px;
+	}
+
+	.top-navbar-li a {
+		//font-size: 30px;
+		//line-height: 40px;
+	}
+
+	.top-img {
+		background-attachment: scroll;
+	}
+
+	#donate-text {
+		text-align: center;
+	}
+}
+
+@media (max-width: 500px) {
+	.header-text {
+                padding-left: 15px;
+                padding-right: 15px;
+        }
+
+        .header-main {
+                font-size: 50px;
+		padding: 30px 40px;
+                line-height: 60px;
+        }
+}
+
+</style>
+
+<script type="text/javascript">
+
+function init()
+{
+	$("#img-loader").remove();
+
+	setTimeout(function() {
+		$("body").removeClass("loading");
+		$(window).scrollTop(0);
+	}, 50);
+
+	//console.log($(".header-wrap").offset().top + $(".header-wrap").height());
+                if($(window).height() < $(".header-wrap").offset().top + $(".header-wrap").height() + 150)
+                        $(".top-img").css("height", ($(".header-wrap").offset().top + $(".header-wrap").height() + 150) + "px");
+                else
+                        $(".top-img").css("height", "100vh");
+
+	var down = { o: 0.8 };
+
+	$("#go-down").css("opacity", down.o);
+
+	setInterval(function() {
+		$("#go-down").animate({ opacity: "0", bottom: "35px" }, 300, function() {
+			$("#go-down").css("bottom", "65px").animate({ opacity: down.o, bottom: "50px" }, 300);
+		});
+	}, 2000);
+
+	/*setInterval(function() {
+		if(!$("#go-down").is(":animated"))
+        		$("#go-down").css("opacity", down.o);
+	}, 80);*/
+
+	scrollDown.scrolling = false;
+	function scrollDown()
+	{
+		//$("html, body").animate({ scrollTop: ($(".top-img").height() + "px") }, 400);
+		if(scrollDown.scrolling)
+			return;
+
+		var id = setInterval(frame, 5);
+		scrollDown.scrolling = true;
+
+                function frame() {
+                        if($(window).scrollTop() >= $(window).height() || ($(document).height() - $(window).scrollTop()) <= $(window).height())
+			{
+                                clearInterval(id);
+                        	scrollDown.scrolling = false;
+			}
+			else
+                                $(window).scrollTop($(window).scrollTop() + 20);
+                }
+	}
+
+	$("#go-down").click(scrollDown);
+	$("#a-about").click(scrollDown);
+
+	function checkSize()
+	{
+		if($(window).width() > 1000)
+                {
+                        if($(window).scrollTop() > 40)
+                                $(".navbar").removeClass("navbar-tall");
+                        else if(!$(window).scrollTop())
+                                $(".navbar").addClass("navbar-tall");
+                }
+	}
+
+	$(window).scroll(function() {
+		/*down.o = 0.8 - 2 * $(window).scrollTop() / $(".top-img").height();
+		if(down.o < 0)
+			down.o = 0;*/
+
+		checkSize();
+
+		/*if($(window).scrollTop() + $(window).height() >= $(".members-list").position().top + 200)
+		{
+			var idx = 0;
+			$(".members-li").each(function() {
+				var self = this;
+				setTimeout(function() { $(self).removeClass("loading"); }, idx++ * 100);
+			});
+		}*/
+
+	//	$(".top-img").css("background-position-y", (50 - 20 * $(window).scrollTop() / $(window).height()) + "%");
+	});
+}
+
+</script>
+
+</head>
+
+<body onload="init()" class="loading">
+
+<div class="navbar navbar-tall">
+	<ul class="top-navbar">
+		<li class="top-navbar-li">
+        		<a id="a-about">About</a>
+        	</li>
+        	<li class="top-navbar-li">
+                	<a href="belmontrobotics.github.io#donate">Donate</a>
+        	</li>
+		<li class="top-navbar-li picture">
+                </li>
+	</ul>
+</div>
+<div class="main">
+	<div class="header">
+		<div class="top-img">
+			<div class="header-text">
+				<div class="header-wrap">
+					<div class="header-main">
+						Belmont FIRST Robotics Team
+					</div>
+					<div class="header-sub" style="display:none">
+						
+					</div>
+				</div>
+			</div>
+			<img id="go-down" src="/down.png"></img>
+		</div>
+	</div>
+	<div class="content">
+		<div class="content-table">
+			<div class="content-group">
+				<div class="content-title">
+					<span>About Us</span>
+				</div>
+				<div class="content-text">
+					<p>
+						<a class="anchor" name="about"></a>
+						When Dean Kamen started the first FRC (First Robotic Competition) in 1992 in a very small scale, he probably could not imagine that in 2016, about 3100 teams with roughly 75,000 students and 19,000 mentors from 24 countries would build robots and take part in the competition. Last year they competed in 53 Regional Competitions, 65 District Qualifying Competitions, and 8 District Championships. In addition to on-field competition, teams and team members competed for awards recognizing entrepreneurship, creativity, engineering, industrial design, safety, controls, media, quality, and exemplifying the core values of the program.
+<br><br>
+Today, it is difficult to find reputable high schools which do not compete in FRC. The nature of the competition, however, differs it from many other clubs and competitions. The team, for example, needs a dedicated space to build their robot, as well as considerable funding to buy relatively expensive parts, tools, and pay for the travels and other expenses. Due to these requirements, Belmont High School had not been able to initiate such a program in previous years. These challenges, however, did not disappoint a group of passionate students. 
+<br><br>
+It was about two months ago when Sepehr and Neil discussed their interests for competing in FRC. Quickly they could find other passionate students such as Jack and Vassilios, and today more than a dozen students are working for this competition. The students funded the initial registration cost of 6000$ with their own money to officially register in this competition and order the first batch of parts. Now, In December, with the help of their mentors, Saeed and Mike, they are forming the team, planning for further fundraising, buying extra parts, and tools, in order to kick off the robot build in Jan '17.
+<br><br>
+They are aiming to raise about $20,000 by end of Jan. They have started to contact the Belmont businesses as well as some other relevant companies for sponsorship. While this year, the team is facing a myriad of challenges, they are paving the road for their peers at Belmont and Belmont High School.  People and businesses who are interested to support Belmont’s First Robotic Team, can contribute through GoFundMe (Belmont First Robotics)
+					</p>
+				</div>	
+			</div>
+			<div class="content-group">
+                                <div class="content-title">
+                                        <a href="https://www.gofundme.com/belmont-first-robotics">Donate</a>
+                                </div>
+                                <div class="content-text" id="donate-text">
+                                        <p>
+						<a class="anchor" name="donate"></a>
+						<div class="donate-thingie">
+							<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+								<input type="hidden" name="business" value="">
+								<input type="hidden" name="cmd" value="_donations">
+								<input type="hidden" name="item_name" value="">
+								<input type="hidden" name="item_number" value="">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="image" name="submit" src="/paypal.png" alt="Paypal">
+							</form>
+						</div>
+						<div class="donate-thingie">
+							<form action="https://www.gofundme.com/belmont-first-robotics">
+								<input type="image" src="/gofundme.png">
+							</form>
+						</div>
+                                        </p>
+                                </div>
+                        </div>
+			<div class="content-group">
+                        	<div class="content-title">
+                                	<a href="http://www.firstinspires.org/">About FIRST</a>
+                        	</div>
+                        	<div class="content-text">
+                                	<p>
+						<a class="anchor" name="aboutfirst"></a>
+						The FIRST Robotics Competition is an annual competition for high schoolers. 
+						Teams of 10-20 students are given limited resources, strict rules, and a 6-week time limit to build an industrial-sized robot to compete against other team's robots. 
+						This involves not only extensive engineering and computer science work, but also the development of a 'brand' and fundraising anywhere from $6,000 to $30,000. 
+						Because of the diversity of tasks required, almost no STEM knowledge is explicitly needed for anyone to join a team, since marketing and design are extremely important parts in the competition. 
+						The FIRST Robotics Competition ends with a <a href="http://championship.usfirst.org/">FIRST Championship,</a> where students use their robots in teams to compete against each other. 
+						This year's championship will be in St. Louis, Missouri, on April 26-29, and in Houston, Texas, on April 19-22.
+                                	</p>
+                        	</div>
+                	</div>
+			<div class="content-group">
+                                <div class="content-title">
+                                        <span>Team Members</span>
+                                </div>
+                                <div class="content-text">
+					<ul class="members-list">
+						<li class="members-li">
+							<img src="https://pbs.twimg.com/profile_images/1634021833/50258_211053130"></img>
+							<span>Sepehr Sokhanvar</span>
+						</li>
+						<li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/000023049/fidelastro-sm.jpg"></img>
+                                                	<span>Neil Mhatre</span>
+						</li>
+						<li class="members-li">
+                                                        <img src="https://pbs.twimg.com/profile_images/1634023/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <span>Ruiqi Huang</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/000023049del-castro-sm.jpg"></img>
+                                                        <span>Max Pounanov</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="https://pbs.twimg.com/profile_images/1631833/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <span>Jack Doyle</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/0000230/fidel-castro-sm.jpg"></img>
+                                                        <span>David Lonergan</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="https://pbs.twimg.com/profile_images/16340218/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <span>Harry Thidemann</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/000023049/fidl-castro-sm.jpg"></img>
+                                                        <span>Hyuk-Je Kwon</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="https://pbs.twimg.com/profile_images/163402833/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <span>Ben Ackerson</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/000023049/fdel-castro-sm.jpg"></img>
+                                                        <span>Vassilios Kaxiras</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="https://pbs.twimg.com/profile_images/163421833/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <span>Jacob Makar-Limanov</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/000023049fidel-castro-sm.jpg"></img>
+                                                        <span>Junhyeok Park</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="https://pbs.twimg.com/profile_images/164021833/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <span>Julie Choi</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/00002309/fidel-castro-sm.jpg"></img>
+                                                        <span>Michael Guyumdzhyan</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/00002349/fidel-castro-sm.jpg"></img>
+                                                        <span>Aaron Yao-Smith</span>
+                                                </li>
+					</ul>
+                                </div>
+                        </div>
+			<div class="content-group">
+                                <div class="content-title">
+                                        <span>Mentors</span>
+                                </div>
+                                <div class="content-text">
+                                        <ul class="members-list">
+                                                <li class="members-li">
+                                                        <img src="https://pbs.twimg.com/profile_images1634021833/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <span>Saeed Sokhanvar</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="http://www.nndb.com/people/118/00003049/fidel-castro-sm.jpg"></img>
+                                                        <span>Mike Tymm</span>
+                                                </li>
+					</ul>
+				</div>
+			<div>
+		</div>
+	</div>
+<div>
+
+</body>
+
+</html>
