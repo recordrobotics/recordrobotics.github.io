@@ -3,153 +3,15 @@
 <head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/main.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+<link href="/main.css" rel="stylesheet">
+<link href="/navbar.css" rel="stylesheet">
 
 <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
 
 <style>
-
-* {
-	margin: 0px;
-	padding: 0px;
-	border: none;
-	outline: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-border-radius: 0px;
-	border-radius: 0px;
-	-webkit-margin-before: 0px;
-    -webkit-margin-after: 0px;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 0px;
-}
-
-body, html {
-	overflow-x: hidden;
-}
-
-body.loading {
-	opacity: 0;
-}
-
-input[type="text"] {
-	-webkit-appearance: none;
-	appearance: none;
-	-webkit-border-radius: 0px;
-        border-radius: 0px;
-}
-
-.wheel-loader-wrap {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 0px;
-	height: 0px;
-}
-
-.wheel-loader {
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #db9834;
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        -webkit-animation: wheel-spin 2s linear infinite;
-        -moz-animation: wheel-spin 2s linear infinite;
-        -o-animation: wheel-spin 2s linear infinite;
-        animation: wheel-spin 2s linear infinite;
-        position: absolute;
-        left: -50px;
-        top: -50px;
-}
-
-@-webkit-keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-}
-
-@-moz-keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-}
-
-@-o-keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-}
-
-@keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-}
-
-.navbar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 50px;
-	background-color: #fdfdfd;
-	-webkit-box-shadow: 0px 4px 12px -4px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 4px 12px -4px rgba(0,0,0,0.75);
-	box-shadow: 0px 4px 12px -4px rgba(0,0,0,0.75);
-	z-index: 900;
-}
-
-.navbar-tall {
-        height: 80px;
-}
-
-.top-navbar {
-	list-style-type: none;
-	text-align: center;
-	height: 100%;
-	max-width: 1000px;
-	margin: 0px auto;
-	font-family: 'Inconsolata', monospace;
-}
-
-.top-navbar-li {
-	display: table;
-	float: right;
-	height: 100%;
-	text-align: center;
-}
-
-.top-navbar-li.picture {
-	float: left;
-	padding: 5px;
-}
-
-.top-navbar-li.picture img {
-	height: 100%;
-	width: auto;
-}
-
-.top-navbar-li a {
-	background-color: white;
-	text-align: center;
-	display: table-cell;
-	vertical-align: middle;
-	text-decoration: none;
-	font-size: 20px;
-	line-height: 30px;
-	padding: 0px 15px;
-	color: black;
-	-webkit-transition: color 0.4s;
-	-ms-transition: color 0.4s;
-	-o-transition: color 0.4s;
-	-moz-transition: color 0.4s;
-	transition: color 0.4s;
-}
-
-.top-navbar-li a:hover {
-	text-decoration: none;
- 	color: #ab89e6;
-	cursor: pointer;
-}
 
 .main, .header {
 	width: 100%;
@@ -208,7 +70,7 @@ input[type="text"] {
 .header-wrap {
 	max-width: 600px;
 	margin-right: auto;
-}	
+}
 
 .header-main {
 	padding: 40px 50px;
@@ -454,23 +316,12 @@ function init()
 	$("#go-down").click(scrollDown);
 	$("#a-about").click(scrollDown);
 
-	function checkSize()
-	{
-		if($(window).width() > 1000)
-                {
-                        if($(window).scrollTop() > 40)
-                                $(".navbar").removeClass("navbar-tall");
-                        else if(!$(window).scrollTop())
-                                $(".navbar").addClass("navbar-tall");
-                }
-	}
-
 	$(window).scroll(function() {
 		/*down.o = 0.8 - 2 * $(window).scrollTop() / $(".top-img").height();
 		if(down.o < 0)
 			down.o = 0;*/
 
-		checkSize();
+		checkNavbar();
 
 		/*if($(window).scrollTop() + $(window).height() >= $(".members-list").position().top + 200)
 		{
@@ -512,7 +363,7 @@ function init()
 						Belmont FIRST Robotics Team
 					</div>
 					<div class="header-sub" style="display:none">
-						
+
 					</div>
 				</div>
 			</div>
@@ -530,13 +381,13 @@ function init()
 						<a class="anchor" name="about"></a>
 						When Dean Kamen started the first FRC (First Robotic Competition) in 1992 in a very small scale, he probably could not imagine that in 2016, about 3100 teams with roughly 75,000 students and 19,000 mentors from 24 countries would build robots and take part in the competition. Last year they competed in 53 Regional Competitions, 65 District Qualifying Competitions, and 8 District Championships. In addition to on-field competition, teams and team members competed for awards recognizing entrepreneurship, creativity, engineering, industrial design, safety, controls, media, quality, and exemplifying the core values of the program.
 <br><br>
-Today, it is difficult to find reputable high schools which do not compete in FRC. The nature of the competition, however, differs it from many other clubs and competitions. The team, for example, needs a dedicated space to build their robot, as well as considerable funding to buy relatively expensive parts, tools, and pay for the travels and other expenses. Due to these requirements, Belmont High School had not been able to initiate such a program in previous years. These challenges, however, did not disappoint a group of passionate students. 
+Today, it is difficult to find reputable high schools which do not compete in FRC. The nature of the competition, however, differs it from many other clubs and competitions. The team, for example, needs a dedicated space to build their robot, as well as considerable funding to buy relatively expensive parts, tools, and pay for the travels and other expenses. Due to these requirements, Belmont High School had not been able to initiate such a program in previous years. These challenges, however, did not disappoint a group of passionate students.
 <br><br>
 It was about two months ago when Sepehr and Neil discussed their interests for competing in FRC. Quickly they could find other passionate students such as Jack and Vassilios, and today more than a dozen students are working for this competition. The students funded the initial registration cost of 6000$ with their own money to officially register in this competition and order the first batch of parts. Now, In December, with the help of their mentors, Saeed and Mike, they are forming the team, planning for further fundraising, buying extra parts, and tools, in order to kick off the robot build in Jan '17.
 <br><br>
 They are aiming to raise about $20,000 by end of Jan. They have started to contact the Belmont businesses as well as some other relevant companies for sponsorship. While this year, the team is facing a myriad of challenges, they are paving the road for their peers at Belmont and Belmont High School.  People and businesses who are interested to support Belmont’s First Robotic Team, can contribute through GoFundMe (Belmont First Robotics)
 					</p>
-				</div>	
+				</div>
 			</div>
 			<div class="content-group">
                                 <div class="content-title">
@@ -570,11 +421,11 @@ They are aiming to raise about $20,000 by end of Jan. They have started to conta
                         	<div class="content-text">
                                 	<p>
 						<a class="anchor" name="aboutfirst"></a>
-						The FIRST Robotics Competition is an annual competition for high schoolers. 
-						Teams of 10-20 students are given limited resources, strict rules, and a 6-week time limit to build an industrial-sized robot to compete against other team's robots. 
-						This involves not only extensive engineering and computer science work, but also the development of a 'brand' and fundraising anywhere from $6,000 to $30,000. 
-						Because of the diversity of tasks required, almost no STEM knowledge is explicitly needed for anyone to join a team, since marketing and design are extremely important parts in the competition. 
-						The FIRST Robotics Competition ends with a <a href="http://championship.usfirst.org/">FIRST Championship,</a> where students use their robots in teams to compete against each other. 
+						The FIRST Robotics Competition is an annual competition for high schoolers.
+						Teams of 10-20 students are given limited resources, strict rules, and a 6-week time limit to build an industrial-sized robot to compete against other team's robots.
+						This involves not only extensive engineering and computer science work, but also the development of a 'brand' and fundraising anywhere from $6,000 to $30,000.
+						Because of the diversity of tasks required, almost no STEM knowledge is explicitly needed for anyone to join a team, since marketing and design are extremely important parts in the competition.
+						The FIRST Robotics Competition ends with a <a href="http://championship.usfirst.org/">FIRST Championship,</a> where students use their robots in teams to compete against each other.
 						This year's championship will be in St. Louis, Missouri, on April 26-29, and in Houston, Texas, on April 19-22.
                                 	</p>
                         	</div>
