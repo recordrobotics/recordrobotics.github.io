@@ -8,11 +8,16 @@
 }
 
 .st-bg {
-  border-left: 1px solid #777;
+  border-left: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
 }
 
 .st-bg-fc {
   border-left: 0 none;
+}
+
+.month-row:last-child .st-bg{
+  border-bottom: 0 none;
 }
 
 .st-dtitle span {
