@@ -1,0 +1,19 @@
+
+.st-bg {
+  background-color: #ddd;
+}
+
+.st-bg:hover {
+  background-color: #bbb;
+}
+
+.st-dtitle span {
+  background-color: #111;
+  color: #fefefe;
+  -ms-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin-right: -5px;
+  padding: 10px;
+}
