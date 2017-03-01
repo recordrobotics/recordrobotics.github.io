@@ -10,10 +10,16 @@
 .st-dtitle span {
   background-color: #111;
   color: #fefefe;
-  -ms-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+  -ms-border-radius: 50% 0 0 50%;
+  -webkit-border-radius: 50% 0 0 50%;
+  -moz-border-radius: 50% 0 0 50%;
+  border-radius: 50% 0 0 50%;
   margin-right: -5px;
   padding: 10px;
+  font-size: 13px;
+}
+
+.st-dtitle {
+  padding: 2px 2px 0px 0px;
+  line-height: 20px;
 }
