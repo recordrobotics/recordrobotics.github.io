@@ -1,10 +1,18 @@
 
 .st-bg {
-  background-color: #ddd;
+  background-color: #eee;
 }
 
 .st-bg:hover {
-  background-color: #bbb;
+  background-color: #ccc;
+}
+
+.st-bg {
+  border-left: 1px solid #777;
+}
+
+.st-bg-fc {
+  border-left: 0 none;
 }
 
 .st-dtitle span {
