@@ -32,9 +32,19 @@ box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
 }
 
 .calend-header {
+	padding: 5px;
+	background-color: #fefefe;
+}
+
+.calend-header-wrap {
 	padding: 30px;
-	font-size: 35px;
-	font-weight: 500;
+	border-bottom: 1px solid #eee;
+	text-align: left;
+}
+
+.calend-header-wrap h2 {
+	font-size: 32px;
+	font-weight: 400;
 }
 
 </style>
@@ -59,7 +69,9 @@ box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
 
 	<div class="calend">
 		<div class="calend-header">
-			<h2>Calendar</h2>
+			<div class="calend-header-wrap">
+				<h2>Calendar</h2>
+			</div>
 		</div>
 		<div class="calend-wrap">
 		<div id="calendar-wrap">
