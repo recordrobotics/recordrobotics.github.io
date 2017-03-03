@@ -98,8 +98,8 @@ function updateEvents()
         	//'maxResults': 10,
         	//'orderBy': 'startTime'
         }).then(function(response) {
-          	var events = response.result.items;
-		console.log(events);
+          	//var events = response.result.items;
+		console.log(response);
 	});
 }
 
@@ -107,9 +107,11 @@ function init()
 {
 	handleClientLoad();
 
-	setInterval(function() {
+	updateEvents();
+
+	/*setInterval(function() {
 		updateEvents();
-	}, 2000);
+	}, 2000);*/
 }
 
 </script>
