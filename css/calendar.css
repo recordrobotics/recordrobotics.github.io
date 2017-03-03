@@ -93,6 +93,10 @@ header {
     color: #666;
 }
 
+#calendar-wrap header h1 {
+	padding: 15px;
+}
+
 /* ============================
                 Mobile Responsiveness
    ============================*/
