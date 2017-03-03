@@ -6,23 +6,23 @@ header {
     text-align: center;
 }
 
-#calendar {
+.calendar {
     width: 100%;
 }
 
-#calendar a {
+.calendar a {
     color: #8e352e;
     text-decoration: none;
 }
 
-#calendar ul {
+.calendar ul {
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
 }
 
-#calendar li {
+.calendar li {
     display: block;
     float: left;
     width:14.342%;
@@ -33,12 +33,12 @@ header {
     margin-bottom: -1px;
 }
 
-#calendar ul.weekdays {
+.calendar ul.weekdays {
     height: 40px;
     background: #8e352e;
 }
 
-#calendar ul.weekdays li {
+.calendar ul.weekdays li {
     text-align: center;
     text-transform: uppercase;
     line-height: 20px;
@@ -48,15 +48,15 @@ header {
     font-size: 13px;
 }
 
-#calendar .days li {
+.calendar .days li {
     height: 180px;
 }
 
-#calendar .days li:hover {
+.calendar .days li:hover {
     background: #d3d3d3;
 }
 
-#calendar .date {
+.calendar .date {
     text-align: center;
     margin-bottom: 5px;
     padding: 4px;
@@ -67,7 +67,7 @@ header {
     float: right;
 }
 
-#calendar .event {
+.calendar .event {
     clear: both;
     display: block;
     font-size: 13px;
@@ -82,18 +82,18 @@ header {
     text-decoration: none;
 }
 
-#calendar .event-desc {
+.calendar .event-desc {
     color: #666;
     margin: 3px 0 7px 0;
     text-decoration: none;
 }
 
-#calendar .other-month {
+.calendar .other-month {
     background: #f5f5f5;
     color: #666;
 }
 
-#calendar-wrap header h1 {
+.calendar-wrap header h1 {
 	padding: 15px;
 }
 
@@ -104,11 +104,11 @@ header {
 
 @media(max-width: 768px) {
 
-    #calendar .weekdays, #calendar .other-month {
+    .calendar .weekdays, .calendar .other-month {
         display: none;
     }
 
-    #calendar li {
+    .calendar li {
         height: auto !important;
         border: 1px solid #ededed;
         width: 100%;
@@ -116,7 +116,7 @@ header {
         margin-bottom: -1px;
     }
 
-    #calendar .date {
+    .calendar .date {
         float: none;
     }
 }
