@@ -104,10 +104,12 @@ function updateEvents()
 
 function init()
 {
+	handleClientLoad();
+
 	setTimeout(function() {
-		setInterval(function() {
+		//setInterval(function() {
 			updateEvents();
-		}, 2000);
+		//}, 2000);
 	}, 2000);
 }
 
@@ -115,10 +117,10 @@ function init()
 
 </head>
 
-<body onload="init()">
+<body>
 
 	<script async defer src="https://apis.google.com/js/api.js"
-	      onload="this.onload=function(){};handleClientLoad()"
+	      onload="this.onload=function(){};init()"
 	      onreadystatechange="if (this.readyState === 'complete') this.onload()">
 	    </script>
 
