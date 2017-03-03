@@ -4,7 +4,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="/js/main.js"></script>
-<script src="https://apis.google.com/js/api.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 <link href="/css/main.css" rel="stylesheet">
@@ -105,13 +104,11 @@ function updateEvents()
 
 function init()
 {
-	handleClientLoad();
-
-	updateEvents();
-
-	/*setInterval(function() {
-		updateEvents();
-	}, 2000);*/
+	setTimeout(function() {
+		setInterval(function() {
+			updateEvents();
+		}, 2000);
+	}, 2000);
 }
 
 </script>
@@ -119,6 +116,11 @@ function init()
 </head>
 
 <body onload="init()">
+
+	<script async defer src="https://apis.google.com/js/api.js"
+	      onload="this.onload=function(){};handleClientLoad()"
+	      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+	    </script>
 
 <div class="main">
 	<div class="navbar navbar-tall">
