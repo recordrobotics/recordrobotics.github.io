@@ -77,6 +77,10 @@ var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
 function handleClientLoad() {
 	gapi.load('client:auth2', initClient);
+
+	setInterval(function() {
+		updateEvents();
+	}, 2000);
 }
 
 function initClient() {
@@ -104,11 +108,7 @@ function updateEvents()
 
 function init()
 {
-//	handleClientLoad();
 
-	setInterval(function() {
-		updateEvents();
-	}, 2000);
 }
 
 </script>
