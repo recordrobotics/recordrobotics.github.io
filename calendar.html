@@ -69,10 +69,9 @@ box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
 
 <script>
 
-var CLIENT_ID = 'AIzaSyBqKiVbclfkUE6d3rEYa1l2QVDZQNGx_U4';
-
+var API_KEY = 'AIzaSyBqKiVbclfkUE6d3rEYa1l2QVDZQNGx_U4';
+var CLIENT_ID = '1064302957896-kqnlepngg6iusaqeuuko3gntcnksmtra.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-
 var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
 function handleClientLoad() {
@@ -82,7 +81,8 @@ function handleClientLoad() {
 function initClient() {
         gapi.client.init({
         	discoveryDocs: DISCOVERY_DOCS,
-        	key: CLIENT_ID,
+        	clientId: CLIENT_ID,
+		apiKey: API_KEY,
           	scope: SCOPES
   	});
 }
