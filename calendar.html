@@ -89,6 +89,12 @@ function initClient() {
 
 function updateEvents()
 {
+	if(gapi.client === undefined)
+	{
+		console.log("Client no initialized");
+		return;
+	}
+
 	gapi.client.calendar.events.list({
         	'calendarId': 'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
         	//'timeMin': (new Date()).toISOString(),
@@ -104,7 +110,7 @@ function updateEvents()
 
 function init()
 {
-	handleClientLoad();
+	handleClientLoad()
 
 	setTimeout(function() {
 		//setInterval(function() {
