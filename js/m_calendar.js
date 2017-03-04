@@ -12,15 +12,15 @@ class Calendar
 
 		gapi.load('client:auth2', function() {
 	        	gapi.client.init({
-	        		discoveryDocs: this.discovery_docs,
-	        		clientId: this.client_id,
-				apiKey: this.api_key,
-	          		scope: this.scopes
+	        		discoveryDocs: docs,
+	        		clientId: id,
+				apiKey: key,
+	          		scope: scope
 	  		});
 
-			$(this.parentE).load("/util/m_calendar.html", function() {
+			$(e).load("/util/m_calendar.html", function() {
 				gapi.client.calendar.events.list({
-		        		'calendarId': this.calendar_id //'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
+		        		'calendarId': url //'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
 		        	}).then(function(response) {
 		          		var events = response.result.items;
 
