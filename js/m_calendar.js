@@ -18,17 +18,19 @@ class Calendar
 	          		scope: scope
 	  		});
 
-			$(e).load("/util/m_calendar.html", function() {
-				gapi.client.calendar.events.list({
-		        		'calendarId': url //'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
-		        	}).then(function(response) {
-		          		var events = response.result.items;
+			setTimeout(function() {
+				$(e).load("/util/m_calendar.html", function() {
+					gapi.client.calendar.events.list({
+		        			'calendarId': url //'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
+		        		}).then(function(response) {
+		          			var events = response.result.items;
 
-					//events.each(function() {
+						//events.each(function() {
 
-					//});
+						//});
+					});
 				});
-			});
+			}, 2000);
 		});
 	}
 }
