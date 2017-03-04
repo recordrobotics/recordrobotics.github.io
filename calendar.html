@@ -111,6 +111,8 @@ function updateEvents()
 	});
 }
 
+var calendar;
+
 function init()
 {
 	//handleClientLoad()
@@ -121,7 +123,7 @@ function init()
 		//}, 2000);
 	//}, 2000);
 
-	new Calendar($(".calend-wrap"), DISCOVERY_DOCS, CLIENT_ID, API_KEY, SCOPES, CALENDAR_ID);
+	calendar = new Calendar($(".calend-wrap"), DISCOVERY_DOCS, CLIENT_ID, API_KEY, SCOPES, CALENDAR_ID);
 }
 
 </script>
