@@ -37,36 +37,46 @@ input[type="text"] {
 }
 
 .wheel-loader {
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #db9834;
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        -webkit-animation: wheel-spin 2s linear infinite;
-        -moz-animation: wheel-spin 2s linear infinite;
-        -o-animation: wheel-spin 2s linear infinite;
-        animation: wheel-spin 2s linear infinite;
         position: absolute;
-        left: -50px;
-        top: -50px;
+        left: 50%;
+        top: 48px;
+        transform: translate(-50%, 0) rotate(0deg);
+        -webkit-transform: translate(-50%, 0);
+        width: 25px;
+        height: 25px;
+        border: 6px solid #111;
+        border-radius: 50%;
+        border-top-color: #1e1;
+        animation: wheel-spin 2s linear infinite;
+        opacity: 0;
+        transition: border-top-color 0.5s, opacity 0.4s;
+        -webkit-transition: border-top-color 0.5s, opacity 0.4s;
+        transition-delay: 0.56s;
 }
 
-@-webkit-keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-}
-
-@-moz-keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-}
-
-@-o-keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+.wheel-loader.enabled {
+	opacity: 1;
 }
 
 @keyframes wheel-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+                transform: translate(-50%, 0) rotate(0deg);
+                -webkit-transform: translate(-50%, 0) rotate(0deg);
+                border-top-color: #1e1;
+        }
+        33% {
+                transform: translate(-50%, 0) rotate(360deg);
+                -webkit-transform: translate(-50%, 0) rotate(360deg);
+                border-top-color: #11e;
+        }
+        67% {
+                transform: translate(-50%, 0) rotate(720deg);
+                -webkit-transform: translate(-50%, 0) rotate(720deg);
+                border-top-color: #e11;
+        }
+        100% {
+                transform: translate(-50%, 0) rotate(360deg);
+                -webkit-transform: translate(-50%, 0) rotate(1080deg);
+                border-top-color: #1e1;
+        }
 }

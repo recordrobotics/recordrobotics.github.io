@@ -10,6 +10,8 @@ class Calendar
 		this.scopes = scope;
 		this.calendar_id = url;
 
+		this.parentE.html("<div class='wheel-loader enabled'></div>");
+
 		gapi.load('client:auth2', function() {
 	        	gapi.client.init({
 	        		discoveryDocs: docs,
@@ -19,7 +21,7 @@ class Calendar
 	  		});
 
 			setTimeout(function() {
-				$(e).load("/util/m_calendar.html", function() {
+				$(e).html("").load("/util/m_calendar.html", function() {
 					gapi.client.calendar.events.list({
 		        			'calendarId': url //'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
 		        		}).then(function(response) {
