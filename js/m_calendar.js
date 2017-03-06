@@ -10,7 +10,7 @@ class Calendar
 		this.scopes = scope;
 		this.calendar_id = url;
 
-		this.parentE.html("<div class='wheel-loader enabled'></div>");
+		this.parentE.css("position", "relative").html("<div class='wheel-loader enabled'></div>");
 
 		gapi.load('client:auth2', function() {
 	        	gapi.client.init({
