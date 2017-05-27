@@ -22,10 +22,13 @@ class Calendar
 
 			setTimeout(function() {
 				$(e).html("").load("/util/m_calendar.html", function() {
+					console.log("loaded");
 					gapi.client.calendar.events.list({
 		        			'calendarId': url //'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
 		        		}).then(function(response) {
 		          			var events = response.result.items;
+
+						console.log(events);
 
 						//events.each(function() {
 
