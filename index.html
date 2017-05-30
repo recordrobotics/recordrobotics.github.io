@@ -129,7 +129,7 @@
 }
 
 .content-text {
-	display: table-cell;
+	display: none;
 	vertical-align: top;
 	width: auto;
 	padding: 25px;
@@ -204,6 +204,11 @@
 
 .title-li {
 	padding: 10px 0px;
+	font-size: 24px;
+}
+
+.title-li.active {
+	font-size: 32px;
 }
 
 @media (max-width: 1000px) {
@@ -342,6 +347,14 @@ function init()
 
 	//	$(".top-img").css("background-position-y", (50 - 20 * $(window).scrollTop() / $(window).height()) + "%");
 	});
+
+	$(".title-li").click(function(){
+		$(".content-text").css("display", "none");
+		$("#" + this.dataset.text_element).css("display", "table-cell");
+
+		$(".title-li").removeClass("active");
+		$(this).addClass("active");
+	});
 }
 
 </script>
@@ -386,14 +399,14 @@ function init()
 			<div class="content-group">
 				<div class="content-title">
 					<ul class="title-list">
-						<li class="title-li">About Us</li>
-						<li class="title-li">Donate</li>
-						<li class="title-li">About FIRST</li>
-						<li class="title-li">Members</li>
-						<li class="title-li">Mentors</li>
+						<li class="title-li" id="title-about" data-text-element="content-about">About Us</li>
+						<li class="title-li" id="title-donate" data-text-element="content-donate">Donate</li>
+						<li class="title-li" id="title-aboutfirst" data-text-element="content-aboutfirst">About FIRST</li>
+						<li class="title-li" id="title-members" data-text-element="content-members">Members</li>
+						<li class="title-li" id="title-mentors" data-text-element="content-mentors">Mentors</li>
 					</ul>
 				</div>
-				<div class="content-text">
+				<div class="content-text" id="content-about">
 					<p>
 						<a class="anchor" name="about"></a>
 						When Dean Kamen started the first FRC (First Robotic Competition) in 1992 in a very small scale, he probably could not imagine that in 2016, about 3100 teams with roughly 75,000 students and 19,000 mentors from 24 countries would build robots and take part in the competition. Last year they competed in 53 Regional Competitions, 65 District Qualifying Competitions, and 8 District Championships. In addition to on-field competition, teams and team members competed for awards recognizing entrepreneurship, creativity, engineering, industrial design, safety, controls, media, quality, and exemplifying the core values of the program.
@@ -405,7 +418,7 @@ It was about two months ago when Sepehr and Neil discussed their interests for c
 They are aiming to raise about $20,000 by end of Jan. They have started to contact the Belmont businesses as well as some other relevant companies for sponsorship. While this year, the team is facing a myriad of challenges, they are paving the road for their peers at Belmont and Belmont High School.  People and businesses who are interested to support Belmont’s First Robotic Team, can contribute through GoFundMe (Belmont First Robotics)
 					</p>
 				</div>
-                                <div class="content-text" id="donate-text">
+                                <div class="content-text" id="content-donate">
                                         <p>
 						<a class="anchor" name="donate"></a>
 						<div class="donate-thingie">
@@ -425,7 +438,7 @@ They are aiming to raise about $20,000 by end of Jan. They have started to conta
 						</div>
                                         </p>
                                 </div>
-                        	<div class="content-text">
+                        	<div class="content-text" id="content-aboutfirst">
                                 	<p>
 						<a class="anchor" name="aboutfirst"></a>
 						The FIRST Robotics Competition is an annual competition for high schoolers.
@@ -436,12 +449,8 @@ They are aiming to raise about $20,000 by end of Jan. They have started to conta
 						This year's championship will be in St. Louis, Missouri, on April 26-29, and in Houston, Texas, on April 19-22.
                                 	</p>
                         	</div>
-                                <div class="content-text">
+                                <div class="content-text" id="content-members">
 					<ul class="members-list">
-						<li class="members-li">
-							<img src="https://pbs.twimg.com/profile_images/1634021833/50258_211053130"></img>
-							<span>Sepehr Sokhanvar</span>
-						</li>
 						<li class="members-li">
                                                         <img src="http://www.nndb.com/people/118/000023049/fidelastro-sm.jpg"></img>
                                                 	<span>Neil Mhatre</span>
@@ -500,12 +509,8 @@ They are aiming to raise about $20,000 by end of Jan. They have started to conta
                                                 </li>
 					</ul>
                                 </div>
-                                <div class="content-text">
+                                <div class="content-text" id="content-mentors">
                                         <ul class="members-list">
-                                                <li class="members-li">
-                                                        <img src="https://pbs.twimg.com/profile_images1634021833/50258_211053130451_5559002_n_400x400.jpg"></img>
-                                                        <span>Saeed Sokhanvar</span>
-                                                </li>
                                                 <li class="members-li">
                                                         <img src="http://www.nndb.com/people/118/00003049/fidel-castro-sm.jpg"></img>
                                                         <span>Mike Tymm</span>
