@@ -205,10 +205,16 @@
 .title-li {
 	padding: 10px 0px;
 	font-size: 24px;
+	cursor: pointer;
+	transition: font-size 0.3s;
 }
 
 .title-li.active {
 	font-size: 32px;
+}
+
+.title-li:hover:not(.active) {
+	font-size: 28px;
 }
 
 @media (max-width: 1000px) {
@@ -350,7 +356,7 @@ function init()
 
 	$(".title-li").click(function(){
 		$(".content-text").css("display", "none");
-		$("#" + this.dataset.text_element).css("display", "table-cell");
+		$("#" + this.dataset["text-element"]).css("display", "table-cell");
 
 		$(".title-li").removeClass("active");
 		$(this).addClass("active");
