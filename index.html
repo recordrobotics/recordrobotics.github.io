@@ -209,22 +209,19 @@
 
 .title-li {
 	padding: 10px 0px;
-	cursor: pointer;
-	text-align: center;
-}
-
-.title-li span {
 	font-size: 24px;
+	cursor: pointer;
 	vertical-align: center;
-	display: inline-block;
-	transition: font-size 0.3s;
+	transition: font-size 0.3s, padding 0.3s;
 }
 
-.title-li.active span {
+.title-li.active {
+	padding: 2px 0px;
 	font-size: 32px;
 }
 
-.title-li:hover:not(.active) span {
+.title-li:hover:not(.active) {
+	padding: 6px 0px;
 	font-size: 28px;
 }
 
@@ -416,11 +413,11 @@ function init()
 			<div class="content-group">
 				<div class="content-title">
 					<ul class="title-list">
-						<li class="title-li" id="title-about" data-text-element="content-about"><span>About Us</span></li>
-						<li class="title-li" id="title-donate" data-text-element="content-donate"><span>Donate</span></li>
-						<li class="title-li" id="title-aboutfirst" data-text-element="content-aboutfirst"><span>About FIRST</span></li>
-						<li class="title-li" id="title-members" data-text-element="content-members"><span>Members</span></li>
-						<li class="title-li" id="title-mentors" data-text-element="content-mentors"><span>Mentors</span></li>
+						<li class="title-li" id="title-about" data-text-element="content-about">About Us</li>
+						<li class="title-li" id="title-donate" data-text-element="content-donate">Donate</li>
+						<li class="title-li" id="title-aboutfirst" data-text-element="content-aboutfirst">About FIRST</li>
+						<li class="title-li" id="title-members" data-text-element="content-members">Members</li>
+						<li class="title-li" id="title-mentors" data-text-element="content-mentors">Mentors</li>
 					</ul>
 				</div>
 				<div class="content-text" id="content-about">
