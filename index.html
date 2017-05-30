@@ -212,7 +212,16 @@
 	font-size: 24px;
 	cursor: pointer;
 	vertical-align: center;
+	position: relative;
 	transition: font-size 0.3s, padding 0.3s;
+}
+
+.title-li:before {
+	position: absolute;
+	bottom: -5px;
+	left: 0px;
+	display: none;
+	width: 0px;
 }
 
 .content-text {
@@ -281,6 +290,14 @@
 
 	.title-li:hover, .title-li.active {
 		padding: 15px;
+	}
+
+	.title-li:before {
+		display: block;
+	}
+
+	.title-li.active:before {
+		width: 100%;
 	}
 
 	#donate-text {
