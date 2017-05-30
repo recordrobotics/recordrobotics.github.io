@@ -198,6 +198,14 @@
 	height: auto;
 }
 
+.title-list {
+	list-style-type: none;
+}
+
+.title-li {
+	padding: 10px 0px;
+}
+
 @media (max-width: 1000px) {
 	.content-table, .content-group, .content-title, .content-text {
 		display: block;
@@ -377,11 +385,13 @@ function init()
 		<div class="content-table">
 			<div class="content-group">
 				<div class="content-title">
-					<span>About Us</span>
-					<span>Donate</span>
-					<span>About FIRST</span>
-					<span>Members</span>
-					<span>Mentors</span>
+					<ul class="title-list">
+						<li class="title-li">About Us</li>
+						<li class="title-li">Donate</li>
+						<li class="title-li">About FIRST</li>
+						<li class="title-li">Members</li>
+						<li class="title-li">Mentors</li>
+					</ul>
 				</div>
 				<div class="content-text">
 					<p>
