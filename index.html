@@ -360,7 +360,7 @@ function init()
 
 	$(".title-li").click(function(){
 		$(".content-text").css("display", "none");
-		$("#" + this.dataset["text-element"]).css("display", "table-cell");
+		$("#" + this.dataset.textElement).css("display", "table-cell");
 
 		$(".title-li").removeClass("active");
 		$(this).addClass("active");
