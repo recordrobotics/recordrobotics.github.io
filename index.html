@@ -363,13 +363,15 @@ function init()
 	});
 
 	$(".title-li").click(function(){
+		var st = $(window).scrollTop();
+
 		$(".content-text").css("display", "none");
 		$("#" + this.dataset.textElement).css("display", "table-cell");
 
 		$(".title-li").removeClass("active");
 		$(this).addClass("active");
 
-		$(window).scrollTop($(window).height());
+		$(window).scrollTop(st);
 	});
 }
 
