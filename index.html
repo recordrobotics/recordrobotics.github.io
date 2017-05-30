@@ -212,14 +212,7 @@
 	font-size: 24px;
 	cursor: pointer;
 	vertical-align: center;
-}
-
-.title-li:before {
-	width: 4px;
-	height: 10px;
-	background-color: blue;
-	transition: opacity 0.3s;
-	opacity: 0;
+	transition: padding 0.3s;
 }
 
 .title-li.active {
@@ -227,8 +220,8 @@
 	font-size: 32px;
 }
 
-.title-li:hover:not(.active):before {
-	opacity: 1;
+.title-li:hover:not(.active) {
+	padding-left: 6px;
 }
 
 @media (max-width: 1000px) {
