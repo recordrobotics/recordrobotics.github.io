@@ -91,6 +91,7 @@
 
 .content {
 	padding: 50px 10px;
+	min-height: 100vh;
 }
 
 .content-table {
@@ -148,6 +149,21 @@
 
 .members-list {
 	list-style-type: none;
+}
+
+.members-list-captains {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.members-list-header {
+	text-align: center;
+	font-weight: 500;
+	font-size: 30px;
+}
+
+.members-list-header-captains {
+	font-size: 34px;
 }
 
 .members-li {
@@ -211,6 +227,7 @@
 	padding: 10px 0px;
 	font-size: 24px;
 	cursor: pointer;
+	height: 50px;
 	vertical-align: center;
 	position: relative;
 	transition: font-size 0.3s, padding 0.3s;
@@ -230,7 +247,6 @@
 
 .title-li.active {
 	font-size: 28px;
-	padding: 8px 6px;
 }
 
 .title-li:hover:not(.active) {
@@ -241,14 +257,19 @@
 	height: 300px;
 }
 
+.donate-thingie-list {
+	text-align: center;
+}
+
 @media (max-width: 1000px) {
-	.content-table, .content-group, .content-title, .content-text {
+	.content-group, .content-table {
 		display: block;
 	}
 
 	.content-title {
 		padding: 25px 5px;
 		max-width: none;
+		display: block;
 	}
 
 	.content-title a, .content-title span {
@@ -283,13 +304,30 @@
 		background-attachment: scroll;
 	}
 
-	.title-li {
+	.content-title {
+		text-align: center;
+	}
+
+	.title-list {
+		text-align: center;
 		display: inline-block;
+		width: auto;
+	}
+
+	.title-li {
+		display: block;
+		padding: 15px;
+		text-align: center;
+		font-size: 18px;
+	}
+
+	.title-li:hover:not(.active) {
 		padding: 15px;
 	}
 
-	.title-li.active, .title-li:hover:not(.active) {
+	.title-li.active {
 		padding: 15px;
+		font-size: 24px;
 	}
 
 	.title-li:before {
@@ -302,6 +340,14 @@
 
 	#donate-text {
 		text-align: center;
+	}
+
+	.members-list-header {
+		font-size: 20px;
+	}
+
+	.members-list-header-captains {
+		font-size: 26px;
 	}
 }
 
@@ -374,7 +420,16 @@ function init()
 	}
 
 	$("#go-down").click(scrollDown);
-	$("#a-about").click(scrollDown);
+
+	$("#a-about").click(function() {
+		$("#title-about").trigger("click");
+		scrollDown();
+	});
+
+	$("#a-donate").click(function() {
+                $("#title-donate").trigger("click");
+                scrollDown();
+        });
 
 	$(window).scroll(function() {
 		/*down.o = 0.8 - 2 * $(window).scrollTop() / $(".top-img").height();
@@ -406,6 +461,20 @@ function init()
 
 		$(window).scrollTop(st);
 	});
+
+	/*$(window).resize(setContentTexts);
+
+	function setContentTexts()
+	{
+		var h = this.innerHeight;
+
+		$(".content-text").each(function() {
+			if(this.clientHeight < h)
+				this.style.paddingBottom = (h - this.clientHeight) + "px";
+		});
+	}
+
+	setContentTexts();*/
 }
 
 </script>
@@ -420,13 +489,17 @@ function init()
         		<a id="a-about">About</a>
         	</li>
         	<li class="top-navbar-li">
-                	<a href="belmontrobotics.github.io#donate">Donate</a>
+                	<a id="a-donate">Donate</a>
         	</li>
 		<li class="top-navbar-li">
                 	<a href="/calendar.html">Calendar</a>
         	</li>
 		<li class="top-navbar-li picture">
+			<img src="logo.png"></img>
                 </li>
+		<li class="top-navbar-li title">
+			<a href="/">Record Robotics</a>
+		</li>
 	</ul>
 </div>
 <div class="main">
@@ -435,7 +508,7 @@ function init()
 			<div class="header-text">
 				<div class="header-wrap">
 					<div class="header-main">
-						Belmont FIRST Robotics Team
+						Record Robotics
 					</div>
 					<div class="header-sub" style="display:none">
 
@@ -451,7 +524,8 @@ function init()
 				<div class="content-title">
 					<ul class="title-list">
 						<li class="title-li active" id="title-about" data-text-element="content-about">About Us</li>
-						<li class="title-li" id="title-donate" data-text-element="content-donate">Donate</li>
+						<li class="title-li" id="title-projects" data-text-element="content-projects">Our Projects</li>
+						<li class="title-li" id="title-donate" data-text-element="content-donate">Get Involved</li>
 						<li class="title-li" id="title-aboutfirst" data-text-element="content-aboutfirst">About FIRST</li>
 						<li class="title-li" id="title-members" data-text-element="content-members">Members</li>
 						<li class="title-li" id="title-mentors" data-text-element="content-mentors">Mentors</li>
@@ -460,120 +534,181 @@ function init()
 				<div class="content-text" id="content-about" style="display:table-cell">
 					<p>
 						<a class="anchor" name="about"></a>
-						When Dean Kamen started the first FRC (First Robotic Competition) in 1992 in a very small scale, he probably could not imagine that in 2016, about 3100 teams with roughly 75,000 students and 19,000 mentors from 24 countries would build robots and take part in the competition. Last year they competed in 53 Regional Competitions, 65 District Qualifying Competitions, and 8 District Championships. In addition to on-field competition, teams and team members competed for awards recognizing entrepreneurship, creativity, engineering, industrial design, safety, controls, media, quality, and exemplifying the core values of the program.
-<br><br>
-Today, it is difficult to find reputable high schools which do not compete in FRC. The nature of the competition, however, differs it from many other clubs and competitions. The team, for example, needs a dedicated space to build their robot, as well as considerable funding to buy relatively expensive parts, tools, and pay for the travels and other expenses. Due to these requirements, Belmont High School had not been able to initiate such a program in previous years. These challenges, however, did not disappoint a group of passionate students.
-<br><br>
-It was about two months ago when Sepehr and Neil discussed their interests for competing in FRC. Quickly they could find other passionate students such as Jack and Vassilios, and today more than a dozen students are working for this competition. The students funded the initial registration cost of 6000$ with their own money to officially register in this competition and order the first batch of parts. Now, In December, with the help of their mentors, Saeed and Mike, they are forming the team, planning for further fundraising, buying extra parts, and tools, in order to kick off the robot build in Jan '17.
-<br><br>
-They are aiming to raise about $20,000 by end of Jan. They have started to contact the Belmont businesses as well as some other relevant companies for sponsorship. While this year, the team is facing a myriad of challenges, they are paving the road for their peers at Belmont and Belmont High School.  People and businesses who are interested to support Belmont’s First Robotic Team, can contribute through GoFundMe (Belmont First Robotics)
+						Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions with a different robot built by students from Belmont High School every year. In addition to our competitions, we do a variety of community outreach events in Belmont year-round. Learn more about our projects here.
+						<br><br> 
+						<b>Our mission:</b>
+						<br>
+						To foster a rich STEM-based community in which students help students develop life skills such as communication, leadership, being a team player, and facing challenges,  as well as gain experience in fields that will guide them to their future.
+ 						<br><br>
+						Our founding students, Sepehr Sokhanvar and Neil Mhatre, wanted a more serious engineering project to do over the school year. While playing frisbee, they thought of the idea to create this robotics team. They founded the team with mentor Saeed Sokhanvar and since then the team has expanded to around 15 core members, all students at Belmont High School. From the start, students noted a deficiency in rigorous STEM (Science, Technology, Engineering, and Math) extracurriculars in Belmont High, so robotics was a perfect outlet for their respective abilities and talents.
+ 						<br><br>
+						While the team is primarily driven by students, mentors guide the students in all aspects of the team, including engineering, organizing, and marketing. As a rookie team, we dove right into the competitions. We competed in two regional district competitions. In the first one, we were able to win the Rookie Inspiration award and the highest rookie seed award. In our second competition we won and we received the Rookie All-Star award, the award which goes to the highest achieving rookie in all aspects of the team. 
+					</p>
+				</div>
+				<div class="content-text" id="content-projects">
+					<p>
+						<a class="anchor" name="projects"></a>
+						We follow a simple but effective structure with our projects, and they demonstrate an ability to comprehend concepts such as electronics, mechanical engineering, programming, and pneumatics. We have a robot that is functional to the point where we only had one robot based problem in all of our competitions so far. 
+						<br><br>
+						We have built a robot for the 2016 FIRST Robotics season. Our robot demonstrates our knowledge. This currently have a working robot with 5 working motors, and we know how to and have added and taken off more with proper procedure and maintained functionality. 
+						<br><br> 
+						We have a knowledge of basic pneumatics and have built  piston, compressor, and actuator systems. We compiled this work to build a  module for the robot that opens two flaps with pneumatic pistons, and have a “circuit” board that contains the rest of the pneumatics. 
+ 						<br><br>
+						We have done many community based outreach projects over our rookie year, including an outreach presentation at a senior centers, teaching at elementary schools, and a booth at our local town day. 
+ 						<br><br>
+						In the senior center, we showed the robot off, and made  sure that we knew what we were doing with the robot, and faults in it moving around. 
+ 						<br><br>
+						In the elementary school we presented our team and robot to the kids, and had them ask questions about the robot and explained them in simple terms. This was both good for the community and very rewarding, because we were able to get kids to be in awe of our team, explaining to them was good for them, and solidified our understanding of it. 
+ 						<br><br>
+						At the local town festival, named town day, we were able to explain the robot to both little kids and their parents. From this we were able to gain many adult that wanted to be a part of us, including at least one new mentor. 
+ 						<br><br>
+						In our earlier fundraising attempts in the group, we raised money by shoveling snow and selling chocolate.
 					</p>
 				</div>
                                 <div class="content-text" id="content-donate">
                                         <p>
 						<a class="anchor" name="donate"></a>
-						<div class="donate-thingie">
-							<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-								<input type="hidden" name="business" value="">
-								<input type="hidden" name="cmd" value="_donations">
-								<input type="hidden" name="item_name" value="">
-								<input type="hidden" name="item_number" value="">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="image" name="submit" src="/img/paypal.png" alt="Paypal">
-							</form>
+						<p>
+							<b>Get Involved:</b>
+							<br><br>
+							If you or your organization is interested in helping us continue competing, creating, and inspiring future generations to become involved in science and technology, please consider donating to us. We are a non-profit organization that will make all of your donations tax refundable. We will use your contributions to further our endeavours in creating first class competitive robots, as well as increasing our community involvement and outreach in order to promote STEM fields.
+							<br><br>
+						</p>
+						<div class="donate-thingie-list">
+							<div class="donate-thingie">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+									<input type="hidden" name="business" value="">
+									<input type="hidden" name="cmd" value="_donations">
+									<input type="hidden" name="item_name" value="">
+									<input type="hidden" name="item_number" value="">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="image" name="submit" src="/img/paypal.png" alt="Paypal">
+								</form>
+							</div>
+							<div class="donate-thingie">
+								<form action="https://www.gofundme.com/belmont-first-robotics">
+									<input type="image" src="/img/gofundme.png">
+								</form>
+							</div>
 						</div>
-						<div class="donate-thingie">
-							<form action="https://www.gofundme.com/belmont-first-robotics">
-								<input type="image" src="/img/gofundme.png">
-							</form>
-						</div>
+						<p>
+							<br>
+							Please feel free to contact our lead mentor to ask any further questions you may have about funding us at 
+							<br>
+							<a href="mailto:daniel.p.lonergan@gmail.com?Subject=Getting%20Involved" target="_top">daniel.p.lonergan@gmail.com</a>
+						</p>
                                         </p>
                                 </div>
                         	<div class="content-text" id="content-aboutfirst">
                                 	<p>
 						<a class="anchor" name="aboutfirst"></a>
-						The FIRST Robotics Competition is an annual competition for high schoolers.
-						Teams of 10-20 students are given limited resources, strict rules, and a 6-week time limit to build an industrial-sized robot to compete against other team's robots.
-						This involves not only extensive engineering and computer science work, but also the development of a 'brand' and fundraising anywhere from $6,000 to $30,000.
-						Because of the diversity of tasks required, almost no STEM knowledge is explicitly needed for anyone to join a team, since marketing and design are extremely important parts in the competition.
-						The FIRST Robotics Competition ends with a <a href="http://championship.usfirst.org/">FIRST Championship,</a> where students use their robots in teams to compete against each other.
-						This year's championship will be in St. Louis, Missouri, on April 26-29, and in Houston, Texas, on April 19-22.
+						FIRST (For Inspiration and Recognition of Science and Technology) is a nonprofit organization that was founded in 1989 by Dean Kamen, the inventor of the Segway. FIRST provides many innovative programs to inspire students to follow fields in science, engineering, and technology. Their vision is “To transform our culture by creating a world where science and technology are celebrated and where young people dream of becoming science and technology leaders.”  Learn more about FIRST at firstinspires.org
+						<br><br>
+						FIRST organizes the FIRST Robotics Competition, which our team participates in. The FIRST Robotics Competition consists of a 6 week build period in which teams build a robot to complete a task, followed by a competition period in which teams compete with their robots. FIRST has provided our team an excellent opportunity to bring together students of different backgrounds and experience together to pursue skills like engineering, programming, business, and technology.
                                 	</p>
                         	</div>
                                 <div class="content-text" id="content-members">
-					<ul class="members-list">
-						<li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/000023049/fidelastro-sm.jpg"></img>
-                                                	<span>Neil Mhatre</span>
-						</li>
-						<li class="members-li">
-                                                        <img src="https://pbs.twimg.com/profile_images/1634023/50258_211053130451_5559002_n_400x400.jpg"></img>
-                                                        <span>Ruiqi Huang</span>
+					<div class="members-list-header members-list-header-captains">Captains</div>
+					<ul class="members-list members-list-captains">
+                                                <li class="members-li">
+						   	<img src="team_pictures/faizan.jpg"></img>
+                                                        <span>Faizan Sayeed</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/000023049del-castro-sm.jpg"></img>
-                                                        <span>Max Pounanov</span>
-                                                </li>
-						<li class="members-li">
-                                                        <img src="https://pbs.twimg.com/profile_images/1631833/50258_211053130451_5559002_n_400x400.jpg"></img>
-                                                        <span>Jack Doyle</span>
-                                                </li>
-                                                <li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/0000230/fidel-castro-sm.jpg"></img>
+                                                        <img src="team_pictures/david.jpg"></img>
                                                         <span>David Lonergan</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="https://pbs.twimg.com/profile_images/16340218/50258_211053130451_5559002_n_400x400.jpg"></img>
+							<img src="team_pictures/jack.jpg"></img>
+							<span>Jack Doyle</span>
+						</li>
+					</ul>
+					<div class="members-list-header">Members</div>
+					<ul class="members-list">
+						<li class="members-li">
+                                                        <img src="/team_pictures/ruiqi.jpg"></img>
+                                                        <span>Ruiqi Huang</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="team_pictures/max.jpg"></img>
+                                                        <span>Max Pounanov</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="team_pictures/harry.jpg"></img>
                                                         <span>Harry Thidemann</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/000023049/fidl-castro-sm.jpg"></img>
-                                                        <span>Hyuk-Je Kwon</span>
-                                                </li>
-						<li class="members-li">
-                                                        <img src="https://pbs.twimg.com/profile_images/163402833/50258_211053130451_5559002_n_400x400.jpg"></img>
-                                                        <span>Ben Ackerson</span>
-                                                </li>
-                                                <li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/000023049/fdel-castro-sm.jpg"></img>
+                                                        <img src="team_pictures/vassy.jpg"></img>
                                                         <span>Vassilios Kaxiras</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="https://pbs.twimg.com/profile_images/163421833/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <img src="team_pictures/jacob.jpg"></img>
                                                         <span>Jacob Makar-Limanov</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/000023049fidel-castro-sm.jpg"></img>
+                                                        <img src="team_pictures/jun.jpg"></img>
                                                         <span>Junhyeok Park</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="https://pbs.twimg.com/profile_images/164021833/50258_211053130451_5559002_n_400x400.jpg"></img>
+                                                        <img src="team_pictures/julie.jpg"></img>
                                                         <span>Julie Choi</span>
                                                 </li>
-                                                <li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/00002309/fidel-castro-sm.jpg"></img>
-                                                        <span>Michael Guyumdzhyan</span>
+						<li class="members-li">
+                                                        <img src="team_pictures/anton.jpg"></img>
+                                                        <span>Anton Kutsman</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/00002349/fidel-castro-sm.jpg"></img>
-                                                        <span>Aaron Yao-Smith</span>
+                                                        <img src="team_pictures/cassie.jpg"></img>
+                                                        <span>Cassie Wang</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="team_pictures/hoon.jpg"></img>
+                                                        <span>Hoon Baeg</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="team_pictures/lara.jpg"></img>
+                                                        <span>Lara Zeng</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="team_pictures/leon.jpg"></img>
+                                                        <span>Leon Fan</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="team_pictures/rachel.jpg"></img>
+                                                        <span>Rachel Liang</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="team_pictures/rick.jpg"></img>
+                                                        <span>Rick Lee</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="team_pictures/woosung.jpg"></img>
+                                                        <span>Woosung Kwon</span>
+                                                </li>
+						<li class="members-li">
+                                                        <img src="/team_pictures/thor.jpg"></img>
+                                                        <span>Thor Elfarsson</span>
+                                                </li>
+                                                <li class="members-li">
+                                                        <img src="team_pictures/camilla.jpg"></img>
+                                                        <span>Camilla Carere</span>
                                                 </li>
 					</ul>
                                 </div>
                                 <div class="content-text" id="content-mentors">
                                         <ul class="members-list">
                                                 <li class="members-li">
-                                                        <img src="http://www.nndb.com/people/118/00003049/fidel-castro-sm.jpg"></img>
-                                                        <span>Mike Tymm</span>
+                                                        <img src=""></img>
+                                                        <span>Daniel Lonergan</span>
                                                 </li>
 					</ul>
 				</div>
-			<div>
-		</div>
-		<div id="footer">
+			</div>
 		</div>
 	</div>
-<div>
+	<div id="footer">
+	</div>
+</div>
 
 </body>
 
