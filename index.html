@@ -368,6 +368,39 @@
 
 <script type="text/javascript">
 
+var captains =
+[
+	{ name: "Faizan Sayeed", url: "/team_pictures/faizan.jpg" },
+	{ name: "David Lonergan", url: "/team_pictures/david.jpg" },
+	{ name: "Jack Doyle", url: "/team_pictures/jack.jpg" }
+];
+
+var members =
+[
+	{ name: "Ruiqi Huang", url: "/team_pictures/ruiqi.jpg" },
+	{ name: "Max Pounanov", url: "/team_pictures/max.jpg" },
+	{ name: "Harry Thidemann", url: "/team_pictures/harry.jpg" },
+	{ name: "Vassilios Kaxiras", url: "/team_pictures/vassy.jpg" },
+	{ name: "Jacob Makar-Limanov", url: "/team_pictures/jacob.jpg" },
+	{ name: "Junhyeok Park", url: "/team_pictures/jun.jpg" },
+	{ name: "Julie Choi", url: "/team_pictures/julie.jpg" },
+	{ name: "Anton Kutsman", url: "/team_pictures/anton.jpg" },
+	{ name: "Cassie Wang", url: "/team_pictures/cassie.jpg" },
+	{ name: "Hoon Baeg", url: "/team_pictures/hoon.jpg" },
+	{ name: "Lara Zeng", url: "/team_pictures/lara.jpg" },
+	{ name: "Leon Fan", url: "/team_pictures/leon.jpg" },
+	{ name: "Rache Liang", url: "/team_pictures/rachel.jpg" },
+	{ name: "Rick Lee", url: "/team_pictures/rick.jpg" },
+	{ name: "Woosung Kwon", url: "/team_pictures/woosung.jpg" },
+	{ name: "Thor Elfarsson", url: "/team_pictures/thor.jpg" },
+	{ name: "Camilla Carere", url: "/team_pictures/camilla.jpg" }
+];
+
+var mentors =
+[
+	{ name: "Daniel Lonergan", url: "/team_pictures/daniel.jpg" }
+];
+
 function init()
 {
 	$("#img-loader").remove();
@@ -475,6 +508,43 @@ function init()
 	}
 
 	setContentTexts();*/
+
+	function loadPerson(i, list, arr)
+	{
+		if(i < arr.length)
+		{
+			var idx = i;
+
+			var img = new Image();
+			img.addEventListener("load", function() { append(idx); });
+			img.addEventListener("error", function() { append(idx); });
+			img.src = arr[i].url;
+
+			function append(idx)
+			{
+				var li = document.createElement("li");
+				li.classList += "members-li";
+				li.appendChild(img);
+
+				var span = document.createElement("span");
+				span.innerHTML = arr[i].name;
+				li.appendChild(span);
+
+				document.getElementById(list).appendChild(li);
+
+				next(idx);
+			}
+
+			function next(idx)
+			{
+				loadPerson(idx + 1, list, arr);
+			}
+		}
+	}
+
+	loadPerson(0, "mlistc", captains);
+	loadPerson(0, "mlist", members);
+	loadPerson(0, "mtlist", mentors);
 }
 
 </script>
@@ -609,8 +679,8 @@ function init()
                         	</div>
                                 <div class="content-text" id="content-members">
 					<div class="members-list-header members-list-header-captains">Captains</div>
-					<ul class="members-list members-list-captains">
-                                                <li class="members-li">
+					<ul class="members-list members-list-captains" id="mlistc">
+<!--                                                <li class="members-li">
 						   	<img src="team_pictures/faizan.jpg"></img>
                                                         <span>Faizan Sayeed</span>
                                                 </li>
@@ -622,10 +692,11 @@ function init()
 							<img src="team_pictures/jack.jpg"></img>
 							<span>Jack Doyle</span>
 						</li>
+-->
 					</ul>
 					<div class="members-list-header">Members</div>
-					<ul class="members-list">
-						<li class="members-li">
+					<ul class="members-list" id="mlist">
+<!--						<li class="members-li">
                                                         <img src="/team_pictures/ruiqi.jpg"></img>
                                                         <span>Ruiqi Huang</span>
                                                 </li>
@@ -693,14 +764,16 @@ function init()
                                                         <img src="team_pictures/camilla.jpg"></img>
                                                         <span>Camilla Carere</span>
                                                 </li>
+-->
 					</ul>
                                 </div>
                                 <div class="content-text" id="content-mentors">
-                                        <ul class="members-list">
-                                                <li class="members-li">
+                                        <ul class="members-list" id="mtlist">
+                              <!--                  <li class="members-li">
                                                         <img src=""></img>
                                                         <span>Daniel Lonergan</span>
                                                 </li>
+				-->
 					</ul>
 				</div>
 			</div>
