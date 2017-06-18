@@ -45,6 +45,11 @@
 	width: auto;
 	display: table-cell;
 	vertical-align: middle;
+	margin: auto;
+}
+
+.navbar-tall .top-navbar-li.picture img {
+	margin: 0px;
 }
 
 .top-navbar-li a {
