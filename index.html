@@ -22,7 +22,7 @@
 }
 
 .top-img {
-	background: url("/img/team.jpg") no-repeat 50% 50% fixed;
+	background: url("/pictures/team_win.jpg") no-repeat 50% 50% fixed;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -107,7 +107,7 @@
 .content-title {
 	display: table-cell;
 	white-space: nowrap;
-	padding: 45px;
+	padding: 30px;
 	vertical-align: top;
 }
 
@@ -220,7 +220,7 @@
 
 .title-list {
 	list-style-type: none;
-	width: 140px;
+	width: 160px;
 }
 
 .title-li {
@@ -261,7 +261,38 @@
 	text-align: center;
 }
 
+.moving-picture-list {
+	width: 100%;
+	display: flex;
+	padding: 5px;
+	margin: 15px 0px;
+}
+
+.moving-picture-wrap {
+	height: 400px;
+	flex: 1;
+	margin: 5px;
+	background-size: auto 100%;
+	transition: background-size 0.3s;
+	position: relative;
+}
+
+.moving-picture-info {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.3s;
+	background-color: rgba(250, 250, 250, 0.4);
+	padding: 15px 25px;
+	left: 20px;
+	bottom: 15px;
+}
+
+.moving-picture-wrap:hover .moving-picture-info {
+	opacity: 1;
+}
+
 @media (max-width: 1000px) {
+
 	.content-group, .content-table {
 		display: block;
 	}
@@ -284,20 +315,6 @@
 		width: 300px;
 		height: auto;
 		max-width: 100%;
-	}
-
-	.navbar {
-		height: 70px;
-		position: absolute;
-	}
-
-	.navbar-tall {
-		height: 70px;
-	}
-
-	.top-navbar-li a {
-		//font-size: 30px;
-		//line-height: 40px;
 	}
 
 	.top-img {
@@ -349,9 +366,14 @@
 	.members-list-header-captains {
 		font-size: 26px;
 	}
+
+	.moving-picture-wrap {
+		height: 275px;
+	}
 }
 
 @media (max-width: 500px) {
+
 	.header-text {
                 padding-left: 15px;
                 padding-right: 15px;
@@ -362,6 +384,10 @@
 		padding: 30px 40px;
                 line-height: 60px;
         }
+
+	.moving-picture-wrap {
+		height: 200px;
+	}
 }
 
 </style>
@@ -389,7 +415,7 @@ var members =
 	{ name: "Hoon Baeg", url: "/team_pictures/hoon.jpg" },
 	{ name: "Lara Zeng", url: "/team_pictures/lara.jpg" },
 	{ name: "Leon Fan", url: "/team_pictures/leon.jpg" },
-	{ name: "Rache Liang", url: "/team_pictures/rachel.jpg" },
+	{ name: "Rachel Liang", url: "/team_pictures/rachel.jpg" },
 	{ name: "Rick Lee", url: "/team_pictures/rick.jpg" },
 	{ name: "Woosung Kwon", url: "/team_pictures/woosung.jpg" },
 	{ name: "Thor Elfarsson", url: "/team_pictures/thor.jpg" },
@@ -481,6 +507,29 @@ function init()
 		}*/
 
 	//	$(".top-img").css("background-position-y", (50 - 20 * $(window).scrollTop() / $(window).height()) + "%");
+
+		/*var f = 20;
+
+		$(".moving-picture-wrap").each(function() {
+			var r = this.getBoundingClientRect();
+			var t = r.top;
+			var wh = window.innerHeight;
+			var h = r.bottom - r.top;
+
+			if(t > -h && t < wh)
+			{
+				var p = (100 + 2*f) * t / (wh - h) - f;
+
+				if(p > 100)
+					p = 100;
+				else if(p < 0)
+					p = 0;
+
+				this.style.backgroundPositionY = (100 - p) + "%";
+			}
+
+			console.log(t);
+		});*/
 	});
 
 	$(".title-li").click(function(){
@@ -555,19 +604,21 @@ function init()
 
 <div class="navbar navbar-tall">
 	<ul class="top-navbar">
-		<li class="top-navbar-li">
+		<li class="top-navbar-li top-navbar-li-collapse">
         		<a id="a-about">About</a>
         	</li>
-        	<li class="top-navbar-li">
+        	<li class="top-navbar-li top-navbar-li-collapse">
                 	<a id="a-donate">Donate</a>
         	</li>
 		<li class="top-navbar-li">
                 	<a href="/calendar.html">Calendar</a>
         	</li>
 		<li class="top-navbar-li picture">
-			<img src="logo.png"></img>
+			<a href="/">
+				<img src="logo.png"></img>
+			</a>
 		</li>
-		<li class="top-navbar-li title">
+		<li class="top-navbar-li title top-navbar-li-collapse">
 			<a href="/">Record Robotics</a>
 		</li>
 	</ul>
@@ -604,8 +655,17 @@ function init()
 				<div class="content-text" id="content-about" style="display:table-cell">
 					<p>
 						<a class="anchor" name="about"></a>
-						Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions with a different robot built by students from Belmont High School every year. In addition to our competitions, we do a variety of community outreach events in Belmont year-round. Learn more about our projects here.
-						<br><br> 
+						Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions with a different robot built by students from Belmont High School every year. In addition to our competitions, we do a variety of community outreach events in Belmont year-round. Learn more about our projects here. 
+					</p>
+					<div class="moving-picture-list">
+						<div class="moving-picture-wrap" style="background-image: url('/pictures/team_win.jpg');">
+							<div class="moving-picture-info">Rhode Island Competition</div>
+						</div>
+						<div class="moving-picture-wrap" style="background-image: url('/pictures/team_win.jpg');">
+                                                        <div class="moving-picture-info">Rhode Island Competition</div>
+                                                </div>
+					</div>
+					<p>
 						<b>Our mission:</b>
 						<br>
 						To foster a rich STEM-based community in which students help students develop life skills such as communication, leadership, being a team player, and facing challenges,  as well as gain experience in fields that will guide them to their future.
