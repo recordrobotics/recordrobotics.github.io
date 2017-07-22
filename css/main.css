@@ -80,3 +80,13 @@ input[type="text"] {
                 border-top-color: #1e1;
         }
 }
+
+.inline-block {
+	display: inline-block;
+}
+
+.img-wrap {
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 20px;
+}

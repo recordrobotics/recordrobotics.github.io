@@ -22,7 +22,7 @@
 }
 
 .top-img {
-	background: url("/pictures/team_win.jpg") no-repeat 50% 50% fixed;
+	background: url("img/team_pictures/team_win.jpg") no-repeat 50% 50% fixed;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -109,6 +109,7 @@
 	white-space: nowrap;
 	padding: 30px;
 	vertical-align: top;
+	overflow: hidden;
 }
 
 .content-sep {
@@ -137,8 +138,13 @@
 	display: none;
 	vertical-align: top;
 	width: auto;
-	padding: 25px;
+	padding: 40px 25px 20px 25px;
 	padding-bottom: 50px;
+	opacity: 0;
+}
+
+.content-text.active {
+	display: table-cell;
 }
 
 .content-text p {
@@ -221,6 +227,7 @@
 .title-list {
 	list-style-type: none;
 	width: 160px;
+	position: relative;
 }
 
 .title-li {
@@ -231,14 +238,6 @@
 	vertical-align: center;
 	position: relative;
 	transition: font-size 0.3s, padding 0.3s;
-}
-
-.title-li:before {
-	position: absolute;
-	bottom: -5px;
-	left: 0px;
-	display: none;
-	width: 0px;
 }
 
 .content-text {
@@ -291,7 +290,19 @@
 	opacity: 1;
 }
 
+.content-divider {
+	width: 50%;
+	margin: auto;
+	height: 1px;
+	background-color: #cfcfcf;
+	display: none;
+}
+
 @media (max-width: 1000px) {
+
+	.content-divider {
+		display: inline-block;
+	}
 
 	.content-group, .content-table {
 		display: block;
@@ -323,6 +334,10 @@
 
 	.content-title {
 		text-align: center;
+		height: 50px;
+		padding: 4px;
+		box-sizing: content-box;
+		background-color: #eee;
 	}
 
 	.title-list {
@@ -336,6 +351,8 @@
 		padding: 15px;
 		text-align: center;
 		font-size: 18px;
+		line-height: 18px;
+		transition: none;
 	}
 
 	.title-li:hover:not(.active) {
@@ -345,14 +362,20 @@
 	.title-li.active {
 		padding: 15px;
 		font-size: 24px;
+		line-height: 24px;
 	}
 
-	.title-li:before {
-		display: block;
+	.title-li.active::before {
+		position: absolute;
+		right: -8px;
+		transform: scale(1.5) rotate(90deg);
+		content: "\203A";
+		opacity: 1;
+		transition: opacity 0.2s;
 	}
 
-	.title-li.active:before {
-		width: 100%;
+	.content-title.large .title-li.active::before {
+		opacity: 0;
 	}
 
 	#donate-text {
@@ -396,35 +419,35 @@
 
 var captains =
 [
-	{ name: "Faizan Sayeed", url: "/team_pictures/faizan.jpg" },
-	{ name: "David Lonergan", url: "/team_pictures/david.jpg" },
-	{ name: "Jack Doyle", url: "/team_pictures/jack.jpg" }
+	{ name: "Faizan Sayeed", url: "img/indiv_pictures/faizan.jpg" },
+	{ name: "David Lonergan", url: "img/indiv_pictures/david.jpg" },
+	{ name: "Jack Doyle", url: "img/indiv_pictures/jack.jpg" }
 ];
 
 var members =
 [
-	{ name: "Ruiqi Huang", url: "/team_pictures/ruiqi.jpg" },
-	{ name: "Max Pounanov", url: "/team_pictures/max.jpg" },
-	{ name: "Harry Thidemann", url: "/team_pictures/harry.jpg" },
-	{ name: "Vassilios Kaxiras", url: "/team_pictures/vassy.jpg" },
-	{ name: "Jacob Makar-Limanov", url: "/team_pictures/jacob.jpg" },
-	{ name: "Junhyeok Park", url: "/team_pictures/jun.jpg" },
-	{ name: "Julie Choi", url: "/team_pictures/julie.jpg" },
-	{ name: "Anton Kutsman", url: "/team_pictures/anton.jpg" },
-	{ name: "Cassie Wang", url: "/team_pictures/cassie.jpg" },
-	{ name: "Hoon Baeg", url: "/team_pictures/hoon.jpg" },
-	{ name: "Lara Zeng", url: "/team_pictures/lara.jpg" },
-	{ name: "Leon Fan", url: "/team_pictures/leon.jpg" },
-	{ name: "Rachel Liang", url: "/team_pictures/rachel.jpg" },
-	{ name: "Rick Lee", url: "/team_pictures/rick.jpg" },
-	{ name: "Woosung Kwon", url: "/team_pictures/woosung.jpg" },
-	{ name: "Thor Elfarsson", url: "/team_pictures/thor.jpg" },
-	{ name: "Camilla Carere", url: "/team_pictures/camilla.jpg" }
+	{ name: "Ruiqi Huang", url: "img/indiv_pictures/ruiqi.jpg" },
+	{ name: "Max Pounanov", url: "img/indiv_pictures/max.jpg" },
+	{ name: "Harry Thidemann", url: "img/indiv_pictures/harry.jpg" },
+	{ name: "Vassilios Kaxiras", url: "img/indiv_pictures/vassy.jpg" },
+	{ name: "Jacob Makar-Limanov", url: "img/indiv_pictures/jacob.jpg" },
+	{ name: "Junhyeok Park", url: "img/indiv_pictures/jun.jpg" },
+	{ name: "Julie Choi", url: "img/indiv_pictures/julie.jpg" },
+	{ name: "Anton Kutsman", url: "img/indiv_pictures/anton.jpg" },
+	{ name: "Cassie Wang", url: "img/indiv_pictures/cassie.jpg" },
+	{ name: "Hoon Baeg", url: "img/indiv_pictures/hoon.jpg" },
+	{ name: "Lara Zeng", url: "img/indiv_pictures/lara.jpg" },
+	{ name: "Leon Fan", url: "img/indiv_pictures/leon.jpg" },
+	{ name: "Rachel Liang", url: "img/indiv_pictures/rachel.jpg" },
+	{ name: "Rick Lee", url: "img/indiv_pictures/rick.jpg" },
+	{ name: "Woosung Kwon", url: "img/indiv_pictures/woosung.jpg" },
+	{ name: "Thor Elfarsson", url: "img/indiv_pictures/thor.jpg" },
+	{ name: "Camilla Carere", url: "img/indiv_pictures/camilla.jpg" }
 ];
 
 var mentors =
 [
-	{ name: "Daniel Lonergan", url: "/team_pictures/daniel.jpg" }
+	{ name: "Daniel Lonergan", url: "img/indiv_pictures/daniel.jpg" }
 ];
 
 function init()
@@ -533,15 +556,47 @@ function init()
 	});
 
 	$(".title-li").click(function(){
-		var st = $(window).scrollTop();
+		if($(this).hasClass("active"))
+		{
+			if($(window).width() <= 1000)
+			{
+				if($(".content-title").height() == 50)
+				{
+					var bh = $(".title-list").height();
 
-		$(".content-text").css("display", "none");
-		$("#" + this.dataset.textElement).css("display", "table-cell");
+					$(".content-title").addClass("large").animate({ height: (bh + "px") }, { duration: 200, queue: false });
+					$(".title-list").animate({ top: "0px" }, { duration: 200, queue: false });
+				}
+				else
+				{
+					$(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
+					$(".content-title").removeClass("large").animate({ height: "50px" }, { duration: 200, queue: false });
+				}
+			}
+		}
+		else
+		{
+			var st = $(window).scrollTop();
 
-		$(".title-li").removeClass("active");
-		$(this).addClass("active");
+			var sel = this.dataset.textElement;
 
-		$(window).scrollTop(st);
+			$(".content-text.active").fadeTo(150, 0.0, function() {
+				$(this).removeClass("active");
+
+				$("#" + sel).addClass("active").fadeTo(150, 1.0);
+			});
+
+			$(".title-li").removeClass("active");
+			$(this).addClass("active");
+
+			if($(window).width() <= 1000)
+			{
+				$(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
+				$(".content-title").removeClass("large").animate({ height: "50px" }, { duration: 200, queue: false });
+			}
+
+			$(window).scrollTop(st);
+		}
 	});
 
 	/*$(window).resize(setContentTexts);
@@ -607,7 +662,7 @@ function init()
 		<li class="top-navbar-li top-navbar-li-collapse">
         		<a id="a-about">About</a>
         	</li>
-        	<li class="top-navbar-li top-navbar-li-collapse">
+        	<li class="top-navbar-li">
                 	<a id="a-donate">Donate</a>
         	</li>
 		<li class="top-navbar-li">
@@ -615,7 +670,7 @@ function init()
         	</li>
 		<li class="top-navbar-li picture">
 			<a href="/">
-				<img src="logo.png"></img>
+				<img src="img/logo.png"></img>
 			</a>
 		</li>
 		<li class="top-navbar-li title top-navbar-li-collapse">
@@ -652,16 +707,16 @@ function init()
 						<li class="title-li" id="title-mentors" data-text-element="content-mentors">Mentors</li>
 					</ul>
 				</div>
-				<div class="content-text" id="content-about" style="display:table-cell">
+				<div class="content-text active" id="content-about" style="opacity:1">
 					<p>
 						<a class="anchor" name="about"></a>
-						Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions with a different robot built by students from Belmont High School every year. In addition to our competitions, we do a variety of community outreach events in Belmont year-round. Learn more about our projects here. 
+						Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions with a different robot built by students from Belmont High School every year. In addition to our competitions, we do a variety of community outreach events in Belmont year-round. Learn more about our projects here.
 					</p>
 					<div class="moving-picture-list">
-						<div class="moving-picture-wrap" style="background-image: url('/pictures/team_win.jpg');">
+						<div class="moving-picture-wrap" style="background-image: url('img/team_pictures/team_win.jpg');">
 							<div class="moving-picture-info">Rhode Island Competition</div>
 						</div>
-						<div class="moving-picture-wrap" style="background-image: url('/pictures/team_win.jpg');">
+						<div class="moving-picture-wrap" style="background-image: url('img/team_pictures/team_win.jpg');">
                                                         <div class="moving-picture-info">Rhode Island Competition</div>
                                                 </div>
 					</div>
@@ -672,25 +727,25 @@ function init()
  						<br><br>
 						Our founding students, Sepehr Sokhanvar and Neil Mhatre, wanted a more serious engineering project to do over the school year. While playing frisbee, they thought of the idea to create this robotics team. They founded the team with mentor Saeed Sokhanvar and since then the team has expanded to around 15 core members, all students at Belmont High School. From the start, students noted a deficiency in rigorous STEM (Science, Technology, Engineering, and Math) extracurriculars in Belmont High, so robotics was a perfect outlet for their respective abilities and talents.
  						<br><br>
-						While the team is primarily driven by students, mentors guide the students in all aspects of the team, including engineering, organizing, and marketing. As a rookie team, we dove right into the competitions. We competed in two regional district competitions. In the first one, we were able to win the Rookie Inspiration award and the highest rookie seed award. In our second competition we won and we received the Rookie All-Star award, the award which goes to the highest achieving rookie in all aspects of the team. 
+						While the team is primarily driven by students, mentors guide the students in all aspects of the team, including engineering, organizing, and marketing. As a rookie team, we dove right into the competitions. We competed in two regional district competitions. In the first one, we were able to win the Rookie Inspiration award and the highest rookie seed award. In our second competition we won and we received the Rookie All-Star award, the award which goes to the highest achieving rookie in all aspects of the team.
 					</p>
 				</div>
 				<div class="content-text" id="content-projects">
 					<p>
 						<a class="anchor" name="projects"></a>
-						We follow a simple but effective structure with our projects, and they demonstrate an ability to comprehend concepts such as electronics, mechanical engineering, programming, and pneumatics. We have a robot that is functional to the point where we only had one robot based problem in all of our competitions so far. 
+						We follow a simple but effective structure with our projects, and they demonstrate an ability to comprehend concepts such as electronics, mechanical engineering, programming, and pneumatics. We have a robot that is functional to the point where we only had one robot based problem in all of our competitions so far.
 						<br><br>
-						We have built a robot for the 2016 FIRST Robotics season. Our robot demonstrates our knowledge. This currently have a working robot with 5 working motors, and we know how to and have added and taken off more with proper procedure and maintained functionality. 
-						<br><br> 
-						We have a knowledge of basic pneumatics and have built  piston, compressor, and actuator systems. We compiled this work to build a  module for the robot that opens two flaps with pneumatic pistons, and have a “circuit” board that contains the rest of the pneumatics. 
+						We have built a robot for the 2016 FIRST Robotics season. Our robot demonstrates our knowledge. This currently have a working robot with 5 working motors, and we know how to and have added and taken off more with proper procedure and maintained functionality.
+						<br><br>
+						We have a knowledge of basic pneumatics and have built  piston, compressor, and actuator systems. We compiled this work to build a  module for the robot that opens two flaps with pneumatic pistons, and have a “circuit” board that contains the rest of the pneumatics.
  						<br><br>
-						We have done many community based outreach projects over our rookie year, including an outreach presentation at a senior centers, teaching at elementary schools, and a booth at our local town day. 
+						We have done many community based outreach projects over our rookie year, including an outreach presentation at a senior centers, teaching at elementary schools, and a booth at our local town day.
  						<br><br>
-						In the senior center, we showed the robot off, and made  sure that we knew what we were doing with the robot, and faults in it moving around. 
+						In the senior center, we showed the robot off, and made  sure that we knew what we were doing with the robot, and faults in it moving around.
  						<br><br>
-						In the elementary school we presented our team and robot to the kids, and had them ask questions about the robot and explained them in simple terms. This was both good for the community and very rewarding, because we were able to get kids to be in awe of our team, explaining to them was good for them, and solidified our understanding of it. 
+						In the elementary school we presented our team and robot to the kids, and had them ask questions about the robot and explained them in simple terms. This was both good for the community and very rewarding, because we were able to get kids to be in awe of our team, explaining to them was good for them, and solidified our understanding of it.
  						<br><br>
-						At the local town festival, named town day, we were able to explain the robot to both little kids and their parents. From this we were able to gain many adult that wanted to be a part of us, including at least one new mentor. 
+						At the local town festival, named town day, we were able to explain the robot to both little kids and their parents. From this we were able to gain many adult that wanted to be a part of us, including at least one new mentor.
  						<br><br>
 						In our earlier fundraising attempts in the group, we raised money by shoveling snow and selling chocolate.
 					</p>
@@ -723,14 +778,17 @@ function init()
 						</div>
 						<p>
 							<br>
-							Please feel free to contact our lead mentor to ask any further questions you may have about funding us at 
+							Please feel free to contact our lead mentor to ask any further questions you may have about funding us at
 							<br>
 							<a href="mailto:daniel.p.lonergan@gmail.com?Subject=Getting%20Involved" target="_top">daniel.p.lonergan@gmail.com</a>
 						</p>
                                         </p>
                                 </div>
                         	<div class="content-text" id="content-aboutfirst">
-                                	<p>
+					<div class="img-wrap">
+						<img class="inline-block" src="img/FIRST.jpg" style="height:400px;width:auto"></img>
+					</div>
+					<p>
 						<a class="anchor" name="aboutfirst"></a>
 						FIRST (For Inspiration and Recognition of Science and Technology) is a nonprofit organization that was founded in 1989 by Dean Kamen, the inventor of the Segway. FIRST provides many innovative programs to inspire students to follow fields in science, engineering, and technology. Their vision is “To transform our culture by creating a world where science and technology are celebrated and where young people dream of becoming science and technology leaders.”  Learn more about FIRST at firstinspires.org
 						<br><br>
@@ -741,15 +799,15 @@ function init()
 					<div class="members-list-header members-list-header-captains">Captains</div>
 					<ul class="members-list members-list-captains" id="mlistc">
 <!--                                                <li class="members-li">
-						   	<img src="team_pictures/faizan.jpg"></img>
+						   	<img src="img/indiv_pictures/faizan.jpg"></img>
                                                         <span>Faizan Sayeed</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="team_pictures/david.jpg"></img>
+                                                        <img src="img/indiv_pictures/david.jpg"></img>
                                                         <span>David Lonergan</span>
                                                 </li>
 						<li class="members-li">
-							<img src="team_pictures/jack.jpg"></img>
+							<img src="img/indiv_pictures/jack.jpg"></img>
 							<span>Jack Doyle</span>
 						</li>
 -->
@@ -757,71 +815,71 @@ function init()
 					<div class="members-list-header">Members</div>
 					<ul class="members-list" id="mlist">
 <!--						<li class="members-li">
-                                                        <img src="/team_pictures/ruiqi.jpg"></img>
+                                                        <img src="img/indiv_pictures/ruiqi.jpg"></img>
                                                         <span>Ruiqi Huang</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="team_pictures/max.jpg"></img>
+                                                        <img src="img/indiv_pictures/max.jpg"></img>
                                                         <span>Max Pounanov</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/harry.jpg"></img>
+                                                        <img src="img/indiv_pictures/harry.jpg"></img>
                                                         <span>Harry Thidemann</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="team_pictures/vassy.jpg"></img>
+                                                        <img src="img/indiv_pictures/vassy.jpg"></img>
                                                         <span>Vassilios Kaxiras</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/jacob.jpg"></img>
+                                                        <img src="img/indiv_pictures/jacob.jpg"></img>
                                                         <span>Jacob Makar-Limanov</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="team_pictures/jun.jpg"></img>
+                                                        <img src="img/indiv_pictures/jun.jpg"></img>
                                                         <span>Junhyeok Park</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="team_pictures/julie.jpg"></img>
+                                                        <img src="img/indiv_pictures/julie.jpg"></img>
                                                         <span>Julie Choi</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/anton.jpg"></img>
+                                                        <img src="img/indiv_pictures/anton.jpg"></img>
                                                         <span>Anton Kutsman</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/cassie.jpg"></img>
+                                                        <img src="img/indiv_pictures/cassie.jpg"></img>
                                                         <span>Cassie Wang</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/hoon.jpg"></img>
+                                                        <img src="img/indiv_pictures/hoon.jpg"></img>
                                                         <span>Hoon Baeg</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/lara.jpg"></img>
+                                                        <img src="img/indiv_pictures/lara.jpg"></img>
                                                         <span>Lara Zeng</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/leon.jpg"></img>
+                                                        <img src="img/indiv_pictures/leon.jpg"></img>
                                                         <span>Leon Fan</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/rachel.jpg"></img>
+                                                        <img src="img/indiv_pictures/rachel.jpg"></img>
                                                         <span>Rachel Liang</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/rick.jpg"></img>
+                                                        <img src="img/indiv_pictures/rick.jpg"></img>
                                                         <span>Rick Lee</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="team_pictures/woosung.jpg"></img>
+                                                        <img src="img/indiv_pictures/woosung.jpg"></img>
                                                         <span>Woosung Kwon</span>
                                                 </li>
 						<li class="members-li">
-                                                        <img src="/team_pictures/thor.jpg"></img>
+                                                        <img src="img/indiv_pictures/thor.jpg"></img>
                                                         <span>Thor Elfarsson</span>
                                                 </li>
                                                 <li class="members-li">
-                                                        <img src="team_pictures/camilla.jpg"></img>
+                                                        <img src="img/indiv_pictures/camilla.jpg"></img>
                                                         <span>Camilla Carere</span>
                                                 </li>
 -->
