@@ -227,7 +227,6 @@
 .title-list {
 	list-style-type: none;
 	width: 160px;
-	position: relative;
 }
 
 .title-li {
@@ -344,6 +343,7 @@
 		text-align: center;
 		display: inline-block;
 		width: auto;
+		position: relative;
 	}
 
 	.title-li {
@@ -450,6 +450,8 @@ var mentors =
 	{ name: "Daniel Lonergan", url: "img/indiv_pictures/daniel.jpg" }
 ];
 
+var last_enlarge_time = (new Date()).getTime();
+
 function init()
 {
 	$("#img-loader").remove();
@@ -555,6 +557,16 @@ function init()
 		});*/
 	});
 
+	setInterval(function() {
+		var active = $(".title-li.active");
+
+		if($(window).width() <= 1000 && active.length && $(".content-title").height() > 50 && (new Date()).getTime() - last_enlarge_time > 5000)
+		{
+			$(".title-list").animate({ top: ("-" + active[0].offsetTop + "px") }, { duration: 200, queue: false });
+			$(".content-title").removeClass("large").animate({ height: "50px" }, { duration: 200, queue: false });
+		}
+	}, 500);
+
 	$(".title-li").click(function(){
 		if($(this).hasClass("active"))
 		{
@@ -566,6 +578,8 @@ function init()
 
 					$(".content-title").addClass("large").animate({ height: (bh + "px") }, { duration: 200, queue: false });
 					$(".title-list").animate({ top: "0px" }, { duration: 200, queue: false });
+
+					last_enlarge_time = (new Date()).getTime();
 				}
 				else
 				{
