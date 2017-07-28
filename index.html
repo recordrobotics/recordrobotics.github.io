@@ -21,6 +21,10 @@
 	width: 100%;
 }
 
+.main {
+	background: #ccf;
+}
+
 .top-img {
 	background: url("img/team_pictures/team_win.jpg") no-repeat 50% 50% fixed;
 	-webkit-background-size: cover;
@@ -90,8 +94,9 @@
 }
 
 .content {
-	padding: 50px 10px;
+	padding: 0px 0px 50px 10px;
 	min-height: 100vh;
+	background: #222;
 }
 
 .content-table {
@@ -110,6 +115,7 @@
 	padding: 30px;
 	vertical-align: top;
 	overflow: hidden;
+	background: #222;
 }
 
 .content-sep {
@@ -141,6 +147,7 @@
 	padding: 40px 25px 20px 25px;
 	padding-bottom: 50px;
 	opacity: 0;
+	background: #ccf;
 }
 
 .content-text.active {
@@ -226,17 +233,18 @@
 
 .title-list {
 	list-style-type: none;
-	width: 160px;
+	width: 180px;
 }
 
 .title-li {
-	padding: 10px 0px;
+	padding: 15px 10px;
 	font-size: 24px;
+	color: white;
 	cursor: pointer;
-	height: 50px;
 	vertical-align: center;
 	position: relative;
-	transition: font-size 0.3s, padding 0.3s;
+	transition: background 0.3s, padding 0.3s;
+	background: #222;
 }
 
 .content-text {
@@ -244,11 +252,13 @@
 }
 
 .title-li.active {
-	font-size: 28px;
+	background: #229;
+	padding-left: 16px;
 }
 
 .title-li:hover:not(.active) {
-	padding-left: 6px;
+	padding-left: 16px;
+	background: #444;
 }
 
 #footer {
@@ -299,6 +309,10 @@
 
 @media (max-width: 1000px) {
 
+	.content {
+		padding-left: 0px;
+	}
+
 	.content-divider {
 		display: inline-block;
 	}
@@ -333,10 +347,10 @@
 
 	.content-title {
 		text-align: center;
-		height: 50px;
+		height: 54px;
 		padding: 4px;
 		box-sizing: content-box;
-		background-color: #eee;
+		margin-top: 60px;
 	}
 
 	.title-list {
@@ -352,7 +366,6 @@
 		text-align: center;
 		font-size: 18px;
 		line-height: 18px;
-		transition: none;
 	}
 
 	.title-li:hover:not(.active) {
@@ -363,6 +376,7 @@
 		padding: 15px;
 		font-size: 24px;
 		line-height: 24px;
+		background: #222;
 	}
 
 	.title-li.active::before {
@@ -560,7 +574,11 @@ function init()
 	setInterval(function() {
 		var active = $(".title-li.active");
 
-		if($(window).width() <= 1000 && active.length && $(".content-title").height() > 50 && (new Date()).getTime() - last_enlarge_time > 5000)
+		if($(".content-title:hover").length != 0)
+		{
+			last_enlarge_time = (new Date()).getTime();
+		}
+		else if($(window).width() <= 1000 && active.length && $(".content-title").height() > 50 && (new Date()).getTime() - last_enlarge_time > 5000)
 		{
 			$(".title-list").animate({ top: ("-" + active[0].offsetTop + "px") }, { duration: 200, queue: false });
 			$(".content-title").removeClass("large").animate({ height: "50px" }, { duration: 200, queue: false });
@@ -663,6 +681,8 @@ function init()
 	loadPerson(0, "mlistc", captains);
 	loadPerson(0, "mlist", members);
 	loadPerson(0, "mtlist", mentors);
+
+	$(".title-li").first().trigger("click");
 }
 
 </script>
