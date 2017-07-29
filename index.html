@@ -234,6 +234,8 @@
 .title-list {
 	list-style-type: none;
 	width: 180px;
+	position: relative;
+	top: 0px;
 }
 
 .title-li {
@@ -361,7 +363,6 @@
 		text-align: center;
 		display: inline-block;
 		width: auto;
-		position: relative;
 	}
 
 	.title-li {
@@ -510,10 +511,23 @@ function init()
         });
 
 	window.addEventListener("scroll", function() {
-		if($(window).scrollTop() > 40)
+		var scrolltop = $(window).scrollTop();
+
+		if(scrolltop > 40)
 			$(".navbar").removeClass("navbar-tall");
-		else if(!$(window).scrollTop())
+		else if(scrolltop)
 			$(".navbar").addClass("navbar-tall");
+
+		if(!mobile) {
+			var top = scrolltop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
+
+			console.log(top);
+
+			if(top < 0)
+				top = 0;
+
+			document.getElementsByClassName("title-list")[0].style.top = top + "px";
+		}
 	});
 
 	window.addEventListener("resize", function() {
@@ -531,6 +545,14 @@ function init()
 				title.style.height = "54px";
 				title.classList.remove("large");
 			}
+		}
+		else if(!mobile && prev) {
+			var top = window.scrollTop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
+
+			if(top < 0)
+				top = 0;
+
+			document.getElementsByClassName("title-list")[0].style.top =  top + "px";
 		}
 	});
 
