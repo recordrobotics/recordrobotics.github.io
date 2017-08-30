@@ -162,10 +162,10 @@
 
 .members-list {
 	list-style-type: none;
+	text-align: center;
 }
 
 .members-list-captains {
-	text-align: center;
 	margin-bottom: 40px;
 }
 
@@ -264,30 +264,69 @@
 }
 
 #footer {
-	height: 300px;
+	height: 200px;
+	background: #444;
+	padding: 20px 40px;
+	display: table;
+	width: 100%;
+}
+
+.footer-list {
+	display: table-cell;
+	list-style-type: none;
+	vertical-align: middle;
+}
+
+.footer-li {
+	color: #999;
+	margin: 10px;
+	font-size: 16px;
+}
+
+.footer-li-head {
+	color: #ddd;
+	font-size: 20px;
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+
+.footer-b {
+	color: #777;
+}
+
+.footer-ack {
+	display: table-cell;
+	vertical-align: bottom;
+	font-size: 12px;
+	color: #888;
+	text-align: right;
 }
 
 .donate-thingie-list {
 	text-align: center;
 }
 
-.moving-picture-list {
-	width: 100%;
-	display: flex;
-	padding: 5px;
-	margin: 15px 0px;
+.content-div {
+	width: 49%;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 12px;
 }
 
-.moving-picture-wrap {
-	height: 400px;
-	flex: 1;
+.content-img-wrap {
 	margin: 5px;
-	background-size: auto 100%;
-	transition: background-size 0.3s;
 	position: relative;
+        width: 100%;
+        display: inline-block;
+	max-width: 550px;
 }
 
-.moving-picture-info {
+.content-img {
+        width: 100%;
+        height: auto;
+}
+
+.content-img-info {
 	position: absolute;
 	opacity: 0;
 	transition: opacity 0.3s;
@@ -297,7 +336,7 @@
 	bottom: 15px;
 }
 
-.moving-picture-wrap:hover .moving-picture-info {
+.content-img-wrap:hover .content-img-info {
 	opacity: 1;
 }
 
@@ -307,6 +346,28 @@
 	height: 1px;
 	background-color: #cfcfcf;
 	display: none;
+}
+
+.content-section {
+	margin-bottom: 30px;
+}
+
+.content-main-title {
+	padding: 25px 25px 15px 25px;
+	margin-bottom: 20px;
+	font-size: 35px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+
+p.contact-info {
+	line-height: 44px;
+	font-size: 24px;
+	color: #888;
+}
+
+p.contact-info span {
+	color: #555;
 }
 
 @media (max-width: 1000px) {
@@ -402,15 +463,36 @@
 	}
 
 	.members-list-header {
-		font-size: 20px;
-	}
-
-	.members-list-header-captains {
 		font-size: 26px;
 	}
 
+	.members-list-header-captains {
+		font-size: 30px;
+	}
+
 	.moving-picture-wrap {
-		height: 275px;
+                display: inline-block;
+		max-width: 500px;
+	}
+
+        .content-div {
+                width: 100%;
+                display: block;
+        }
+
+	.content-div-img {
+		text-align: center;
+	}
+
+        .content-img-wrap {
+                max-width: 500px;
+        }
+}
+
+@media (max-width: 770px) {
+
+	.footer-ack {
+		display: none;
 	}
 }
 
@@ -473,6 +555,171 @@ var last_enlarge_time = (new Date()).getTime();
 
 var mobile;
 
+function scroll_callback()
+{
+        var scrolltop = $(window).scrollTop();
+
+        if(scrolltop > 40)
+                $(".navbar").removeClass("navbar-tall");
+        else if(scrolltop)
+                $(".navbar").addClass("navbar-tall");
+
+        if(!mobile) {
+                var top = scrolltop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
+
+                console.log(top);
+
+                if(top < 0)
+                        top = 0;
+
+                document.getElementsByClassName("title-list")[0].style.top = top + "px";
+        }
+}
+
+function resize_callback()
+{
+        console.log("resize");
+        var prev = mobile;
+
+        mobile = window.innerWidth > 1000 ? 0 : 1;
+
+        if(mobile && !prev)
+                resize_to_mobile();
+        else if(!mobile && prev)
+                resize_from_mobile();
+}
+
+function resize_to_mobile()
+{
+        var active = $(".title-li.active");
+
+        if(active.length) {
+                document.getElementsByClassName("title-list")[0].style.top =  "-" + active[0].offsetTop + "px";
+                var title = document.getElementsByClassName("content-title")[0];
+                title.style.height = "54px";
+                title.classList.remove("large");
+        }
+}
+
+function resize_from_mobile()
+{
+        var top = window.scrollTop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
+
+        if(top < 0)
+                top = 0;
+
+        document.getElementsByClassName("title-list")[0].style.top =  top + "px";
+
+	scroll_callback();
+}
+
+function loadPerson(i, list, arr)
+{
+        if(i < arr.length)
+        {
+                var idx = i;
+
+                var img = new Image();
+                img.addEventListener("load", function() { append(idx); });
+                img.addEventListener("error", function() { append(idx); });
+                img.src = arr[i].url;
+
+                function append(idx)
+                {
+                        var li = document.createElement("li");
+                        li.classList += "members-li";
+                        li.appendChild(img);
+
+                        var span = document.createElement("span");
+                        span.innerHTML = arr[i].name;
+                        li.appendChild(span);
+
+                        document.getElementById(list).appendChild(li);
+
+                        next(idx);
+                }
+
+                function next(idx)
+                {
+                        loadPerson(idx + 1, list, arr);
+                }
+        }
+}
+
+function titleclick_callback()
+{
+        if($(this).hasClass("active"))
+        {
+                if(mobile)
+                {
+                        if($(".content-title").height() == 54)
+                        {
+                                var bh = $(".title-list").height();
+
+                                $(".content-title").addClass("large").animate({ height: (bh + "px") }, { duration: 200, queue: false });
+                                $(".title-list").animate({ top: "0px" }, { duration: 200, queue: false });
+
+                                last_enlarge_time = (new Date()).getTime();
+                        }
+                        else
+                        {
+                                $(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
+                                $(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
+                        }
+                }
+        }
+        else
+        {
+                var st = $(window).scrollTop();
+
+                var sel = this.dataset.textElement;
+
+                $(".content-text.active").fadeTo(150, 0.0, function() {
+                        $(this).removeClass("active");
+
+                        $("#" + sel).addClass("active").fadeTo(150, 1.0);
+                });
+
+                $(".title-li").removeClass("active");
+                $(this).addClass("active");
+
+                if(mobile)
+                {
+                        $(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
+                        $(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
+                }
+
+                $(window).scrollTop(st);
+        }
+}
+
+function animate_godown()
+{
+	$("#go-down").animate({ opacity: "0", bottom: "35px" }, 300, function() {
+		$("#go-down").css("bottom", "65px").animate({ opacity: parseFloat($(this).data("max-opacity")), bottom: "50px" }, 300);
+	});
+}
+
+function scrollDown()
+{
+	$("html, body").animate({ scrollTop: (($(".top-img").height() - 50) + "px") }, 400);
+}
+
+function check_should_collapse_menu()
+{
+	var active = $(".title-li.active");
+
+	if($(".content-title:hover").length != 0)
+	{
+		last_enlarge_time = (new Date()).getTime();
+	}
+	else if(mobile && active.length && $(".content-title").height() > 54 && (new Date()).getTime() - last_enlarge_time > 5000)
+	{
+		$(".title-list").animate({ top: ("-" + active[0].offsetTop + "px") }, { duration: 200, queue: false });
+		$(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
+	}
+}
+
 function init()
 {
 	mobile = window.innerWidth > 1000 ? 0 : 1;
@@ -484,19 +731,9 @@ function init()
 		$(window).scrollTop(0);
 	}, 50);
 
-	var down = { o: 0.8 };
+	$("#go-down").css("opacity", "0.8").data("max-opacity", 0.8);
 
-	$("#go-down").css("opacity", down.o);
-
-	setInterval(function() {
-		$("#go-down").animate({ opacity: "0", bottom: "35px" }, 300, function() {
-			$("#go-down").css("bottom", "65px").animate({ opacity: down.o, bottom: "50px" }, 300);
-		});
-	}, 2000);
-
-	function scrollDown() {
-		$("html, body").animate({ scrollTop: (($(".top-img").height() - 50) + "px") }, 400);
-	}
+	setInterval(animate_godown, 2000);
 
 	$("#go-down").click(scrollDown);
 
@@ -505,149 +742,18 @@ function init()
 		scrollDown();
 	});
 
-	$("#a-donate").click(function() {
-                $("#title-donate").trigger("click");
+	$("#a-contact").click(function() {
+                $("#title-contact").trigger("click");
                 scrollDown();
         });
 
-	window.addEventListener("scroll", function() {
-		var scrolltop = $(window).scrollTop();
+	window.addEventListener("scroll", scroll_callback);
 
-		if(scrolltop > 40)
-			$(".navbar").removeClass("navbar-tall");
-		else if(scrolltop)
-			$(".navbar").addClass("navbar-tall");
+	window.addEventListener("resize", resize_callback);
 
-		if(!mobile) {
-			var top = scrolltop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
+	setInterval(check_should_collapse_menu, 500);
 
-			console.log(top);
-
-			if(top < 0)
-				top = 0;
-
-			document.getElementsByClassName("title-list")[0].style.top = top + "px";
-		}
-	});
-
-	window.addEventListener("resize", function() {
-		console.log("resize");
-		var prev = mobile;
-
-		mobile = window.innerWidth > 1000 ? 0 : 1;
-
-		if(mobile && !prev) {
-			var active = $(".title-li.active");
-
-			if(active.length) {
-				document.getElementsByClassName("title-list")[0].style.top =  "-" + active[0].offsetTop + "px";
-				var title = document.getElementsByClassName("content-title")[0];
-				title.style.height = "54px";
-				title.classList.remove("large");
-			}
-		}
-		else if(!mobile && prev) {
-			var top = window.scrollTop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
-
-			if(top < 0)
-				top = 0;
-
-			document.getElementsByClassName("title-list")[0].style.top =  top + "px";
-		}
-	});
-
-	setInterval(function() {
-		var active = $(".title-li.active");
-
-		if($(".content-title:hover").length != 0)
-		{
-			last_enlarge_time = (new Date()).getTime();
-		}
-		else if(mobile && active.length && $(".content-title").height() > 54 && (new Date()).getTime() - last_enlarge_time > 5000)
-		{
-			$(".title-list").animate({ top: ("-" + active[0].offsetTop + "px") }, { duration: 200, queue: false });
-			$(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
-		}
-	}, 500);
-
-	$(".title-li").click(function(){
-		if($(this).hasClass("active"))
-		{
-			if(mobile)
-			{
-				if($(".content-title").height() == 54)
-				{
-					var bh = $(".title-list").height();
-
-					$(".content-title").addClass("large").animate({ height: (bh + "px") }, { duration: 200, queue: false });
-					$(".title-list").animate({ top: "0px" }, { duration: 200, queue: false });
-
-					last_enlarge_time = (new Date()).getTime();
-				}
-				else
-				{
-					$(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
-					$(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
-				}
-			}
-		}
-		else
-		{
-			var st = $(window).scrollTop();
-
-			var sel = this.dataset.textElement;
-
-			$(".content-text.active").fadeTo(150, 0.0, function() {
-				$(this).removeClass("active");
-
-				$("#" + sel).addClass("active").fadeTo(150, 1.0);
-			});
-
-			$(".title-li").removeClass("active");
-			$(this).addClass("active");
-
-			if(mobile)
-			{
-				$(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
-				$(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
-			}
-
-			$(window).scrollTop(st);
-		}
-	});
-
-	function loadPerson(i, list, arr)
-	{
-		if(i < arr.length)
-		{
-			var idx = i;
-
-			var img = new Image();
-			img.addEventListener("load", function() { append(idx); });
-			img.addEventListener("error", function() { append(idx); });
-			img.src = arr[i].url;
-
-			function append(idx)
-			{
-				var li = document.createElement("li");
-				li.classList += "members-li";
-				li.appendChild(img);
-
-				var span = document.createElement("span");
-				span.innerHTML = arr[i].name;
-				li.appendChild(span);
-
-				document.getElementById(list).appendChild(li);
-
-				next(idx);
-			}
-
-			function next(idx)
-			{
-				loadPerson(idx + 1, list, arr);
-			}
-		}
-	}
+	$(".title-li").click(titleclick_callback);
 
 	loadPerson(0, "mlistc", captains);
 	loadPerson(0, "mlist", members);
@@ -666,7 +772,7 @@ function init()
         		<a id="a-about">About</a>
         	</li>
         	<li class="top-navbar-li">
-                	<a id="a-donate">Donate</a>
+                	<a id="a-contact">Contact</a>
         	</li>
 		<li class="top-navbar-li">
                 	<a href="/calendar.html">Calendar</a>
@@ -704,56 +810,114 @@ function init()
 					<ul class="title-list">
 						<li class="title-li active" id="title-about" data-text-element="content-about">About Us</li>
 						<li class="title-li" id="title-projects" data-text-element="content-projects">Our Projects</li>
-						<li class="title-li" id="title-donate" data-text-element="content-donate">Get Involved</li>
+						<li class="title-li" id="title-contact" data-text-element="content-contact">Contact Us</li>
 						<li class="title-li" id="title-aboutfirst" data-text-element="content-aboutfirst">About FIRST</li>
 						<li class="title-li" id="title-members" data-text-element="content-members">Members</li>
 						<li class="title-li" id="title-mentors" data-text-element="content-mentors">Mentors</li>
 					</ul>
 				</div>
 				<div class="content-text active" id="content-about" style="opacity:1">
-					<p>
-						<a class="anchor" name="about"></a>
-						Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions with a different robot built by students from Belmont High School every year. In addition to our competitions, we do a variety of community outreach events in Belmont year-round. Learn more about our projects here.
-					</p>
-					<div class="moving-picture-list">
-						<div class="moving-picture-wrap" style="background-image: url('img/team_pictures/team_win.jpg');">
-							<div class="moving-picture-info">Rhode Island Competition</div>
-						</div>
-						<div class="moving-picture-wrap" style="background-image: url('img/team_pictures/team_win.jpg');">
-                                                        <div class="moving-picture-info">Rhode Island Competition</div>
-                                                </div>
+					<div class="content-main-title">
+						 <h3>About Us</h3>
 					</div>
-					<p>
-						<b>Our mission:</b>
-						<br>
-						To foster a rich STEM-based community in which students help students develop life skills such as communication, leadership, being a team player, and facing challenges,  as well as gain experience in fields that will guide them to their future.
- 						<br><br>
-						Our founding students, Sepehr Sokhanvar and Neil Mhatre, wanted a more serious engineering project to do over the school year. While playing frisbee, they thought of the idea to create this robotics team. They founded the team with mentor Saeed Sokhanvar and since then the team has expanded to around 15 core members, all students at Belmont High School. From the start, students noted a deficiency in rigorous STEM (Science, Technology, Engineering, and Math) extracurriculars in Belmont High, so robotics was a perfect outlet for their respective abilities and talents.
- 						<br><br>
-						While the team is primarily driven by students, mentors guide the students in all aspects of the team, including engineering, organizing, and marketing. As a rookie team, we dove right into the competitions. We competed in two regional district competitions. In the first one, we were able to win the Rookie Inspiration award and the highest rookie seed award. In our second competition we won and we received the Rookie All-Star award, the award which goes to the highest achieving rookie in all aspects of the team.
-					</p>
+                                        <div class="content-paragraph">
+                                                <div class="content-section">
+							<div class="content-div">
+                                                        	<p>
+									Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions, with students building a robot every year In addition to competing, we participate in the local community organizing outreach events in Belmont year-round. Learn more about our projects
+									<a href="#" onclick="$('#title-projects').trigger('click'); return false;">here.</a>
+								</p>
+							</div>
+							<div class="content-div content-div-img">
+								<div class="content-img-wrap">
+									<img class="content-img" src="img/team_pictures/group.jpg">
+									<div class="content-img-info">Reading, MA competition (2017)</div>
+								</div>
+							</div>
+						</div>
+						<div class="content-section">
+							<div class="content-div">
+								<p>
+									<b>Our Mission:</b><br>
+									To foster a rich STEM-based community in which students help students develop life skills such as communication, leadership, being a team player, and facing challenges,  as well as gain experience in fields that will guide them to their future.
+								</p>
+							</div>
+							<div class="content-div content-div-img">
+								<div class="content-img-wrap">
+									<img class="content-img" src="img/leadership.jpg">
+								</div>
+							</div>
+						</div>
+						<div class="content-section">
+							<div class="content-div">
+								<p>
+									Our founding students, Sepehr Sokhanvar and Neil Mhatre, wanted a serious engineering project to do over the school year. One day, while playing frisbee, they thought of the idea of creating this robotics team. They founded the team with mentor Saeed Sokhanvar and since then, the team has expanded to around 15 core members; all students from Belmont High School. Belmont High School has always strived to create a more rigorous STEM (Science, Technology, Engineering, and Math) extracurricular program; robotics was the perfect outlet for their respective abilities and talents. The team is primarily driven by students supported with their mentors, who guide and help students in the team, such as engineering, organizing, marketing, and ultimately providing even more learning opportunities for students.
+								</p>
+							</div>
+							<div class="content-div content-div-img">
+								<div class="content-img-wrap">
+									<img class="content-img" src="img/team_pictures/programming.jpg">
+								</div>
+							</div>
+						</div>
+						<div class="content-section">
+							<div class="content-div">
+								<p>
+									In our rookie year, we dove right into competing: participating in two regional district competitions. At the first competition, we won the Rookie Inspiration award and the highest rookie seed award. Then in our second competition, we achieved the Rookie All-Star award, a award which goes to the highest achieving rookie team in all aspects of the FIRST.
+								</p>
+							</div>
+						</div>
+					</div>
+
 				</div>
 				<div class="content-text" id="content-projects">
-					<p>
-						<a class="anchor" name="projects"></a>
-						We follow a simple but effective structure with our projects, and they demonstrate an ability to comprehend concepts such as electronics, mechanical engineering, programming, and pneumatics. We have a robot that is functional to the point where we only had one robot based problem in all of our competitions so far.
-						<br><br>
-						We have built a robot for the 2016 FIRST Robotics season. Our robot demonstrates our knowledge. This currently have a working robot with 5 working motors, and we know how to and have added and taken off more with proper procedure and maintained functionality.
-						<br><br>
-						We have a knowledge of basic pneumatics and have built  piston, compressor, and actuator systems. We compiled this work to build a  module for the robot that opens two flaps with pneumatic pistons, and have a “circuit” board that contains the rest of the pneumatics.
- 						<br><br>
-						We have done many community based outreach projects over our rookie year, including an outreach presentation at a senior centers, teaching at elementary schools, and a booth at our local town day.
- 						<br><br>
-						In the senior center, we showed the robot off, and made  sure that we knew what we were doing with the robot, and faults in it moving around.
- 						<br><br>
-						In the elementary school we presented our team and robot to the kids, and had them ask questions about the robot and explained them in simple terms. This was both good for the community and very rewarding, because we were able to get kids to be in awe of our team, explaining to them was good for them, and solidified our understanding of it.
- 						<br><br>
-						At the local town festival, named town day, we were able to explain the robot to both little kids and their parents. From this we were able to gain many adult that wanted to be a part of us, including at least one new mentor.
- 						<br><br>
-						In our earlier fundraising attempts in the group, we raised money by shoveling snow and selling chocolate.
-					</p>
+					<div class="content-main-title">
+						 <h3>Our Projects</h3>
+					</div>
+                                        <div class="content-paragraph">
+                                                <div class="content-section">
+							<div class="content-div">
+                                                        	<p>
+									<b>Beech Street Senior Center</b>
+									<br>
+									In order to boost community outreach and expand our support base we organized an exhibition event at the Beech Street senior center in Belmont. There we demonstrated and explained our robot to any attendees. We allowed many children to take the robot for a spin, maneuvering it through the same obstacles as found in the competition, and let them experience the fun of working with a robot.
+								</p>
+							</div>
+							<div class="content-div content-div-img">
+								<div class="content-img-wrap">
+									<img class="content-img" src="img/team_pictures/beech.jpg"></img>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-                                <div class="content-text" id="content-donate">
+				<div class="content-text" id="content-contact">
+					<div class="content-main-title">
+						 <h3>Contact Us</h3>
+					</div>
+                                        <div class="content-paragraph">
+                                                <div class="content-section">
+							<div class="content-div" style="margin-bottom:30px">
+                                                        	<p>
+									If you want to support our team, join as a member of the team, become a mentor, or for any other concerns, please contact us. We are always looking for new mentors and enthusiastic students to teach, support, and inspire us.
+								</p>
+								<br>
+								<p class="contact-info">
+									<span>Email:</span> recordrobotics@gmail.com<br>
+									<span>Phone number:</span> (617)-797-1712<br>
+									<span>Belmont, MA 02478</span>
+								</p>
+							</div>
+							<div class="content-div content-div-img">
+								<div class="content-img-wrap">
+									<img class="content-img" src="http://www.vidhyadaan.com/site_files/images/Join-Us.png"></img>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+<!--                                <div class="content-text" id="content-donate">
                                         <p>
 						<a class="anchor" name="donate"></a>
 						<p>
@@ -786,17 +950,41 @@ function init()
 							<a href="mailto:daniel.p.lonergan@gmail.com?Subject=Getting%20Involved" target="_top">daniel.p.lonergan@gmail.com</a>
 						</p>
                                         </p>
-                                </div>
+                                </div> -->
                         	<div class="content-text" id="content-aboutfirst">
-					<div class="img-wrap">
-						<img class="inline-block" src="img/FIRST.jpg" style="height:400px;width:auto"></img>
+					<div class="content-main-title">
+						 <h3>About FIRST</h3>
 					</div>
-					<p>
-						<a class="anchor" name="aboutfirst"></a>
-						FIRST (For Inspiration and Recognition of Science and Technology) is a nonprofit organization that was founded in 1989 by Dean Kamen, the inventor of the Segway. FIRST provides many innovative programs to inspire students to follow fields in science, engineering, and technology. Their vision is “To transform our culture by creating a world where science and technology are celebrated and where young people dream of becoming science and technology leaders.”  Learn more about FIRST at firstinspires.org
-						<br><br>
-						FIRST organizes the FIRST Robotics Competition, which our team participates in. The FIRST Robotics Competition consists of a 6 week build period in which teams build a robot to complete a task, followed by a competition period in which teams compete with their robots. FIRST has provided our team an excellent opportunity to bring together students of different backgrounds and experience together to pursue skills like engineering, programming, business, and technology.
-                                	</p>
+                                        <div class="content-paragraph">
+                                                <div class="content-section">
+							<div class="content-div">
+                                                        	<p>
+						                	<a class="anchor" name="aboutfirst"></a>
+                                                                	FIRST (For Inspiration and Recognition of Science and Technology) is a nonprofit organization founded in 1989 by Dean Kamen, the inventor of the Segway. FIRST provides many innovative programs to inspire students to follow fields in science, engineering, and technology. Their vision is &#34;To transform our culture by creating a world where science and technology are celebrated and where young people dream of becoming science and technology leaders.&#34;  Learn more about FIRST at firstinspires.org
+                                                                	<br><br>
+					                	</p>
+							</div>
+							<div class="content-div content-div-img">
+								<div class="content-img-wrap">
+                                                                        <img class="content-img" src="img/firstrobotics.jpg"></img>
+        		                                                <div class="content-img-info">Ultimate Ascent (2013) Competition</div>
+        						        </div>
+							</div>
+						</div>
+						<div class="content-section">
+							<div class="content-div">
+					                	<p>
+						                	FIRST organizes the FIRST Robotics Competition, which our team participates in. The FIRST Robotics Competition consists of a 6 week build period in which teams build a robot to complete a task, followed by a competition period in which teams compete with their robots. This competition has given our team an excellent opportunity to bring together students of
+                                                                	different backgrounds and experience together to pursue skills like engineering, programming, business, and technology.
+                                	               		</p>
+							</div>
+                                                	<div class="content-div content-div-img">
+        						        <div class="content-img-wrap">
+                                                                        <img class="content-img" src="img/FIRST.jpg"></img>
+                                                                </div>
+        					        </div>
+                                                </div>
+                                        </div>
                         	</div>
                                 <div class="content-text" id="content-members">
 					<div class="members-list-header members-list-header-captains">Captains</div>
@@ -901,6 +1089,15 @@ function init()
 		</div>
 	</div>
 	<div id="footer">
+		<ul class="footer-list">
+			<li class="footer-li footer-li-head">Contact Us</li>
+			<li class="footer-li"><span class="footer-b">Tel:</span> (617)-797-1712
+			<li class="footer-li"><span class="footer-b">Email:</span> recordrobotics@gmail.com</li>
+			<li class="footer-li"><span class="footer-b">Belmont, MA 02478</span></li>
+		</ul>
+		<div class="footer-ack">
+			Website designed and developed by Vassilios Kaxiras
+		</div>
 	</div>
 </div>
 

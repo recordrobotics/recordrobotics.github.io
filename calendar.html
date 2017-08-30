@@ -75,11 +75,11 @@ box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
 
 <script>
 
-var API_KEY = 'AIzaSyBqKiVbclfkUE6d3rEYa1l2QVDZQNGx_U4';
-var CLIENT_ID = '1064302957896-kqnlepngg6iusaqeuuko3gntcnksmtra.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyDafICO5RAQjaUYZueIx3C2ES_pVWFDuys';
+//var CLIENT_ID = '144431587883-o0v5m06tu0lpk40817ubn18u1h3t59i5.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
-var CALENDAR_ID = "belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com";
+//var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+var CALENDAR_ID = "primary"; //"belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com";
 
 /*function handleClientLoad() {
 	gapi.load('client:auth2', initClient);
@@ -127,7 +127,7 @@ function init()
 		//}, 2000);
 	//}, 2000);
 
-	calendar = new Calendar($(".calend-wrap"), DISCOVERY_DOCS, CLIENT_ID, API_KEY, SCOPES, CALENDAR_ID);
+	calendar = new Calendar($(".calend-wrap"), DISCOVERY_DOCS, API_KEY, CALENDAR_ID);
 }
 
 </script>
