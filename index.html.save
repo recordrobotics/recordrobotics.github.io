@@ -25,8 +25,8 @@
 	background: white;
 }
 
-#top-img {
-	background: url("img/team_pictures/team_win_large.jpg") no-repeat 50% 50% fixed;
+.top-img {
+	background: url("img/team_pictures/team_win.jpg") no-repeat 50% 50% fixed;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -417,7 +417,7 @@ p.contact-info span {
 		max-width: 100%;
 	}
 
-	#top-img {
+	.top-img {
 		background-attachment: scroll;
 	}
 
@@ -578,7 +578,7 @@ function scroll_callback()
                 $(".navbar").addClass("navbar-tall");
 
         if(!mobile) {
-                var top = scrolltop - document.getElementById("top-img").clientHeight + 55;
+                var top = scrolltop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
 
                 console.log(top);
 
@@ -616,7 +616,7 @@ function resize_to_mobile()
 
 function resize_from_mobile()
 {
-        var top = window.scrollTop - document.getElementById("top-img").clientHeight + 55;
+        var top = window.scrollTop - document.getElementsByClassName("top-img")[0].clientHeight + 55;
 
         if(top < 0)
                 top = 0;
@@ -715,7 +715,7 @@ function animate_godown()
 
 function scrollDown()
 {
-	$("html, body").animate({ scrollTop: (($("#top-img").height() - 50) + "px") }, 400);
+	$("html, body").animate({ scrollTop: (($(".top-img").height() - 50) + "px") }, 400);
 }
 
 function check_should_collapse_menu()
@@ -736,22 +736,9 @@ function check_should_collapse_menu()
 function loadMainPic()
 {
 	var medium_img = new Image;
-	medium_img.src = "img/team_pictures/team_win_medium.jpg";
+	medium_img.src = "team_pictures/team_win_medium.jpg";
 	medium_img.onload = function() {
-		document.getElementById("top-img").style.backgroundImage = "url(" + medium_img.src + ")";
-
-		var large_img = new Image;
-		large_img.src = "img/team_pictures/team_win_large.jpg";
-		large_img.onload = function() {
-			document.getElementById("top-img").style.backgroundImage = "url(" + large_img.src + ")";
-			//document.getElementById("top-img-loading").style.display = "none";
-
-			var original_img = new Image;
-			original_img.src = "img/team_pictures/team_win.jpg";
-			original_img.onload = function() {
-				document.getElementById("top-img").style.backgroundImage = "url(" + original_img.src + ")";
-			}
-		}
+		$(".top-img").css("background-image")
 	}
 }
 
@@ -761,7 +748,7 @@ function init()
 
 	$("#img-loader").remove();
 
-	//loadMainPic();
+	loadMainPic();
 
 	setTimeout(function() {
 		$("body").removeClass("loading");
@@ -826,7 +813,7 @@ function init()
 </div>
 <div class="main">
 	<div class="header">
-		<div id="top-img">
+		<div class="top-img">
 			<div class="header-text">
 				<div class="header-wrap">
 					<div class="header-main">
