@@ -824,7 +824,9 @@ function init()
 </head>
 
 <body onload="init()" class="loading">
-
+<div id="overlay1" onclick="off1()">
+  <div class="img"><img src="img/team_pictures/group.jpg" style="width: 100%"></div>
+</div>
 <div class="navbar navbar-tall">
 	<ul class="top-navbar">
 		<li class="top-navbar-li top-navbar-li-collapse">
@@ -889,7 +891,7 @@ function init()
 							</div>
 							<div class="content-div content-div-img">
 								<div class="content-img-wrap">
-									<img class="content-img" src="img/team_pictures/group.jpg">
+									<img class="content-img" src="img/team_pictures/group.jpg" onclick="on1();">
 									<div class="content-img-info">Reading, MA competition (2017)</div>
 								</div>
 							</div>
