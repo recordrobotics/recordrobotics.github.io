@@ -8,3 +8,6 @@ function checkNavbar()
 			$(".navbar").addClass("navbar-tall");
 	}
 }
+window.onload = function() {
+	console.log("This is a test");
+};
