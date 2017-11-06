@@ -11,3 +11,9 @@ function checkNavbar()
 window.onload = function() {
 	console.log("This is a test");
 };
+function on1() {
+    document.getElementById("overlay1").style.display = "block";
+}
+function off1() {
+    document.getElementById("overlay1").style.display = "none";
+}
