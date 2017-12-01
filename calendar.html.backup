@@ -73,20 +73,84 @@ box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
 
 </style>
 
+<script>
+
+var API_KEY = 'AIzaSyDafICO5RAQjaUYZueIx3C2ES_pVWFDuys';
+//var CLIENT_ID = '144431587883-o0v5m06tu0lpk40817ubn18u1h3t59i5.apps.googleusercontent.com';
+var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+//var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+var CALENDAR_ID = "primary"; //"belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com";
+
+/*function handleClientLoad() {
+	gapi.load('client:auth2', initClient);
+}
+
+function initClient() {
+        gapi.client.init({
+        	discoveryDocs: DISCOVERY_DOCS,
+        	clientId: CLIENT_ID,
+		apiKey: API_KEY,
+          	scope: SCOPES
+  	});
+}
+
+function updateEvents()
+{
+	if(gapi.client === undefined)
+	{
+		console.log("Client no initialized");
+		return;
+	}
+
+	gapi.client.calendar.events.list({
+        	'calendarId': 'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
+        	//'timeMin': (new Date()).toISOString(),
+        	//'showDeleted': false,
+        	//'singleEvents': true,
+        	//'maxResults': 10,
+        	//'orderBy': 'startTime'
+        }).then(function(response) {
+          	var events = response.result.items;
+		console.log(events);
+	});
+}*/
+
+var calendar;
+
+function init()
+{
+	//handleClientLoad()
+
+	//setTimeout(function() {
+		//setInterval(function() {
+			//updateEvents();
+		//}, 2000);
+	//}, 2000);
+
+//	calendar = new Calendar($(".calend-wrap"), DISCOVERY_DOCS, API_KEY, CALENDAR_ID);
+}
+
+</script>
+
 </head>
 
 <body>
+
+	<script async defer src="https://apis.google.com/js/api.js"
+	      onload="this.onload=function(){};init()"
+	      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      </script>
 
 <div class="main">
 	<div class="navbar navbar-tall">
 		<ul class="top-navbar">
 			<li class="top-navbar-li picture">
 				<a href="/">
-					<img src="img/logo.png"></img>
+					<img src="logo.png"></img>
 				</a>
 			</li>
-			<li class="top-navbar-li title top-navbar-li-collapse">
-                        	<a href="/">Home</a>
+			<li class="top-navbar-li title">
+                        	<a href="/">Record Robotics</a>
                 	</li>
 			<li class="top-navbar-li">
 				<a href="/calendar.html">Calendar</a>
