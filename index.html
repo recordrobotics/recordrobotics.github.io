@@ -556,6 +556,24 @@ p.contact-info span {
 		height: 200px;
 	}
 }
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+.img-overlay{
+    display: block;
+    margin: auto;
+    width: 50%;
+}
 
 </style>
 
@@ -846,7 +864,7 @@ function off() {
 
 <body onload="init()" class="loading">
 <div id="overlay" onclick="off();">
-	<div class="img"><img id = "overlayPic" style="width: 100%"></div>
+	<div class="img-overlay"><img id = "overlayPic" style="width: 100%"></div>
 </div>
 <div class="navbar navbar-tall">
 	<ul class="top-navbar">
