@@ -821,6 +821,23 @@ function init()
 	loadPerson(0, "mlistc", captains);
 	loadPerson(0, "mlist", members);
 	loadPerson(0, "mtlist", mentors);
+
+	var overlayImgs = document.getElementsByClassName("content-img-wrap");
+	for (var i = 0; i < overlayImgs.length; i++)
+    {
+        overlayImgs[i].addEventListener("click", function(evt) {
+            document.getElementById("overlayPic").src = evt.target.src;
+            document.getElementById("overlay").style.display = "block";
+            console.log("hi");
+            console.log(document.getElementById("overlayPic").src);
+            console.log(document.getElementById("overlayPic").style.display);
+        });
+    }
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").removeAttribute("src");
 }
 
 </script>
@@ -828,8 +845,8 @@ function init()
 </head>
 
 <body onload="init()" class="loading">
-<div id="overlay1" onclick="off1()">
-  <div class="img"><img src="img/team_pictures/group.jpg" style="width: 100%"></div>
+<div id="overlay" onclick="off();">
+	<div class="img"><img id = "overlayPic" style="width: 100%"></div>
 </div>
 <div class="navbar navbar-tall">
 	<ul class="top-navbar">
