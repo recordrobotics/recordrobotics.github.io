@@ -569,10 +569,16 @@ p.contact-info span {
     z-index: 2;
     cursor: pointer;
 }
-.img-overlay{
+
+#img-overlay {
+    margin: 2.5%;
+    width: 95%;
+    height: 95%;
+    position: relative;
     display: block;
-    margin: auto;
-    width: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 </style>
@@ -844,18 +850,15 @@ function init()
 	for (var i = 0; i < overlayImgs.length; i++)
     {
         overlayImgs[i].addEventListener("click", function(evt) {
-            document.getElementById("overlayPic").src = evt.target.src;
+            document.getElementById("img-overlay").style.backgroundImage = "url('" + evt.target.src + "')";
             document.getElementById("overlay").style.display = "block";
-            console.log("hi");
-            console.log(document.getElementById("overlayPic").src);
-            console.log(document.getElementById("overlayPic").style.display);
         });
     }
 }
 
 function off() {
     document.getElementById("overlay").style.display = "none";
-    document.getElementById("overlay").removeAttribute("src");
+    document.getElementById("img-overlay").style.backgroundImage = "";
 }
 
 </script>
@@ -864,7 +867,7 @@ function off() {
 
 <body onload="init()" class="loading">
 <div id="overlay" onclick="off();">
-	<div class="img-overlay"><img id = "overlayPic" style="width: 100%"></div>
+	<div id="img-overlay"><img id = "overlayPic" style="width: 100%"></div>
 </div>
 <div class="navbar navbar-tall">
 	<ul class="top-navbar">
