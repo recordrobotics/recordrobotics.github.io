@@ -14,575 +14,575 @@
 <style>
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .main, .header {
-	width: 100%;
+width: 100%;
 }
 
 .main {
-	background: white;
+background: white;
 }
 
 #top-img {
-	background: url("img/team_pictures/team_win_large.jpg") no-repeat 50% 50% fixed;
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-	width: 100%;
-	height: 100vh;
-	position: relative;
+0background: url("img/team_pictures/team_win_large.jpg") no-repeat 50% 50% fixed;
+             -webkit-background-size: cover;
+             -moz-background-size: cover;
+             -o-background-size: cover;
+             background-size: cover;
+width: 100%;
+height: 100vh;
+position: relative;
 }
 
 #go-down {
-	position: absolute;
-	bottom: 50px;
-	left: 50%;
-	-ms-transform: translateX(-50%);
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
-	opacity: 0.8;
-	width: 35px;
-	height: 35px;
-	z-index: 800;
+position: absolute;
+bottom: 50px;
+left: 50%;
+      -ms-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+transform: translateX(-50%);
+opacity: 0.8;
+width: 35px;
+height: 35px;
+        z-index: 800;
 }
 
 #go-down:hover {
-	cursor: pointer;
+cursor: pointer;
 }
 
 .header {
-	font-family: 'Inconsolata', monospace;
+  font-family: 'Inconsolata', monospace;
 }
 
 .header-text {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	padding: 110px 100px 50px 50px;
-	text-align: left;
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+padding: 110px 100px 50px 50px;
+         text-align: left;
 }
 
 .header-main, .header-sub {
-	background-color: rgba(250, 250, 250, 0.6);
-	text-align: left;
-	display: inline-block;
+  background-color: rgba(250, 250, 250, 0.6);
+  text-align: left;
+display: inline-block;
 }
 
 .header-wrap {
-	max-width: 600px;
-	margin-right: auto;
+  max-width: 600px;
+  margin-right: auto;
 }
 
 .header-main {
-	padding: 40px 50px;
-	font-size: 70px;
-	line-height: 80px;
+padding: 40px 50px;
+         font-size: 70px;
+         line-height: 80px;
 }
 
 .header-sub {
-	padding: 20px 25px;
-	font-size: 30px;
-	line-height: 32px;
-	margin-top: 40px;
+padding: 20px 25px;
+         font-size: 30px;
+         line-height: 32px;
+         margin-top: 40px;
 }
 
 .content {
-	padding: 0px 0px 50px 10px;
-	background: #222;
+padding: 0px 0px 50px 10px;
+background: #222;
 }
 
 .content-table {
-	display: table;
-	table-layout: fixed;
-	min-height: 100vh;
+display: table;
+         table-layout: fixed;
+         min-height: 100vh;
 }
 
 .content-group {
-	display: table-row;
-	font-family: 'Roboto', sans-serif;
+display: table-row;
+         font-family: 'Roboto', sans-serif;
 }
 
 .content-title {
-	display: table-cell;
-	white-space: nowrap;
-	padding: 30px;
-	vertical-align: top;
-	overflow: hidden;
-	background: #222;
+display: table-cell;
+         white-space: nowrap;
+padding: 30px;
+         vertical-align: top;
+overflow: hidden;
+background: #222;
 }
 
 .content-sep {
-	width: 1px;
-	display: table-cell;
-	padding: 20px 0px;
+width: 1px;
+display: table-cell;
+padding: 20px 0px;
 }
 
 .content-title span, .content-title a {
-	display: block;
-	font-size: 40px;
-	text-align: left;
+display: block;
+         font-size: 40px;
+         text-align: left;
 }
 
 .content-title a {
-	color: black;
-	text-decoration: none;
+color: black;
+       text-decoration: none;
 }
 
 .content-title a:hover {
-	text-decoration: underline;
-	cursor: pointer;
+  text-decoration: underline;
+cursor: pointer;
 }
 
 .content-text {
-	display: none;
-	vertical-align: top;
-	width: 100%;
-	padding: 40px 25px 20px 25px;
-	padding-bottom: 50px;
-	opacity: 0;
-	background: white;
+display: none;
+         vertical-align: top;
+width: 100%;
+padding: 40px 25px 20px 25px;
+         padding-bottom: 50px;
+opacity: 0;
+background: white;
 }
 
 .content-text.active {
-	display: table-cell;
+display: table-cell;
 }
 
 .content-text p {
-	display: block;
-	font-size: 20px;
-	line-height: 32px;
+display: block;
+         font-size: 20px;
+         line-height: 32px;
 }
 
 .members-list {
-	list-style-type: none;
-	text-align: center;
+  list-style-type: none;
+  text-align: center;
 }
 
 .members-list-captains {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .members-list-header {
-	text-align: center;
-	font-weight: 500;
-	font-size: 30px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
 }
 
 .members-list-header-captains {
-	font-size: 34px;
+  font-size: 34px;
 }
 
 .members-li {
-	display: inline-block;
-	padding: 20px;
-	-moz-transition: transform 0.6s, opacity 0.6s;
-	-webkit-transition: transform 0.6s, opacity 0.6s;
-	-ms-transition: transform 0.6s, opacity 0.6s;
-	-o-transition: transform 0.6s, opacity 0.6s;
-	transition: transform 0.6s, opacity 0.6s;
+display: inline-block;
+padding: 20px;
+         -moz-transition: transform 0.6s, opacity 0.6s;
+         -webkit-transition: transform 0.6s, opacity 0.6s;
+         -ms-transition: transform 0.6s, opacity 0.6s;
+         -o-transition: transform 0.6s, opacity 0.6s;
+transition: transform 0.6s, opacity 0.6s;
 }
 
 .members-li.loading {
-	opacity: 0;
-	transform: translateX(20px);
+opacity: 0;
+transform: translateX(20px);
 }
 
 .members-li img {
-	width: 200px;
-	height: 200px;
+width: 200px;
+height: 200px;
 }
 
 .members-li span {
-	padding: 15px;
-	display: block;
-	text-align: center;
-	font-family: 'Inconsolata', monospace;
-	font-size: 20px;
-	line-height: 20px;
+padding: 15px;
+display: block;
+         text-align: center;
+         font-family: 'Inconsolata', monospace;
+         font-size: 20px;
+         line-height: 20px;
 }
 
 .donate-thingie {
-	display: inline-block;
-	margin: 10px;
-	padding: 15px;
-	width: 300px;
-	vertical-align: middle;
-	border-bottom: 2px solid rgba(1, 1, 1, 0);
-	-webkit-transition: border-color 0.5s;
-	-moz-transition: border-color 0.5s;
-	-ms-transition: border-color 0.5s;
-	-o-transition: border-color 0.5s;
-	transition: border-color 0.5s;
+display: inline-block;
+margin: 10px;
+padding: 15px;
+width: 300px;
+       vertical-align: middle;
+       border-bottom: 2px solid rgba(1, 1, 1, 0);
+       -webkit-transition: border-color 0.5s;
+       -moz-transition: border-color 0.5s;
+       -ms-transition: border-color 0.5s;
+       -o-transition: border-color 0.5s;
+transition: border-color 0.5s;
 }
 
 .donate-thingie:hover {
-	border-bottom-color: #FF4500;
+  border-bottom-color: #FF4500;
 }
 
 .donate-thingie input[type="image"], .donate-thingie img {
-	width: 100%;
-	height: auto;
+width: 100%;
+height: auto;
 }
 
 .title-list {
-	list-style-type: none;
-	width: 180px;
-	position: relative;
-	top: 0px;
+  list-style-type: none;
+width: 180px;
+position: relative;
+top: 0px;
 }
 
 .title-li {
-	padding: 15px 10px;
-	font-size: 24px;
-	color: white;
-	cursor: pointer;
-	vertical-align: center;
-	position: relative;
-	transition: background 0.3s, padding 0.3s;
-	background: #222;
+padding: 15px 10px;
+         font-size: 24px;
+color: white;
+cursor: pointer;
+        vertical-align: center;
+position: relative;
+transition: background 0.3s, padding 0.3s;
+background: #222;
 }
 
 .content-text {
-	min-height: 100vh;
+  min-height: 100vh;
 }
 
 .title-li.active {
-	background: #229;
-	padding-left: 16px;
+background: #229;
+            padding-left: 16px;
 }
 
 .title-li:hover:not(.active) {
-	padding-left: 16px;
-	background: #444;
+  padding-left: 16px;
+background: #444;
 }
 
 #footer {
-	height: 200px;
-	background: #444;
-	padding: 20px 40px;
-	display: table;
-	width: 100%;
+height: 200px;
+background: #444;
+padding: 20px 40px;
+display: table;
+width: 100%;
 }
 
 .footer-list {
-	display: table-cell;
-	list-style-type: none;
-	vertical-align: middle;
+display: table-cell;
+         list-style-type: none;
+         vertical-align: middle;
 }
 
 .footer-li {
-	color: #999;
-	margin: 10px;
-	font-size: 16px;
+color: #999;
+margin: 10px;
+        font-size: 16px;
 }
 
 .footer-li-head {
-	color: #ddd;
-	font-size: 20px;
-	margin-bottom: 15px;
-	font-weight: 600;
+color: #ddd;
+       font-size: 20px;
+       margin-bottom: 15px;
+       font-weight: 600;
 }
 
 .footer-b {
-	color: #777;
+color: #777;
 }
 
 .footer-ack {
-	display: table-cell;
-	vertical-align: bottom;
-	font-size: 12px;
-	color: #888;
-	text-align: right;
+display: table-cell;
+         vertical-align: bottom;
+         font-size: 12px;
+color: #888;
+       text-align: right;
 }
 
 .donate-thingie-list {
-	text-align: center;
+  text-align: center;
 }
 
 .content-div {
-	width: 49%;
-	display: inline-block;
-	vertical-align: top;
-	margin-bottom: 12px;
+width: 49%;
+display: inline-block;
+         vertical-align: top;
+         margin-bottom: 12px;
 }
 
 .content-img-wrap {
-	margin: 5px;
-	position: relative;
-        width: 100%;
-        display: inline-block;
-	max-width: 550px;
+margin: 5px;
+position: relative;
+width: 100%;
+display: inline-block;
+         max-width: 550px;
 }
 
 .content-img-wrap:hover {
-    cursor: pointer;
+cursor: pointer;
 }
 
 .content-img {
-        width: 100%;
-        height: auto;
+width: 100%;
+height: auto;
 }
 
 .content-img-info {
-	position: absolute;
-	opacity: 0;
-	transition: opacity 0.3s;
-	background-color: rgba(250, 250, 250, 0.4);
-	padding: 15px 25px;
-	left: 20px;
-	bottom: 15px;
+position: absolute;
+opacity: 0;
+transition: opacity 0.3s;
+            background-color: rgba(250, 250, 250, 0.4);
+padding: 15px 25px;
+left: 20px;
+bottom: 15px;
 }
 
 .content-img-wrap:hover .content-img-info {
-	opacity: 1;
+opacity: 1;
 }
 
 .content-divider {
-	width: 50%;
-	margin: auto;
-	height: 1px;
-	background-color: #cfcfcf;
-	display: none;
+width: 50%;
+margin: auto;
+height: 1px;
+        background-color: #cfcfcf;
+display: none;
 }
 
 .content-section {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .content-main-title {
-	padding: 25px 25px 15px 25px;
-	margin-bottom: 20px;
-	font-size: 35px;
-	text-align: center;
-	border-bottom: 1px solid #ddd;
+padding: 25px 25px 15px 25px;
+         margin-bottom: 20px;
+         font-size: 35px;
+         text-align: center;
+         border-bottom: 1px solid #ddd;
 }
 
 .content-main-video {
-	padding: 20px 20px 8px 20px;
+padding: 20px 20px 8px 20px;
 }
 
 .content-main-vid {
-	width: 100%;
-	height: 500px;
+width: 100%;
+height: 500px;
 }
 
 p.contact-info {
-	line-height: 44px;
-	font-size: 24px;
-	color: #888;
+  line-height: 44px;
+  font-size: 24px;
+color: #888;
 }
 
 p.contact-info span {
-	color: #555;
+color: #555;
 }
 
 #content-projects .content-section {
-	margin-top: 20px;
-	margin-bottom: 35px;
+  margin-top: 20px;
+  margin-bottom: 35px;
 }
 
 .project-title {
-	font-size: 24px;
-	font-weight: 600;
-	display: block;
-	text-align: center;
-	margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 600;
+display: block;
+         text-align: center;
+         margin-bottom: 15px;
 }
 
 .project-subtitle {
-	font-size: 20px;
-	font-weight: 600;
-	display: block;
-	text-align: center;
-	margin: 24px 0px 12px 0px;
+  font-size: 20px;
+  font-weight: 600;
+display: block;
+         text-align: center;
+margin: 24px 0px 12px 0px;
 }
 
 .awards-list {
-	list-style-type: none;
-	text-align: center;
-	display: block;
-	padding: 6px;
+  list-style-type: none;
+  text-align: center;
+display: block;
+padding: 6px;
 }
 
 .awards-li {
-	display: block;
-	font-size: 20px;
-	padding: 10px;
+display: block;
+         font-size: 20px;
+padding: 10px;
 }
 
 @media (max-width: 1000px) {
 
-	.content {
-		padding-left: 0px;
-	}
+  .content {
+    padding-left: 0px;
+  }
 
-	.content-divider {
-		display: inline-block;
-	}
+  .content-divider {
+display: inline-block;
+  }
 
-	.content-group, .content-table {
-		display: block;
-	}
+  .content-group, .content-table {
+display: block;
+  }
 
-	.content-title {
-		padding: 25px 5px;
-		max-width: none;
-		display: block;
-	}
+  .content-title {
+padding: 25px 5px;
+         max-width: none;
+display: block;
+  }
 
-	.content-title a, .content-title span {
-		text-align: center;
-	}
+  .content-title a, .content-title span {
+    text-align: center;
+  }
 
-	.members-list {
-		text-align: center;
-	}
+  .members-list {
+    text-align: center;
+  }
 
-	.members-li img {
-		width: 300px;
-		height: auto;
-		max-width: 100%;
-	}
+  .members-li img {
+width: 300px;
+height: auto;
+        max-width: 100%;
+  }
 
-	#top-img {
-		background-attachment: scroll;
-	}
+#top-img {
+  background-attachment: scroll;
+}
 
-	.content-title {
-		text-align: center;
-		height: 54px;
-		padding: 4px;
-		box-sizing: content-box;
-		margin-top: 60px;
-	}
+.content-title {
+  text-align: center;
+height: 54px;
+padding: 4px;
+         box-sizing: content-box;
+         margin-top: 60px;
+}
 
-	.content-text.active {
-		display: block;
-	}
+.content-text.active {
+display: block;
+}
 
-	.title-list {
-		text-align: center;
-		display: inline-block;
-		width: auto;
-	}
+.title-list {
+  text-align: center;
+display: inline-block;
+width: auto;
+}
 
-	.title-li {
-		display: block;
-		padding: 15px;
-		text-align: center;
-		font-size: 18px;
-		line-height: 18px;
-	}
+.title-li {
+display: block;
+padding: 15px;
+         text-align: center;
+         font-size: 18px;
+         line-height: 18px;
+}
 
-	.title-li:hover:not(.active) {
-		padding: 15px;
-	}
+.title-li:hover:not(.active) {
+padding: 15px;
+}
 
-	.title-li.active {
-		padding: 15px;
-		font-size: 24px;
-		line-height: 24px;
-		background: #222;
-	}
+.title-li.active {
+padding: 15px;
+         font-size: 24px;
+         line-height: 24px;
+background: #222;
+}
 
-	.title-li.active::before {
-		position: absolute;
-		right: -8px;
-		transform: scale(1.5) rotate(90deg);
-		content: "\203A";
-		opacity: 1;
-		transition: opacity 0.2s;
-	}
+.title-li.active::before {
+position: absolute;
+right: -8px;
+transform: scale(1.5) rotate(90deg);
+content: "\203A";
+opacity: 1;
+transition: opacity 0.2s;
+}
 
-	.content-title.large .title-li.active::before {
-		opacity: 0;
-	}
+.content-title.large .title-li.active::before {
+opacity: 0;
+}
 
-	#donate-text {
-		text-align: center;
-	}
+#donate-text {
+  text-align: center;
+}
 
-	.members-list-header {
-		font-size: 26px;
-	}
+.members-list-header {
+  font-size: 26px;
+}
 
-	.members-list-header-captains {
-		font-size: 30px;
-	}
+.members-list-header-captains {
+  font-size: 30px;
+}
 
-	.moving-picture-wrap {
-                display: inline-block;
-		max-width: 500px;
-	}
+.moving-picture-wrap {
+display: inline-block;
+         max-width: 500px;
+}
 
-        .content-div {
-                width: 100%;
-                display: block;
-        }
+.content-div {
+width: 100%;
+display: block;
+}
 
-	.content-div-img {
-		text-align: center;
-	}
+.content-div-img {
+  text-align: center;
+}
 
-        .content-img-wrap {
-                max-width: 500px;
-        }
+.content-img-wrap {
+  max-width: 500px;
+}
 }
 
 @media (max-width: 770px) {
 
-	.footer-ack {
-		display: none;
-	}
+  .footer-ack {
+display: none;
+  }
 }
 
 @media (max-width: 500px) {
 
-	.header-text {
-                padding-left: 15px;
-                padding-right: 15px;
-        }
+  .header-text {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
-        .header-main {
-                font-size: 50px;
-		padding: 30px 40px;
-                line-height: 60px;
-        }
+  .header-main {
+    font-size: 50px;
+padding: 30px 40px;
+         line-height: 60px;
+  }
 
-	.moving-picture-wrap {
-		height: 200px;
-	}
+  .moving-picture-wrap {
+height: 200px;
+  }
 }
 #overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
-    cursor: pointer;
+position: fixed;
+display: none;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+cursor: pointer;
 }
 
 #img-overlay {
-    margin: 2.5%;
-    width: 95%;
-    height: 95%;
-    position: relative;
-    display: block;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+margin: 2.5%;
+width: 95%;
+height: 95%;
+position: relative;
+display: block;
+         background-size: contain;
+         background-repeat: no-repeat;
+         background-position: center;
 }
 
 </style>
@@ -591,31 +591,31 @@ p.contact-info span {
 
 var captains =
 [
-	{ name: "Faizan Sayeed", url: "img/indiv_pictures/faizan.jpg" },
-	{ name: "David Lonergan", url: "img/indiv_pictures/david.jpg" },
-	{ name: "Jack Doyle", url: "img/indiv_pictures/jack.jpg" }
+{ name: "Faizan Sayeed", url: "img/indiv_pictures/faizan.jpg" },
+{ name: "David Lonergan", url: "img/indiv_pictures/david.jpg" },
+{ name: "Jack Doyle", url: "img/indiv_pictures/jack.jpg" }
 ];
 
 var members =
 [
-	{ name: "Ruiqi Huang", url: "img/indiv_pictures/ruiqi.jpg" },
-	{ name: "Max Pounanov", url: "img/indiv_pictures/max.jpg" },
-	{ name: "Harry Thidemann", url: "img/indiv_pictures/harry.jpg" },
-	{ name: "Vassilios Kaxiras", url: "img/indiv_pictures/vassy.jpg" },
-	{ name: "Jacob Makar-Limanov", url: "img/indiv_pictures/jacob.jpg" },
-	{ name: "Junhyeok Park", url: "img/indiv_pictures/jun.jpg" },
-	{ name: "Julie Choi", url: "img/indiv_pictures/julie.jpg" },
-	{ name: "Anton Kutsman", url: "img/indiv_pictures/anton.jpg" },
-	{ name: "Hoon Baeg", url: "img/indiv_pictures/hoon.jpg" },
-	{ name: "Lara Zeng", url: "img/indiv_pictures/lara.jpg" },
-	{ name: "Rachel Liang", url: "img/indiv_pictures/rachel.jpg" },
-	{ name: "Woosung Kwon", url: "img/indiv_pictures/woosung.jpg" },
-	{ name: "Albert Chen", url: "img/indiv_pictures/albert.jpg" }
+{ name: "Ruiqi Huang", url: "img/indiv_pictures/ruiqi.jpg" },
+{ name: "Max Pounanov", url: "img/indiv_pictures/max.jpg" },
+{ name: "Harry Thidemann", url: "img/indiv_pictures/harry.jpg" },
+{ name: "Vassilios Kaxiras", url: "img/indiv_pictures/vassy.jpg" },
+{ name: "Jacob Makar-Limanov", url: "img/indiv_pictures/jacob.jpg" },
+{ name: "Junhyeok Park", url: "img/indiv_pictures/jun.jpg" },
+{ name: "Julie Choi", url: "img/indiv_pictures/julie.jpg" },
+{ name: "Anton Kutsman", url: "img/indiv_pictures/anton.jpg" },
+{ name: "Hoon Baeg", url: "img/indiv_pictures/hoon.jpg" },
+{ name: "Lara Zeng", url: "img/indiv_pictures/lara.jpg" },
+{ name: "Rachel Liang", url: "img/indiv_pictures/rachel.jpg" },
+{ name: "Woosung Kwon", url: "img/indiv_pictures/woosung.jpg" },
+{ name: "Albert Chen", url: "img/indiv_pictures/albert.jpg" }
 ];
 
 var mentors =
 [
-	{ name: "Daniel Lonergan", url: "img/indiv_pictures/daniel.jpg" }
+{ name: "Daniel Lonergan", url: "img/indiv_pictures/daniel.jpg" }
 ];
 
 var last_enlarge_time = (new Date()).getTime();
@@ -624,245 +624,245 @@ var mobile;
 
 function scroll_callback()
 {
-        var scrolltop = $(window).scrollTop();
+  var scrolltop = $(window).scrollTop();
 
-        if(scrolltop > 40)
-                $(".navbar").removeClass("navbar-tall");
-        else if(scrolltop)
-                $(".navbar").addClass("navbar-tall");
+  if(scrolltop > 40)
+    $(".navbar").removeClass("navbar-tall");
+  else if(scrolltop)
+    $(".navbar").addClass("navbar-tall");
 
-        if(!mobile) {
-                var top = scrolltop - document.getElementById("top-img").clientHeight + 55;
+  if(!mobile) {
+    var top = scrolltop - document.getElementById("top-img").clientHeight + 55;
 
-                console.log(top);
+    console.log(top);
 
-                if(top < 0)
-                        top = 0;
+    if(top < 0)
+      top = 0;
 
-                document.getElementsByClassName("title-list")[0].style.top = top + "px";
-        }
+    document.getElementsByClassName("title-list")[0].style.top = top + "px";
+  }
 }
 
 function resize_callback()
 {
-        console.log("resize");
-        var prev = mobile;
+  console.log("resize");
+  var prev = mobile;
 
-        mobile = window.innerWidth > 1000 ? 0 : 1;
+  mobile = window.innerWidth > 1000 ? 0 : 1;
 
-        if(mobile && !prev)
-                resize_to_mobile();
-        else if(!mobile && prev)
-                resize_from_mobile();
+  if(mobile && !prev)
+    resize_to_mobile();
+  else if(!mobile && prev)
+    resize_from_mobile();
 }
 
 function resize_to_mobile()
 {
-        var active = $(".title-li.active");
+  var active = $(".title-li.active");
 
-        if(active.length) {
-                document.getElementsByClassName("title-list")[0].style.top =  "-" + active[0].offsetTop + "px";
-                var title = document.getElementsByClassName("content-title")[0];
-                title.style.height = "54px";
-                title.classList.remove("large");
-        }
+  if(active.length) {
+    document.getElementsByClassName("title-list")[0].style.top =  "-" + active[0].offsetTop + "px";
+    var title = document.getElementsByClassName("content-title")[0];
+    title.style.height = "54px";
+    title.classList.remove("large");
+  }
 }
 
 function resize_from_mobile()
 {
-        var top = window.scrollTop - document.getElementById("top-img").clientHeight + 55;
+  var top = window.scrollTop - document.getElementById("top-img").clientHeight + 55;
 
-        if(top < 0)
-                top = 0;
+  if(top < 0)
+    top = 0;
 
-        document.getElementsByClassName("title-list")[0].style.top =  top + "px";
+  document.getElementsByClassName("title-list")[0].style.top =  top + "px";
 
-	scroll_callback();
+  scroll_callback();
 }
 
 function loadPerson(i, list, arr)
 {
-        if(i < arr.length)
-        {
-                var idx = i;
+  if(i < arr.length)
+  {
+    var idx = i;
 
-                var img = new Image();
-                img.addEventListener("load", function() { append(idx); });
-                img.addEventListener("error", function() { append(idx); });
-                img.src = arr[i].url;
+    var img = new Image();
+    img.addEventListener("load", function() { append(idx); });
+    img.addEventListener("error", function() { append(idx); });
+    img.src = arr[i].url;
 
-                function append(idx)
-                {
-                        var li = document.createElement("li");
-                        li.classList += "members-li";
-                        li.appendChild(img);
+    function append(idx)
+    {
+      var li = document.createElement("li");
+      li.classList += "members-li";
+      li.appendChild(img);
 
-                        var span = document.createElement("span");
-                        span.innerHTML = arr[i].name;
-                        li.appendChild(span);
+      var span = document.createElement("span");
+      span.innerHTML = arr[i].name;
+      li.appendChild(span);
 
-                        document.getElementById(list).appendChild(li);
+      document.getElementById(list).appendChild(li);
 
-                        next(idx);
-                }
+      next(idx);
+    }
 
-                function next(idx)
-                {
-                        loadPerson(idx + 1, list, arr);
-                }
-        }
+    function next(idx)
+    {
+      loadPerson(idx + 1, list, arr);
+    }
+  }
 }
 
 function titleclick_callback()
 {
-        if($(this).hasClass("active"))
-        {
-                if(mobile)
-                {
-                        if($(".content-title").height() == 54)
-                        {
-                                var bh = $(".title-list").height();
+  if($(this).hasClass("active"))
+  {
+    if(mobile)
+    {
+      if($(".content-title").height() == 54)
+      {
+        var bh = $(".title-list").height();
 
-                                $(".content-title").addClass("large").animate({ height: (bh + "px") }, { duration: 200, queue: false });
-                                $(".title-list").animate({ top: "0px" }, { duration: 200, queue: false });
+        $(".content-title").addClass("large").animate({ height: (bh + "px") }, { duration: 200, queue: false });
+        $(".title-list").animate({ top: "0px" }, { duration: 200, queue: false });
 
-                                last_enlarge_time = (new Date()).getTime();
-                        }
-                        else
-                        {
-                                $(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
-                                $(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
-                        }
-                }
-        }
-        else
-        {
-                var st = $(window).scrollTop();
+        last_enlarge_time = (new Date()).getTime();
+      }
+      else
+      {
+        $(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
+        $(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
+      }
+    }
+  }
+  else
+  {
+    var st = $(window).scrollTop();
 
-                var sel = this.dataset.textElement;
+    var sel = this.dataset.textElement;
 
-                $(".content-text.active").fadeTo(150, 0.0, function() {
-                        $(this).removeClass("active");
+    $(".content-text.active").fadeTo(150, 0.0, function() {
+        $(this).removeClass("active");
 
-                        $("#" + sel).addClass("active").fadeTo(150, 1.0);
-                });
+        $("#" + sel).addClass("active").fadeTo(150, 1.0);
+        });
 
-                $(".title-li").removeClass("active");
-                $(this).addClass("active");
+    $(".title-li").removeClass("active");
+    $(this).addClass("active");
 
-                if(mobile)
-                {
-                        $(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
-                        $(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
-                }
+    if(mobile)
+    {
+      $(".title-list").animate({ top: ("-" + this.offsetTop + "px") }, { duration: 200, queue: false });
+      $(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
+    }
 
-                $(window).scrollTop(st);
-        }
+    $(window).scrollTop(st);
+  }
 }
 
 function animate_godown()
 {
-	$("#go-down").animate({ opacity: "0", bottom: "35px" }, 300, function() {
-		$("#go-down").css("bottom", "65px").animate({ opacity: parseFloat($(this).data("max-opacity")), bottom: "50px" }, 300);
-	});
+  $("#go-down").animate({ opacity: "0", bottom: "35px" }, 300, function() {
+      $("#go-down").css("bottom", "65px").animate({ opacity: parseFloat($(this).data("max-opacity")), bottom: "50px" }, 300);
+      });
 }
 
 function scrollDown()
 {
-	$("html, body").animate({ scrollTop: (($("#top-img").height() - 50) + "px") }, 400);
+  $("html, body").animate({ scrollTop: (($("#top-img").height() - 50) + "px") }, 400);
 }
 
 function check_should_collapse_menu()
 {
-	var active = $(".title-li.active");
+  var active = $(".title-li.active");
 
-	if($(".content-title:hover").length != 0)
-	{
-		last_enlarge_time = (new Date()).getTime();
-	}
-	else if(mobile && active.length && $(".content-title").height() > 54 && (new Date()).getTime() - last_enlarge_time > 5000)
-	{
-		$(".title-list").animate({ top: ("-" + active[0].offsetTop + "px") }, { duration: 200, queue: false });
-		$(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
-	}
+  if($(".content-title:hover").length != 0)
+  {
+    last_enlarge_time = (new Date()).getTime();
+  }
+  else if(mobile && active.length && $(".content-title").height() > 54 && (new Date()).getTime() - last_enlarge_time > 5000)
+  {
+    $(".title-list").animate({ top: ("-" + active[0].offsetTop + "px") }, { duration: 200, queue: false });
+    $(".content-title").removeClass("large").animate({ height: "54px" }, { duration: 200, queue: false });
+  }
 }
 
 function loadMainPic()
 {
-	var medium_img = new Image;
-	medium_img.src = "img/team_pictures/team_win_medium.jpg";
-	medium_img.onload = function() {
-		document.getElementById("top-img").style.backgroundImage = "url(" + medium_img.src + ")";
+  var medium_img = new Image;
+  medium_img.src = "img/team_pictures/team_win_medium.jpg";
+  medium_img.onload = function() {
+    document.getElementById("top-img").style.backgroundImage = "url(" + medium_img.src + ")";
 
-		var large_img = new Image;
-		large_img.src = "img/team_pictures/team_win_large.jpg";
-		large_img.onload = function() {
-			document.getElementById("top-img").style.backgroundImage = "url(" + large_img.src + ")";
-			//document.getElementById("top-img-loading").style.display = "none";
+    var large_img = new Image;
+    large_img.src = "img/team_pictures/team_win_large.jpg";
+    large_img.onload = function() {
+      document.getElementById("top-img").style.backgroundImage = "url(" + large_img.src + ")";
+      //document.getElementById("top-img-loading").style.display = "none";
 
-			var original_img = new Image;
-			original_img.src = "img/team_pictures/team_win.jpg";
-			original_img.onload = function() {
-				document.getElementById("top-img").style.backgroundImage = "url(" + original_img.src + ")";
-			}
-		}
-	}
+      var original_img = new Image;
+      original_img.src = "img/team_pictures/team_win.jpg";
+      original_img.onload = function() {
+        document.getElementById("top-img").style.backgroundImage = "url(" + original_img.src + ")";
+      }
+    }
+  }
 }
 
 function init()
 {
-	mobile = window.innerWidth > 1000 ? 0 : 1;
+  mobile = window.innerWidth > 1000 ? 0 : 1;
 
-	$("#img-loader").remove();
+  $("#img-loader").remove();
 
-	//loadMainPic();
+  //loadMainPic();
 
-	setTimeout(function() {
-		$("body").removeClass("loading");
-		$(window).scrollTop(0);
-	}, 50);
+  setTimeout(function() {
+      $("body").removeClass("loading");
+      $(window).scrollTop(0);
+      }, 50);
 
-	$("#go-down").css("opacity", "0.8").data("max-opacity", 0.8);
+  $("#go-down").css("opacity", "0.8").data("max-opacity", 0.8);
 
-	setInterval(animate_godown, 2000);
+  setInterval(animate_godown, 2000);
 
-	$("#go-down").click(scrollDown);
+  $("#go-down").click(scrollDown);
 
-	$("#a-about").click(function() {
-		$("#title-about").trigger("click");
-		scrollDown();
-	});
+  $("#a-about").click(function() {
+      $("#title-about").trigger("click");
+      scrollDown();
+      });
 
-	$("#a-contact").click(function() {
-                $("#title-contact").trigger("click");
-                scrollDown();
+  $("#a-contact").click(function() {
+      $("#title-contact").trigger("click");
+      scrollDown();
+      });
+
+  window.addEventListener("scroll", scroll_callback);
+
+  window.addEventListener("resize", resize_callback);
+
+  setInterval(check_should_collapse_menu, 500);
+
+  $(".title-li").click(titleclick_callback);
+
+  /*loadPerson(0, "mlistc", captains);
+    loadPerson(0, "mlist", members);
+    loadPerson(0, "mtlist", mentors);*/
+
+  var overlayImgs = document.getElementsByClassName("content-img");
+  for (var i = 0; i < overlayImgs.length; i++)
+  {
+    overlayImgs[i].addEventListener("click", function(evt) {
+        document.getElementById("img-overlay").style.backgroundImage = "url('" + evt.target.src + "')";
+        document.getElementById("overlay").style.display = "block";
         });
-
-	window.addEventListener("scroll", scroll_callback);
-
-	window.addEventListener("resize", resize_callback);
-
-	setInterval(check_should_collapse_menu, 500);
-
-	$(".title-li").click(titleclick_callback);
-
-	loadPerson(0, "mlistc", captains);
-	loadPerson(0, "mlist", members);
-	loadPerson(0, "mtlist", mentors);
-
-	var overlayImgs = document.getElementsByClassName("content-img");
-	for (var i = 0; i < overlayImgs.length; i++)
-    {
-        overlayImgs[i].addEventListener("click", function(evt) {
-            document.getElementById("img-overlay").style.backgroundImage = "url('" + evt.target.src + "')";
-            document.getElementById("overlay").style.display = "block";
-        });
-    }
+  }
 }
 
 function off() {
-    document.getElementById("overlay").style.display = "none";
-    document.getElementById("img-overlay").style.backgroundImage = "";
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("img-overlay").style.backgroundImage = "";
 }
 
 </script>
@@ -871,295 +871,299 @@ function off() {
 
 <body onload="init()" class="loading">
 <div id="overlay" onclick="off()">
-	<div id="img-overlay"></div>
+<div id="img-overlay"></div>
 </div>
 <div class="navbar navbar-tall">
-	<ul class="top-navbar">
-		<li class="top-navbar-li top-navbar-li-collapse">
-        		<a id="a-about">About</a>
-        	</li>
-        	<li class="top-navbar-li">
-                	<a id="a-contact">Contact</a>
-        	</li>
-		<li class="top-navbar-li">
-                	<a href="/calendar.html">Calendar</a>
-        	</li>
-		<li class="top-navbar-li picture">
-			<a href="/">
-				<img src="img/logo.png"></img>
-			</a>
-		</li>
-		<li class="top-navbar-li title top-navbar-li-collapse">
-			<a href="/">Record Robotics</a>
-		</li>
-	</ul>
+<ul class="top-navbar">
+<li class="top-navbar-li top-navbar-li-collapse">
+<a id="a-about">About</a>
+</li>
+<li class="top-navbar-li">
+<a id="a-contact">Contact</a>
+</li>
+<li class="top-navbar-li">
+<a href="/calendar.html">Calendar</a>
+</li>
+<li class="top-navbar-li">
+<a href="https://teespring.com/stores/record-robotics">Shop!</a>
+</li>
+<li class="top-navbar-li picture">
+<a href="/">
+<img src="img/logo.png"></img>
+</a>
+</li>
+<li class="top-navbar-li title top-navbar-li-collapse">
+<a href="/">Record Robotics</a>
+</li>
+</ul>
 </div>
 <div class="main">
-	<div class="header">
-		<div id="top-img">
-			<div class="header-text">
-				<div class="header-wrap">
-					<div class="header-main">
-						Record Robotics
-					</div>
-					<div class="header-sub" style="display:none">
+<div class="header">
+<div id="top-img">
+<div class="header-text">
+<div class="header-wrap">
+<div class="header-main">
+Record Robotics
+</div>
+<div class="header-sub" style="display:none">
+</div>
+</div>
+</div>
+<img id="go-down" src="/img/down.png"></img>
+</div>
+</div>
+<div class="content">
+<div class="content-table">
+<div class="content-group">
+<div class="content-title">
+<ul class="title-list">
+<li class="title-li active" id="title-about" data-text-element="content-about">About Us</li>
+<li class="title-li" id="title-projects" data-text-element="content-projects">Our Projects</li>
+<li class="title-li" id="title-contact" data-text-element="content-contact">Contact Us</li>
+<li class="title-li" id="title-aboutfirst" data-text-element="content-aboutfirst">About FIRST</li>
+<!--<li class="title-li" id="title-members" data-text-element="content-members">Members</li>-->
+<!--<li class="title-li" id="title-mentors" data-text-element="content-mentors">Mentors</li>-->
+</ul>
+</div>
+<div class="content-text active" id="content-about" style="opacity:1">
+<div class="content-main-video">
+<iframe class="content-main-vid" src="https://www.youtube.com/embed/nYFvpgrPj9k" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</div>
+<div class="content-main-title">
+<h3>About Us</h3>
+</div>
+<div class="content-paragraph">
+<div class="content-section">
+<div class="content-div">
+<p>
+Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions, with students building a robot every year In addition to competing, we participate in the local community organizing outreach events in Belmont year-round. Learn more about our projects
+<a href="#" onclick="$('#title-projects').trigger('click'); return false;">here.</a>
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/team_pictures/group.jpg">
+<div class="content-img-info">Reading, MA competition (2017)</div>
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<p>
+<b>Our Mission:</b><br>
+To foster a rich STEM-based community in which students help students develop life skills such as communication, leadership, being a team player, and facing challenges,  as well as gain experience in fields that will guide them to their future.
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/leadership.jpg">
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<p>
+Our founding students, Sepehr Sokhanvar and Neil Mhatre, wanted a serious engineering project to do over the school year. One day, while playing frisbee, they thought of the idea of creating this robotics team. They founded the team with mentor Saeed Sokhanvar and since then, the team has expanded to around 15 core members; all students from Belmont High School. Belmont High School has always strived to create a more rigorous STEM (Science, Technology, Engineering, and Math) extracurricular program; robotics was the perfect outlet for their respective abilities and talents. The team is primarily driven by students supported with their mentors, who guide and help students in the team, such as engineering, organizing, marketing, and ultimately providing even more learning opportunities for students.
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/team_pictures/programming.jpg">
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<p>
+In our rookie year, we dove right into competing: participating in two regional district competitions. At the first competition, we won the Rookie Inspiration award and the highest rookie seed award. Then in our second competition, we achieved the Rookie All-Star award, a award which goes to the highest achieving rookie team in all aspects of the FIRST.
+</p>
+</div>
+</div>
+</div>
 
-					</div>
-				</div>
-			</div>
-			<img id="go-down" src="/img/down.png"></img>
-		</div>
-	</div>
-	<div class="content">
-		<div class="content-table">
-			<div class="content-group">
-				<div class="content-title">
-					<ul class="title-list">
-						<li class="title-li active" id="title-about" data-text-element="content-about">About Us</li>
-						<li class="title-li" id="title-projects" data-text-element="content-projects">Our Projects</li>
-						<li class="title-li" id="title-contact" data-text-element="content-contact">Contact Us</li>
-						<li class="title-li" id="title-aboutfirst" data-text-element="content-aboutfirst">About FIRST</li>
-						<li class="title-li" id="title-members" data-text-element="content-members">Members</li>
-						<li class="title-li" id="title-mentors" data-text-element="content-mentors">Mentors</li>
-					</ul>
-				</div>
-				<div class="content-text active" id="content-about" style="opacity:1">
-					<div class="content-main-video">
-						<iframe class="content-main-vid" src="https://www.youtube.com/embed/nYFvpgrPj9k" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-					</div>
-					<div class="content-main-title">
-						 <h3>About Us</h3>
-					</div>
-                                        <div class="content-paragraph">
-                                                <div class="content-section">
-							<div class="content-div">
-                                                        	<p>
-									Record Robotics is a FIRST Robotics team (6731) based in Belmont, Massachusetts. We compete in FIRST regional, district, and world competitions, with students building a robot every year In addition to competing, we participate in the local community organizing outreach events in Belmont year-round. Learn more about our projects
-									<a href="#" onclick="$('#title-projects').trigger('click'); return false;">here.</a>
-								</p>
-							</div>
-							<div class="content-div content-div-img">
-								<div class="content-img-wrap">
-									<img class="content-img" src="img/team_pictures/group.jpg">
-									<div class="content-img-info">Reading, MA competition (2017)</div>
-								</div>
-							</div>
-						</div>
-						<div class="content-section">
-							<div class="content-div">
-								<p>
-									<b>Our Mission:</b><br>
-									To foster a rich STEM-based community in which students help students develop life skills such as communication, leadership, being a team player, and facing challenges,  as well as gain experience in fields that will guide them to their future.
-								</p>
-							</div>
-							<div class="content-div content-div-img">
-								<div class="content-img-wrap">
-									<img class="content-img" src="img/leadership.jpg">
-								</div>
-							</div>
-						</div>
-						<div class="content-section">
-							<div class="content-div">
-								<p>
-									Our founding students, Sepehr Sokhanvar and Neil Mhatre, wanted a serious engineering project to do over the school year. One day, while playing frisbee, they thought of the idea of creating this robotics team. They founded the team with mentor Saeed Sokhanvar and since then, the team has expanded to around 15 core members; all students from Belmont High School. Belmont High School has always strived to create a more rigorous STEM (Science, Technology, Engineering, and Math) extracurricular program; robotics was the perfect outlet for their respective abilities and talents. The team is primarily driven by students supported with their mentors, who guide and help students in the team, such as engineering, organizing, marketing, and ultimately providing even more learning opportunities for students.
-								</p>
-							</div>
-							<div class="content-div content-div-img">
-								<div class="content-img-wrap">
-									<img class="content-img" src="img/team_pictures/programming.jpg">
-								</div>
-							</div>
-						</div>
-						<div class="content-section">
-							<div class="content-div">
-								<p>
-									In our rookie year, we dove right into competing: participating in two regional district competitions. At the first competition, we won the Rookie Inspiration award and the highest rookie seed award. Then in our second competition, we achieved the Rookie All-Star award, a award which goes to the highest achieving rookie team in all aspects of the FIRST.
-								</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="content-text" id="content-projects">
-					<div class="content-main-title">
-						 <h3>Our Projects</h3>
-					</div>
-                                        <div class="content-paragraph">
-                                                <div class="content-section">
-							<div class="content-div">
-                                                        	<span class="project-title">Beech Street Senior Center</span>
-								<p>
-									In order to boost community outreach and expand our support base we organized an exhibition event at the Beech Street senior center in Belmont. There we demonstrated and explained our robot to any attendees. We allowed many children to take the robot for a spin, maneuvering it through the same obstacles as found in the competition, and let them experience the fun of working with a robot.
-								</p>
-							</div>
-							<div class="content-div content-div-img">
-								<div class="content-img-wrap">
-									<img class="content-img" src="img/team_pictures/beech.jpg"></img>
-								</div>
-							</div>
-						</div>
-						<div class="content-section">
-                                                        <div class="content-div">
-                                                                <span class="project-title">Robot Build</span>
-                                                                <p>
-									As the exciting six week build season began, we had to work to strategize the best solutions to the challenges laid out to us in the competition guidelines. After this we began to prototype and design our robot, putting heavy emphasis on following the engineering design process and on design simplicity and functionality. The end result was a successful and well designed robot that went on to see great results in competitions.
-                                                                </p>
-                                                        </div>
-                                                        <div class="content-div content-div-img">
-                                                                <div class="content-img-wrap">
-                                                                </div>
-                                                        </div>
-                                                </div>
-						<div class="content-section">
-                                                        <div class="content-div">
-                                                                <span class="project-title">Town Day</span>
-                                                                <p>
-									Town day is a town wide event in Belmont Center that showcases organizations and activities within Belmont. We participated and set up a stand to showcase the work we have been doing. We brought our robot and when people came we explained and showed off all components of our successful robots. Because we know how important it is to reach young children and inspire them to pursue STEM careers, we encouraged young children to drive the robot around and learn from it.
-                                                                </p>
-                                                        </div>
-                                                        <div class="content-div content-div-img">
-                                                                <div class="content-img-wrap">
-                                                                </div>
-                                                        </div>
-                                                </div>
-						<div class="content-section">
-                                                        <div class="content-div">
-                                                                <span class="project-title">Attending Competitions</span>
-                                                                <p>
-									We entered ourselves into two competitions, and consequently had to focus on preparing team members for the these events as well as preparing gear and equipment to satisfy the rigorous environment which the competitions foster. 
-									<br>
-								</p>
-								<span class="project-subtitle">Reading Competition:</span>
-								<p>
-									This was our first ever competition and though we had yet to get the hang of the whole process and encountered several hitches along the way, we are proud to say that we won two awards:
-								<p>
-								<ul class="awards-list">
-									<li class="awards-li">The Highest Rookie Seed Award</li> 
-									<li class="awards-li">Rookie Inspiration Award</li>
-								</ul>
-								<span class="project-subtitle">North Shore Competition:</span>
-								<p>
-									After diving into our competition in Reading, we came in with experience and preparation, fixed up the flaws in our robot, and were ready to win. In each of our matches, we successfully completed all the tasks our robot was designed to do. This resulted in us being picked to compete in the playoffs, and we ended up dominating, beating the other teams with our alliance undefeated, breaking records for points, and winning the competition. We firmly believe this was a result of our dedication and commitment to our mission, and our cooperation with other teams that helped us along the way. Awards won:
-								</p>
-								<ul class="awards-list">
-									<li class="awards-li">Winner, 2017 Rhode Island event</li>
-									<li class="awards-li">Rookie All-Star award</li>
-                                                                </ul>
-                                                        </div>
-                                                        <div class="content-div content-div-img">
-                                                                <div class="content-img-wrap">
-                                                                        <img class="content-img" src="img/team_pictures/reading.jpg"></img>
-									<div class="content-img-info">Reading competition</div>
-                                                                </div>
-								<div class="content-img-wrap">
-									<img class="content-img" src="img/team_pictures/team_win.jpg"></img>
-									<div class="content-img-info">North Shore competition</div>
-								</div>
-                                                        </div>
-                                                </div>
-						<div class="content-section">
-                                                        <div class="content-div">
-                                                                <span class="project-title">Butler Elementary School</span>
-                                                                <p>
-									Continuing with our mission to spread STEM interest in our community, we led a robotics class at the local elementary school (and got to see their old teachers!) We designed an interactive lesson on the Engineering Design Projects. First, the third graders were given different “Design Challenges” for the robots they would be designing in groups - such as one that could clean your room, or play tennis. Students were then taken through the different steps, all while making their own robot prototype designs in groups on paper. They then presented their ideas to the class, and the class voted on the best robot for a prize. In the end, they came out with a lot of fun experience with design and engineering, and learned a lot. We were also able to showcase our robot to them, and they learned how it worked while working on their own projects.
-                                                                </p>
-                                                        </div>
-                                                        <div class="content-div content-div-img">
-                                                                <div class="content-img-wrap">
-                                                                        <img class="content-img" src="img/butler.jpg"></img>
-                                                                </div>
-                                                        </div>
-                                                </div>
-					</div>
-				</div>
-				<div class="content-text" id="content-contact">
-					<div class="content-main-title">
-						 <h3>Contact Us</h3>
-					</div>
-                                        <div class="content-paragraph">
-                                                <div class="content-section">
-							<div class="content-div" style="margin-bottom:30px">
-                                                        	<p>
-									If you want to support our team, join as a member of the team, become a mentor, or for any other concerns, please contact us. We are always looking for new mentors and enthusiastic students to teach, support, and inspire us.
-								</p>
-								<br>
-								<p class="contact-info">
-									<span>Email:</span> recordrobotics@gmail.com<br>
-									<span>Phone number:</span> (617)-797-1712<br>
-									<span>Belmont, MA 02478</span>
-								</p>
-							</div>
-							<div class="content-div content-div-img">
-								<div class="content-img-wrap">
-									<img class="content-img" src="img/join.png"></img>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="content-text" id="content-aboutfirst">
-					<div class="content-main-title">
-						 <h3>About FIRST</h3>
-					</div>
-                                        <div class="content-paragraph">
-                                                <div class="content-section">
-							<div class="content-div">
-                                                        	<p>
-						                	<a class="anchor" name="aboutfirst"></a>
-                                                                	FIRST (For Inspiration and Recognition of Science and Technology) is a nonprofit organization founded in 1989 by Dean Kamen, the inventor of the Segway. FIRST provides many innovative programs to inspire students to follow fields in science, engineering, and technology. Their vision is &#34;To transform our culture by creating a world where science and technology are celebrated and where young people dream of becoming science and technology leaders.&#34;  Learn more about FIRST at firstinspires.org
-                                                                	<br><br>
-					                	</p>
-							</div>
-							<div class="content-div content-div-img">
-								<div class="content-img-wrap">
-                                                                        <img class="content-img" src="img/firstrobotics.jpg"></img>
-        		                                                <div class="content-img-info">Ultimate Ascent (2013) Competition</div>
-        						        </div>
-							</div>
-						</div>
-						<div class="content-section">
-							<div class="content-div">
-					                	<p>
-						                	FIRST organizes the FIRST Robotics Competition, which our team participates in. The FIRST Robotics Competition consists of a 6 week build period in which teams build a robot to complete a task, followed by a competition period in which teams compete with their robots. This competition has given our team an excellent opportunity to bring together students of
-                                                                	different backgrounds and experience together to pursue skills like engineering, programming, business, and technology.
-                                	               		</p>
-							</div>
-                                                	<div class="content-div content-div-img">
-        						        <div class="content-img-wrap">
-                                                                        <img class="content-img" src="img/FIRST.jpg"></img>
-                                                                </div>
-        					        </div>
-                                                </div>
-                                        </div>
-                        	</div>
-                                <div class="content-text" id="content-members">
-					<div class="members-list-header members-list-header-captains">Captains</div>
-					<ul class="members-list members-list-captains" id="mlistc">
-					</ul>
-					<div class="members-list-header">Members</div>
-					<ul class="members-list" id="mlist">
-					</ul>
-                                </div>
-                                <div class="content-text" id="content-mentors">
-                                        <ul class="members-list" id="mtlist">
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="footer">
-		<ul class="footer-list">
-			<li class="footer-li footer-li-head">Contact Us</li>
-			<li class="footer-li"><span class="footer-b">Tel:</span> (617)-797-1712
-			<li class="footer-li"><span class="footer-b">Email:</span> recordrobotics@gmail.com</li>
-			<li class="footer-li"><span class="footer-b">Belmont, MA 02478</span></li>
-		</ul>
-		<div class="footer-ack">
-			Website designed and developed by Vassilios Kaxiras
-			<br></br>
-			Codeveloped by Albert Chen
-		</div>
-	</div>
+</div>
+<div class="content-text" id="content-projects">
+<div class="content-main-title">
+<h3>Our Projects</h3>
+</div>
+<div class="content-paragraph">
+<div class="content-section">
+<div class="content-div">
+<span class="project-title">Beech Street Senior Center</span>
+<p>
+In order to boost community outreach and expand our support base we organized an exhibition event at the Beech Street senior center in Belmont. There we demonstrated and explained our robot to any attendees. We allowed many children to take the robot for a spin, maneuvering it through the same obstacles as found in the competition, and let them experience the fun of working with a robot.
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/team_pictures/beech.jpg"></img>
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<span class="project-title">Robot Build</span>
+<p>
+As the exciting six week build season began, we had to work to strategize the best solutions to the challenges laid out to us in the competition guidelines. After this we began to prototype and design our robot, putting heavy emphasis on following the engineering design process and on design simplicity and functionality. The end result was a successful and well designed robot that went on to see great results in competitions.
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<span class="project-title">Town Day</span>
+<p>
+Town day is a town wide event in Belmont Center that showcases organizations and activities within Belmont. We participated and set up a stand to showcase the work we have been doing. We brought our robot and when people came we explained and showed off all components of our successful robots. Because we know how important it is to reach young children and inspire them to pursue STEM careers, we encouraged young children to drive the robot around and learn from it.
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<span class="project-title">Attending Competitions</span>
+<p>
+We entered ourselves into two competitions, and consequently had to focus on preparing team members for the these events as well as preparing gear and equipment to satisfy the rigorous environment which the competitions foster. 
+<br>
+</p>
+<span class="project-subtitle">Reading Competition:</span>
+<p>
+This was our first ever competition and though we had yet to get the hang of the whole process and encountered several hitches along the way, we are proud to say that we won two awards:
+<p>
+<ul class="awards-list">
+<li class="awards-li">The Highest Rookie Seed Award</li> 
+<li class="awards-li">Rookie Inspiration Award</li>
+</ul>
+<span class="project-subtitle">North Shore Competition:</span>
+<p>
+After diving into our competition in Reading, we came in with experience and preparation, fixed up the flaws in our robot, and were ready to win. In each of our matches, we successfully completed all the tasks our robot was designed to do. This resulted in us being picked to compete in the playoffs, and we ended up dominating, beating the other teams with our alliance undefeated, breaking records for points, and winning the competition. We firmly believe this was a result of our dedication and commitment to our mission, and our cooperation with other teams that helped us along the way. Awards won:
+</p>
+<ul class="awards-list">
+<li class="awards-li">Winner, 2017 Rhode Island event</li>
+<li class="awards-li">Rookie All-Star award</li>
+</ul>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/team_pictures/reading.jpg"></img>
+<div class="content-img-info">Reading competition</div>
+</div>
+<div class="content-img-wrap">
+<img class="content-img" src="img/team_pictures/team_win.jpg"></img>
+<div class="content-img-info">North Shore competition</div>
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<span class="project-title">Butler Elementary School</span>
+<p>
+Continuing with our mission to spread STEM interest in our community, we led a robotics class at the local elementary school (and got to see their old teachers!) We designed an interactive lesson on the Engineering Design Projects. First, the third graders were given different “Design Challenges” for the robots they would be designing in groups - such as one that could clean your room, or play tennis. Students were then taken through the different steps, all while making their own robot prototype designs in groups on paper. They then presented their ideas to the class, and the class voted on the best robot for a prize. In the end, they came out with a lot of fun experience with design and engineering, and learned a lot. We were also able to showcase our robot to them, and they learned how it worked while working on their own projects.
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/butler.jpg"></img>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="content-text" id="content-contact">
+<div class="content-main-title">
+<h3>Contact Us</h3>
+</div>
+<div class="content-paragraph">
+<div class="content-section">
+<div class="content-div" style="margin-bottom:30px">
+<p>
+If you want to support our team, join as a member of the team, become a mentor, or for any other concerns, please contact us. We are always looking for new mentors and enthusiastic students to teach, support, and inspire us.
+</p>
+<br>
+<p class="contact-info">
+<span>Email:</span> recordrobotics@gmail.com<br>
+<span>Phone number:</span> (617)-797-1712<br>
+<span>Belmont, MA 02478</span>
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/join.png"></img>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="content-text" id="content-aboutfirst">
+<div class="content-main-title">
+<h3>About FIRST</h3>
+</div>
+<div class="content-paragraph">
+<div class="content-section">
+<div class="content-div">
+<p>
+<a class="anchor" name="aboutfirst"></a>
+FIRST (For Inspiration and Recognition of Science and Technology) is a nonprofit organization founded in 1989 by Dean Kamen, the inventor of the Segway. FIRST provides many innovative programs to inspire students to follow fields in science, engineering, and technology. Their vision is &#34;To transform our culture by creating a world where science and technology are celebrated and where young people dream of becoming science and technology leaders.&#34;  Learn more about FIRST at firstinspires.org
+<br><br>
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/firstrobotics.jpg"></img>
+<div class="content-img-info">Ultimate Ascent (2013) Competition</div>
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="content-div">
+<p>
+FIRST organizes the FIRST Robotics Competition, which our team participates in. The FIRST Robotics Competition consists of a 6 week build period in which teams build a robot to complete a task, followed by a competition period in which teams compete with their robots. This competition has given our team an excellent opportunity to bring together students of
+different backgrounds and experience together to pursue skills like engineering, programming, business, and technology.
+</p>
+</div>
+<div class="content-div content-div-img">
+<div class="content-img-wrap">
+<img class="content-img" src="img/FIRST.jpg"></img>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!---
+<div class="content-text" id="content-members">
+<div class="members-list-header members-list-header-captains">Captains</div>
+<ul class="members-list members-list-captains" id="mlistc">
+</ul>
+<div class="members-list-header">Members</div>
+<ul class="members-list" id="mlist">
+</ul>
+</div>
+<div class="content-text" id="content-mentors">
+<ul class="members-list" id="mtlist">
+</ul>
+</div>
+-->
+</div>
+</div>
+</div>
+<div id="footer">
+<ul class="footer-list">
+<li class="footer-li footer-li-head">Contact Us</li>
+<li class="footer-li"><span class="footer-b">Tel:</span> (617)-797-1712
+<li class="footer-li"><span class="footer-b">Email:</span> recordrobotics@gmail.com</li>
+<li class="footer-li"><span class="footer-b">Belmont, MA 02478</span></li>
+</ul>
+<div class="footer-ack">
+Website designed and developed by Vassilios Kaxiras
+<br></br>
+Codeveloped by Albert Chen
+</div>
+</div>
 </div>
 
 </body>
