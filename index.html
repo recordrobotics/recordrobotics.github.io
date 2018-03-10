@@ -9,6 +9,20 @@
 <link href="/css/main.css" rel="stylesheet">
 <link href="/css/navbar.css" rel="stylesheet">
 
+<script>
+
+var allimages= document.getElementsByTagName('img');
+for (var i=0; i<allimages.length; i++) {
+        allimages[i].setAttribute('display: none');
+    }
+window.addEventListener('load', function(){
+for (var i=0; i<allimages.length; i++) {
+        allimages[i].setAttribute('display: block');
+    }
+    
+}, false)
+</script>
+  
 <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
 
 <style>
