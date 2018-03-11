@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--<script src="https://apis.google.com/js/api.js"></script>-->
+<script src="/js/main.js"></script>
+<script src="/js/m_calendar.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<link href="/css/navbar.css" rel="stylesheet">
+<link href="/css/m_calendar.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+<style>
+
+.main {
+	width: 100%;
+	text-align: center;
+}
+
+.calend {
+	display: inline-block;
+	padding: 10px 60px 10px 60px;
+	margin-top: 140px;
+	margin-bottom: 60px;
+	width: 95%;
+	box-sizing: border-box;
+	max-width: 1100px;
+	-webkit-box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
+-moz-box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
+box-shadow: 0px 4px 8px 0px rgba(110,110,110,0.75);
+}
+
+.calend-wrap {
+	margin-top: 0px;
+	text-align: center;
+	position: relative;
+	min-height: 400px;
+}
+
+.calend-header {
+	padding: 5px;
+	background-color: #fefefe;
+}
+
+.calend-header-wrap {
+	padding: 30px 30px 10px 30px;
+	border-bottom: 1px solid #eee;
+	text-align: left;
+}
+
+.calend-header-wrap h2 {
+	font-size: 50px;
+	font-weight: 400;
+}
+
+@media(max-width: 768px) {
+	.calend-header-wrap h2 {
+		font-size: 36px;
+	}
+
+	.calend {
+		padding: 10px 30px 10px 30px;
+	}
+
+	.calend-header-wrap {
+		padding: 20px 20px 10px 20px;
+	}
+}
+
+</style>
+
+<script>
+
+var API_KEY = 'AIzaSyDafICO5RAQjaUYZueIx3C2ES_pVWFDuys';
+//var CLIENT_ID = '144431587883-o0v5m06tu0lpk40817ubn18u1h3t59i5.apps.googleusercontent.com';
+var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+//var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+var CALENDAR_ID = "primary"; //"belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com";
+
+/*function handleClientLoad() {
+	gapi.load('client:auth2', initClient);
+}
+
+function initClient() {
+        gapi.client.init({
+        	discoveryDocs: DISCOVERY_DOCS,
+        	clientId: CLIENT_ID,
+		apiKey: API_KEY,
+          	scope: SCOPES
+  	});
+}
+
+function updateEvents()
+{
+	if(gapi.client === undefined)
+	{
+		console.log("Client no initialized");
+		return;
+	}
+
+	gapi.client.calendar.events.list({
+        	'calendarId': 'belmontschools.net_qucdk22mq5p84o573a88motvpk@group.calendar.google.com'
+        	//'timeMin': (new Date()).toISOString(),
+        	//'showDeleted': false,
+        	//'singleEvents': true,
+        	//'maxResults': 10,
+        	//'orderBy': 'startTime'
+        }).then(function(response) {
+          	var events = response.result.items;
+		console.log(events);
+	});
+}*/
+
+var calendar;
+
+function init()
+{
+	//handleClientLoad()
+
+	//setTimeout(function() {
+		//setInterval(function() {
+			//updateEvents();
+		//}, 2000);
+	//}, 2000);
+
+//	calendar = new Calendar($(".calend-wrap"), DISCOVERY_DOCS, API_KEY, CALENDAR_ID);
+}
+
+</script>
+
+</head>
+
+<body>
+
+	<script async defer src="https://apis.google.com/js/api.js"
+	      onload="this.onload=function(){};init()"
+	      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      </script>
+
+<div class="main">
+	<div class="navbar navbar-tall">
+		<ul class="top-navbar">
+			<li class="top-navbar-li picture">
+				<a href="/">
+					<img src="logo.png"></img>
+				</a>
+			</li>
+			<li class="top-navbar-li title">
+                        	<a href="/">Record Robotics</a>
+                	</li>
+			<li class="top-navbar-li">
+				<a href="/calendar.html">Calendar</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="calend">
+		<div class="calend-header">
+			<div class="calend-header-wrap">
+				<h2>Calendar</h2>
+			</div>
+		</div>
+		<div class="calend-wrap">
+			<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=recordrobotics%40gmail.com&amp;color=%238C500B&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
