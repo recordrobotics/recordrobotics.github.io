@@ -2,76 +2,104 @@
 
 var captains = [{
 	name: "Faizan Sayeed",
-	url: "img/indiv_pictures/faizan.jpg"
+	url: "img/2017-8_portraits/faizan_sayeed.jpg"
   },
   {
 	name: "David Lonergan",
-	url: "img/indiv_pictures/david.jpg"
+	url: "img/2017-8_portraits/david_lonergan.jpg"
   },
   {
 	name: "Jack Doyle",
-	url: "img/indiv_pictures/jack.jpg"
+	url: "img/2017-8_portraits/jack_doyle.jpg"
   }
 ];
 
-var members = [{
-	name: "Ruiqi Huang",
-	url: "img/indiv_pictures/ruiqi.jpg"
+var members = [{	
+	name: "Abu Sayed Chouwdhry",
+	url: "img/2017-8_portraits/abu_sayed_chouwdhry.jpg"
   },
   {
-	name: "Max Pounanov",
-	url: "img/indiv_pictures/max.jpg"
+	name: "Anna Guo",
+	url: "img/2017-8_portraits/anna_guo.jpg"
   },
   {
-	name: "Harry Thidemann",
-	url: "img/indiv_pictures/harry.jpg"
+	name: "Arlo Gow",
+	url: "img/2017-8_portraits/arlo_gow.jpg"
   },
   {
-	name: "Vassilios Kaxiras",
-	url: "img/indiv_pictures/vassy.jpg"
+	name: "Aryan Mehotra",
+	url: "img/2017-8_portraits/aryan_mehotra.jpg"
+  },
+  {
+	name: "Edgar Kazarian",
+	url: "img/2017-8_portraits/edgar_kazarian.jpg"
+  },
+  {
+	name: "Frankie Pacini",
+	url: "img/2017-8_portraits/frankie_pacini.jpg"
+  },
+  {
+	name: "Gwyneth Ruban",
+	url: "img/2017-8_portraits/gwyneth_ruban.jpg"
   },
   {
 	name: "Jacob Makar-Limanov",
-	url: "img/indiv_pictures/jacob.jpg"
+	url: "img/2017-8_portraits/jacob_makar-limanov.jpg"
   },
   {
-	name: "Junhyeok Park",
-	url: "img/indiv_pictures/jun.jpg"
+	name: "Katerina Anjeli",
+	url: "img/2017-8_portraits/katerina_anjeli.jpg"
   },
   {
-	name: "Julie Choi",
-	url: "img/indiv_pictures/julie.jpg"
+	name: "Keith Brezinsky",
+	url: "img/2017-8_portraits/keith_brezinsky.jpg"
   },
   {
-	name: "Anton Kutsman",
-	url: "img/indiv_pictures/anton.jpg"
-  },
-  {
-	name: "Hoon Baeg",
-	url: "img/indiv_pictures/hoon.jpg"
+	name: "Kevin Hsu",
+	url: "img/2017-8_portraits/kevin_hsu.jpg"
   },
   {
 	name: "Lara Zeng",
-	url: "img/indiv_pictures/lara.jpg"
+	url: "img/2017-8_portraits/lara_zeng.jpg"
   },
   {
-	name: "Rachel Liang",
-	url: "img/indiv_pictures/rachel.jpg"
+	name: "Matt McBride",
+	url: "img/2017-8_portraits/matt_mcbride.jpg"
   },
   {
-	name: "Woosung Kwon",
-	url: "img/indiv_pictures/woosung.jpg"
+	name: "Max Pounanov",
+	url: "img/2017-8_portraits/max_pounanov.jpg"
   },
   {
-	name: "Albert Chen",
-	url: "img/indiv_pictures/albert.jpg"
+	name: "Mengqi Tao",
+	url: "img/2017-8_portraits/mengqi_tao.jpg"
+  },
+  {
+	name: "Rebecca Combs",
+	url: "img/2017-8_portraits/rebecca_combs.jpg"
+  },
+  {
+	name: "Ruiqi Huang",
+	url: "img/2017-8_portraits/ruiqi_huang.jpg"
+  },
+  {
+	name: "Vassilios Kaxiras",
+	url: "img/2017-8_portraits/vassilios_kaxiras.jpg"
+  },
+  {
+	name: "Wyatt Harris",
+	url: "img/2017-8_portraits/wyatt_harris.jpg"
+  },
+  {
+	name: "Yasmine Aoua",
+	url: "img/2017-8_portraits/yasmine_aoua.jpg"
   }
 ];
 
 /*
 var mentors =
 [
-{ name: "Daniel Lonergan", url: "img/indiv_pictures/daniel.jpg" }
+{ name: "Daniel Lonergan", url: "img/2017-8_portraits/daniel.jpg" }
 ];
 */
 
