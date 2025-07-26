@@ -1,1 +1,3 @@
-# Welcome to Record Robotics! This is the repo with our webpage, located at https://recordrobotics.github.io
+RecordRobotics Maven Repository
+===============================
+[https://maven.recordrobotics.org](https://maven.recordrobotics.org)
